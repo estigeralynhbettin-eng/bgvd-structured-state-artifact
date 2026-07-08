@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "Artifact for Structured State Interfaces for Access-Control Verifier Replay in Defensive LLM Security Agents"
+message: "If you use this artifact, please cite the associated manuscript and this archived artifact DOI after it is assigned."
+type: dataset
+authors:
+  - family-names: "Authors"
+    given-names: "Anonymous"
+version: "2026-07-09-rc1"
+date-released: "2026-07-09"
+keywords:
+  - LLM security agents
+  - structured state interface
+  - defensive cybersecurity
+  - weak-to-strong handoff
+  - verifier replay
+license: "CC-BY-4.0"

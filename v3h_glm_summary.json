@@ -1,0 +1,712 @@
+{
+  "date": "2026-07-07",
+  "phase_id": "v3h",
+  "design": "Strong-curated ablation over V3g held-out episodes",
+  "episode_count": 15,
+  "aggregate": {
+    "glm::strong_curated_state": {
+      "total": 15,
+      "correct": 15,
+      "false_finalize": 0,
+      "wrong_candidate": 0,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "state_update_tokens": 57424,
+      "finalizer_tokens": 10780,
+      "strong_paid_tokens": 68204,
+      "accuracy": 1.0,
+      "strong_tokens_per_correct": 4546.933333333333
+    }
+  },
+  "rows": [
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 6210,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 190,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 621,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 811
+      },
+      "finalizer_tokens": 811,
+      "strong_paid_tokens": 7021
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 6136,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 193,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 621,
+        "prompt_tokens_details": {
+          "cached_tokens": 64
+        },
+        "total_tokens": 814
+      },
+      "finalizer_tokens": 814,
+      "strong_paid_tokens": 6950
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 6606,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 164,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 620,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 784
+      },
+      "finalizer_tokens": 784,
+      "strong_paid_tokens": 7390
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 6148,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 189,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 637,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 826
+      },
+      "finalizer_tokens": 826,
+      "strong_paid_tokens": 6974
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 5948,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 142,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 637,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 779
+      },
+      "finalizer_tokens": 779,
+      "strong_paid_tokens": 6727
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2330,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_010"
+      ],
+      "verifier_refs": [
+        "RT06_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 135,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 660
+      },
+      "finalizer_tokens": 660,
+      "strong_paid_tokens": 2990
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2271,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_010"
+      ],
+      "verifier_refs": [
+        "RT07_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 139,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 664
+      },
+      "finalizer_tokens": 664,
+      "strong_paid_tokens": 2935
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2354,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_010"
+      ],
+      "verifier_refs": [
+        "RT08_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 146,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 671
+      },
+      "finalizer_tokens": 671,
+      "strong_paid_tokens": 3025
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2329,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_010"
+      ],
+      "verifier_refs": [
+        "RT09_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 131,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 656
+      },
+      "finalizer_tokens": 656,
+      "strong_paid_tokens": 2985
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2278,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT10_010"
+      ],
+      "verifier_refs": [
+        "RT10_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 138,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 663
+      },
+      "finalizer_tokens": 663,
+      "strong_paid_tokens": 2941
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2330,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT11_010"
+      ],
+      "verifier_refs": [
+        "RT11_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 132,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 657
+      },
+      "finalizer_tokens": 657,
+      "strong_paid_tokens": 2987
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2358,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_010"
+      ],
+      "verifier_refs": [
+        "RT12_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 133,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 64
+        },
+        "total_tokens": 658
+      },
+      "finalizer_tokens": 658,
+      "strong_paid_tokens": 3016
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 3888,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": "C06",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT13_014"
+      ],
+      "verifier_refs": [
+        "RT13_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 139,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 600,
+        "prompt_tokens_details": {
+          "cached_tokens": 64
+        },
+        "total_tokens": 739
+      },
+      "finalizer_tokens": 739,
+      "strong_paid_tokens": 4627
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 3896,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": "C06",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_014"
+      ],
+      "verifier_refs": [
+        "RT14_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 136,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 600,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 736
+      },
+      "finalizer_tokens": 736,
+      "strong_paid_tokens": 4632
+    },
+    {
+      "provider": "glm",
+      "arm": "strong_curated_state",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2342,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_010"
+      ],
+      "verifier_refs": [
+        "RT15_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 137,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 662
+      },
+      "finalizer_tokens": 662,
+      "strong_paid_tokens": 3004
+    }
+  ],
+  "strong_curated_status": {
+    "glm::strong_curated_state::realtrace_01_APB-AC-1_5_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 6210,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_02_APB-AC-3_1_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 6136,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_03_APB-AC-3_3_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 6606,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_04_APB-AC-1_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 6148,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_05_APB-AC-1_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 5948,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_06_APB-AC-0_1_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2330,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_07_APB-AC-0_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2271,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_08_APB-AC-0_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2354,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_09_APB-AC-0_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2329,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_10_APB-AC-0_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2278,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_11_APB-AC-3_1_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2330,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_12_APB-AC-3_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2358,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_13_APB-AC-3_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "state_update_tokens": 3888,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_14_APB-AC-3_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "state_update_tokens": 3896,
+      "round_failures": []
+    },
+    "glm::strong_curated_state::realtrace_15_APB-AC-3_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2342,
+      "round_failures": []
+    }
+  },
+  "interpretation_guard": "This isolates deterministic curation from model strength. It should be compared against V3g weak_curated_state on the same held-out episodes."
+}

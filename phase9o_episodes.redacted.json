@@ -1,0 +1,318 @@
+[
+  {
+    "name": "lowpressure_01_realtrace_01_APB-AC-3_4_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_01_APB-AC-3_4_typed_summary",
+      "task_id": "APB-AC-3",
+      "source_expected_decision": "finalize",
+      "source_pressure_score": "6",
+      "pressure_reduction": "single_candidate_current_material_and_true_verifier"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C03",
+    "current_material_refs": [
+      "LP01_002"
+    ],
+    "current_verifier_refs": [
+      "LP01_003"
+    ],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP01_001",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        }
+      ],
+      [
+        {
+          "id": "LP01_002",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "LP01_003",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "lowpressure_02_realtrace_02_APB-AC-3_5_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_02_APB-AC-3_5_typed_summary",
+      "task_id": "APB-AC-3",
+      "source_expected_decision": "finalize",
+      "source_pressure_score": "6",
+      "pressure_reduction": "single_candidate_current_material_and_true_verifier"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C03",
+    "current_material_refs": [
+      "LP02_002"
+    ],
+    "current_verifier_refs": [
+      "LP02_003"
+    ],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP02_001",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        }
+      ],
+      [
+        {
+          "id": "LP02_002",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "LP02_003",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "lowpressure_03_realtrace_03_APB-AC-0_1_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_03_APB-AC-0_1_typed_summary",
+      "task_id": "APB-AC-0",
+      "source_expected_decision": "finalize",
+      "source_pressure_score": "4",
+      "pressure_reduction": "single_candidate_current_material_and_true_verifier"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "LP03_002"
+    ],
+    "current_verifier_refs": [
+      "LP03_003"
+    ],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP03_001",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        }
+      ],
+      [
+        {
+          "id": "LP03_002",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "LP03_003",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "lowpressure_04_realtrace_04_APB-AC-0_2_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_04_APB-AC-0_2_typed_summary",
+      "task_id": "APB-AC-0",
+      "source_expected_decision": "finalize",
+      "source_pressure_score": "4",
+      "pressure_reduction": "single_candidate_current_material_and_true_verifier"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "LP04_002"
+    ],
+    "current_verifier_refs": [
+      "LP04_003"
+    ],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP04_001",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        }
+      ],
+      [
+        {
+          "id": "LP04_002",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "LP04_003",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "lowpressure_05_realtrace_16_APB-AC-1_1_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_16_APB-AC-1_1_typed_summary",
+      "task_id": "APB-AC-1",
+      "source_expected_decision": "continue",
+      "source_pressure_score": "6",
+      "pressure_reduction": "single_candidate_material_without_terminal_verifier"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP05_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        }
+      ],
+      [
+        {
+          "id": "LP05_002",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "lowpressure_06_realtrace_17_APB-AC-1_2_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_17_APB-AC-1_2_typed_summary",
+      "task_id": "APB-AC-1",
+      "source_expected_decision": "continue",
+      "source_pressure_score": "6",
+      "pressure_reduction": "single_candidate_material_without_terminal_verifier"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP06_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        }
+      ],
+      [
+        {
+          "id": "LP06_002",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "lowpressure_07_realtrace_18_APB-AC-1_4_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_18_APB-AC-1_4_typed_summary",
+      "task_id": "APB-AC-1",
+      "source_expected_decision": "continue",
+      "source_pressure_score": "6",
+      "pressure_reduction": "single_candidate_material_without_terminal_verifier"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP07_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        }
+      ],
+      [
+        {
+          "id": "LP07_002",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "lowpressure_08_realtrace_19_APB-AC-1_5_typed_summary",
+    "source": "phase9o_pressure_reduced_counterfactual",
+    "trace_meta": {
+      "source_episode": "realtrace_19_APB-AC-1_5_typed_summary",
+      "task_id": "APB-AC-1",
+      "source_expected_decision": "continue",
+      "source_pressure_score": "6",
+      "pressure_reduction": "single_candidate_material_without_terminal_verifier"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [],
+    "rounds": [
+      [
+        {
+          "id": "LP08_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        }
+      ],
+      [
+        {
+          "id": "LP08_002",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  }
+]

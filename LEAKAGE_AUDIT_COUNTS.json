@@ -1,0 +1,28 @@
+﻿{
+  "date": "2026-07-09T00:23:46",
+  "status": "PASS_WITH_CONTEXTUAL_WARNINGS",
+  "directory": "<BGVD_PROJECT_ROOT>\\outputs\\paper_evidence\\structured_state_interface_20260708\\sanitized_fixture_release_candidate",
+  "note": "Counts only; matched content intentionally not printed.",
+  "pattern_counts": [
+    {
+      "pattern": "api_key_like",
+      "count": 0
+    },
+    {
+      "pattern": "private_key",
+      "count": 0
+    },
+    {
+      "pattern": "credential_words",
+      "count": 4
+    },
+    {
+      "pattern": "url",
+      "count": 0
+    },
+    {
+      "pattern": "ipv4",
+      "count": 0
+    }
+  ]
+}

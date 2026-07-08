@@ -1,0 +1,4035 @@
+{
+  "date": "2026-07-09",
+  "phase_id": "phase9r",
+  "design": "Hashed dense-vector event retrieval weak-memory baseline without security-specific lifecycle fields",
+  "episode_count": 30,
+  "providers": [
+    "glm",
+    "deepseek"
+  ],
+  "weak_model": "qwen3.5:9b",
+  "prompt_audit": {
+    "episode_count": 30,
+    "providers": [
+      "glm",
+      "deepseek"
+    ],
+    "model": "qwen3.5:9b",
+    "qwen_num_predict": 2048,
+    "max_tokens": 2048,
+    "dense_top_k": 10,
+    "dense_dim": 384,
+    "control": "Hashed dense-vector event retrieval memory without security-specific lifecycle fields",
+    "qwen_prompt_chars": {
+      "count": 96,
+      "min": 2557,
+      "p50": 4146,
+      "p90": 5109,
+      "p95": 5115,
+      "p99": 5511,
+      "max": 5511
+    },
+    "strong_prompt_chars": {
+      "count": 30,
+      "min": 4088,
+      "p50": 4132,
+      "p90": 4163,
+      "p95": 4180,
+      "p99": 4180,
+      "max": 4180
+    },
+    "leak_findings": [],
+    "prompt_audit_failures": 0
+  },
+  "aggregate": {
+    "deepseek::raw_running_log": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 2,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 3,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.7333333333333333
+    },
+    "deepseek::untyped_curated_state": {
+      "total": 30,
+      "correct": 26,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.8666666666666667
+    },
+    "deepseek::untyped_weak_qwen35_9b": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 9,
+      "verifier_cited": 9,
+      "accuracy": 0.7333333333333333
+    },
+    "glm::raw_running_log": {
+      "total": 30,
+      "correct": 25,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.8333333333333334
+    },
+    "glm::untyped_curated_state": {
+      "total": 30,
+      "correct": 26,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.8666666666666667
+    },
+    "glm::untyped_weak_qwen35_9b": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 1,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 10,
+      "accuracy": 0.7333333333333333
+    },
+    "glm::schema_guided_weak_memory": {
+      "total": 30,
+      "correct": 27,
+      "false_finalize": 0,
+      "wrong_candidate": 3,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 12,
+      "verifier_cited": 12,
+      "accuracy": 0.9
+    },
+    "deepseek::schema_guided_weak_memory": {
+      "total": 30,
+      "correct": 27,
+      "false_finalize": 0,
+      "wrong_candidate": 3,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 13,
+      "verifier_cited": 13,
+      "accuracy": 0.9
+    },
+    "glm::matched_freeform_weak_memory": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 1,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 10,
+      "accuracy": 0.7333333333333333
+    },
+    "deepseek::matched_freeform_weak_memory": {
+      "total": 30,
+      "correct": 20,
+      "false_finalize": 0,
+      "wrong_candidate": 3,
+      "stale_or_superseded_misuse": 1,
+      "parse_failures": 1,
+      "state_update_failures": 0,
+      "material_cited": 9,
+      "verifier_cited": 9,
+      "accuracy": 0.6666666666666666
+    },
+    "glm::generic_structured_memory": {
+      "total": 30,
+      "correct": 16,
+      "false_finalize": 1,
+      "wrong_candidate": 1,
+      "stale_or_superseded_misuse": 2,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 10,
+      "verifier_cited": 8,
+      "accuracy": 0.5333333333333333
+    },
+    "deepseek::generic_structured_memory": {
+      "total": 30,
+      "correct": 16,
+      "false_finalize": 1,
+      "wrong_candidate": 1,
+      "stale_or_superseded_misuse": 3,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 7,
+      "verifier_cited": 6,
+      "accuracy": 0.5333333333333333
+    },
+    "glm::rag_retrieval_memory": {
+      "total": 30,
+      "correct": 21,
+      "false_finalize": 2,
+      "wrong_candidate": 7,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 9,
+      "verifier_cited": 9,
+      "accuracy": 0.7
+    },
+    "deepseek::rag_retrieval_memory": {
+      "total": 30,
+      "correct": 23,
+      "false_finalize": 0,
+      "wrong_candidate": 7,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 8,
+      "verifier_cited": 8,
+      "accuracy": 0.7666666666666667
+    },
+    "glm::bm25_retrieval_memory": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 1,
+      "wrong_candidate": 6,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 9,
+      "verifier_cited": 9,
+      "accuracy": 0.7333333333333333
+    },
+    "deepseek::bm25_retrieval_memory": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 6,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 8,
+      "verifier_cited": 7,
+      "accuracy": 0.7333333333333333
+    },
+    "glm::hashed_dense_retrieval_memory": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 1,
+      "wrong_candidate": 7,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.7333333333333333
+    },
+    "deepseek::hashed_dense_retrieval_memory": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 1,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.7333333333333333
+    }
+  },
+  "contrasts": [
+    {
+      "provider": "pooled",
+      "arm_a": "schema_guided_weak_memory",
+      "arm_b": "hashed_dense_retrieval_memory",
+      "comparable": 60,
+      "a_better": 10,
+      "b_better": 0,
+      "ties": 50,
+      "p_one_sided_a_gt_b": 0.0009765625
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "bm25_retrieval_memory",
+      "comparable": 60,
+      "a_better": 1,
+      "b_better": 1,
+      "ties": 58,
+      "p_one_sided_a_gt_b": 0.75
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "rag_retrieval_memory",
+      "comparable": 60,
+      "a_better": 2,
+      "b_better": 2,
+      "ties": 56,
+      "p_one_sided_a_gt_b": 0.6875
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 60,
+      "a_better": 5,
+      "b_better": 3,
+      "ties": 52,
+      "p_one_sided_a_gt_b": 0.36328125
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "generic_structured_memory",
+      "comparable": 60,
+      "a_better": 14,
+      "b_better": 2,
+      "ties": 44,
+      "p_one_sided_a_gt_b": 0.0020904541015625
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "untyped_curated_state",
+      "arm_b": "hashed_dense_retrieval_memory",
+      "comparable": 60,
+      "a_better": 8,
+      "b_better": 0,
+      "ties": 52,
+      "p_one_sided_a_gt_b": 0.00390625
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "raw_running_log",
+      "comparable": 60,
+      "a_better": 2,
+      "b_better": 5,
+      "ties": 53,
+      "p_one_sided_a_gt_b": 0.9375
+    },
+    {
+      "provider": "glm",
+      "arm_a": "schema_guided_weak_memory",
+      "arm_b": "hashed_dense_retrieval_memory",
+      "comparable": 30,
+      "a_better": 5,
+      "b_better": 0,
+      "ties": 25,
+      "p_one_sided_a_gt_b": 0.03125
+    },
+    {
+      "provider": "glm",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "bm25_retrieval_memory",
+      "comparable": 30,
+      "a_better": 0,
+      "b_better": 0,
+      "ties": 30,
+      "p_one_sided_a_gt_b": 1.0
+    },
+    {
+      "provider": "glm",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "rag_retrieval_memory",
+      "comparable": 30,
+      "a_better": 2,
+      "b_better": 1,
+      "ties": 27,
+      "p_one_sided_a_gt_b": 0.5
+    },
+    {
+      "provider": "glm",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 30,
+      "a_better": 2,
+      "b_better": 2,
+      "ties": 26,
+      "p_one_sided_a_gt_b": 0.6875
+    },
+    {
+      "provider": "glm",
+      "arm_a": "untyped_curated_state",
+      "arm_b": "hashed_dense_retrieval_memory",
+      "comparable": 30,
+      "a_better": 4,
+      "b_better": 0,
+      "ties": 26,
+      "p_one_sided_a_gt_b": 0.0625
+    },
+    {
+      "provider": "deepseek",
+      "arm_a": "schema_guided_weak_memory",
+      "arm_b": "hashed_dense_retrieval_memory",
+      "comparable": 30,
+      "a_better": 5,
+      "b_better": 0,
+      "ties": 25,
+      "p_one_sided_a_gt_b": 0.03125
+    },
+    {
+      "provider": "deepseek",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "bm25_retrieval_memory",
+      "comparable": 30,
+      "a_better": 1,
+      "b_better": 1,
+      "ties": 28,
+      "p_one_sided_a_gt_b": 0.75
+    },
+    {
+      "provider": "deepseek",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "rag_retrieval_memory",
+      "comparable": 30,
+      "a_better": 0,
+      "b_better": 1,
+      "ties": 29,
+      "p_one_sided_a_gt_b": 1.0
+    },
+    {
+      "provider": "deepseek",
+      "arm_a": "hashed_dense_retrieval_memory",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 30,
+      "a_better": 3,
+      "b_better": 1,
+      "ties": 26,
+      "p_one_sided_a_gt_b": 0.3125
+    },
+    {
+      "provider": "deepseek",
+      "arm_a": "untyped_curated_state",
+      "arm_b": "hashed_dense_retrieval_memory",
+      "comparable": 30,
+      "a_better": 4,
+      "b_better": 0,
+      "ties": 26,
+      "p_one_sided_a_gt_b": 0.0625
+    }
+  ],
+  "new_rows": [
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_01_APB-AC-3_4_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT01_016",
+        "RT01_019"
+      ],
+      "verifier_refs": [
+        "RT01_017",
+        "RT01_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 191,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1750,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1941
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT01_020",
+        "RT01_017",
+        "RT01_008",
+        "RT01_016",
+        "RT01_005",
+        "RT01_011",
+        "RT01_012",
+        "RT01_015",
+        "RT01_006",
+        "RT01_019"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_01_APB-AC-3_4_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT01_016",
+        "RT01_019"
+      ],
+      "verifier_refs": [
+        "RT01_017",
+        "RT01_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1733,
+        "completion_tokens": 1018,
+        "total_tokens": 2751,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 875
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1733
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT01_020",
+        "RT01_017",
+        "RT01_008",
+        "RT01_016",
+        "RT01_005",
+        "RT01_011",
+        "RT01_012",
+        "RT01_015",
+        "RT01_006",
+        "RT01_019"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_02_APB-AC-3_5_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT02_016",
+        "RT02_019"
+      ],
+      "verifier_refs": [
+        "RT02_017",
+        "RT02_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 201,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1756,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1957
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT02_017",
+        "RT02_020",
+        "RT02_012",
+        "RT02_019",
+        "RT02_016",
+        "RT02_004",
+        "RT02_006",
+        "RT02_010",
+        "RT02_008",
+        "RT02_013"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_02_APB-AC-3_5_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT02_016",
+        "RT02_019"
+      ],
+      "verifier_refs": [
+        "RT02_017",
+        "RT02_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1730,
+        "completion_tokens": 819,
+        "total_tokens": 2549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 668
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1730
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT02_017",
+        "RT02_020",
+        "RT02_012",
+        "RT02_019",
+        "RT02_016",
+        "RT02_004",
+        "RT02_006",
+        "RT02_010",
+        "RT02_008",
+        "RT02_013"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_03_APB-AC-0_1_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT03_010",
+        "RT03_013"
+      ],
+      "verifier_refs": [
+        "RT03_011",
+        "RT03_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 184,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1620,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1804
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT03_014",
+        "RT03_011",
+        "RT03_013",
+        "RT03_006",
+        "RT03_004",
+        "RT03_010",
+        "RT03_005",
+        "RT03_008",
+        "RT03_002",
+        "RT03_001"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_03_APB-AC-0_1_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT03_010",
+        "RT03_013"
+      ],
+      "verifier_refs": [
+        "RT03_011",
+        "RT03_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1613,
+        "completion_tokens": 738,
+        "total_tokens": 2351,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 614
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1613
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT03_014",
+        "RT03_011",
+        "RT03_013",
+        "RT03_006",
+        "RT03_004",
+        "RT03_010",
+        "RT03_005",
+        "RT03_008",
+        "RT03_002",
+        "RT03_001"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_04_APB-AC-0_2_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT04_010",
+        "RT04_013"
+      ],
+      "verifier_refs": [
+        "RT04_011",
+        "RT04_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 206,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1542,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1748
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT04_011",
+        "RT04_014",
+        "RT04_013",
+        "RT04_010",
+        "RT04_008",
+        "RT04_006",
+        "RT04_004",
+        "RT04_007",
+        "RT04_009",
+        "RT04_005"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_04_APB-AC-0_2_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [
+        "RT04_005",
+        "RT04_006"
+      ],
+      "material_refs": [
+        "RT04_010",
+        "RT04_013"
+      ],
+      "verifier_refs": [
+        "RT04_011",
+        "RT04_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1542,
+        "completion_tokens": 1587,
+        "total_tokens": 3129,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1450
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1542
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT04_011",
+        "RT04_014",
+        "RT04_013",
+        "RT04_010",
+        "RT04_008",
+        "RT04_006",
+        "RT04_004",
+        "RT04_007",
+        "RT04_009",
+        "RT04_005"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_05_APB-AC-0_3_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT05_010",
+        "RT05_013"
+      ],
+      "verifier_refs": [
+        "RT05_011",
+        "RT05_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 199,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1532,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1731
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT05_014",
+        "RT05_011",
+        "RT05_004",
+        "RT05_013",
+        "RT05_006",
+        "RT05_010",
+        "RT05_008",
+        "RT05_005",
+        "RT05_002",
+        "RT05_001"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_05_APB-AC-0_3_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT05_010",
+        "RT05_013"
+      ],
+      "verifier_refs": [
+        "RT05_011",
+        "RT05_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1533,
+        "completion_tokens": 568,
+        "total_tokens": 2101,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 468
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1533
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT05_014",
+        "RT05_011",
+        "RT05_004",
+        "RT05_013",
+        "RT05_006",
+        "RT05_010",
+        "RT05_008",
+        "RT05_005",
+        "RT05_002",
+        "RT05_001"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_06_APB-AC-0_4_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_014"
+      ],
+      "verifier_refs": [
+        "RT06_015"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 148,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1717,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1865
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT06_015",
+        "RT06_018",
+        "RT06_008",
+        "RT06_017",
+        "RT06_003",
+        "RT06_014",
+        "RT06_010",
+        "RT06_004",
+        "RT06_005",
+        "RT06_011"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_06_APB-AC-0_4_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_008",
+        "RT06_014",
+        "RT06_017"
+      ],
+      "verifier_refs": [
+        "RT06_015",
+        "RT06_018"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1702,
+        "completion_tokens": 1808,
+        "total_tokens": 3510,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1679
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1702
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT06_015",
+        "RT06_018",
+        "RT06_008",
+        "RT06_017",
+        "RT06_003",
+        "RT06_014",
+        "RT06_010",
+        "RT06_004",
+        "RT06_005",
+        "RT06_011"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_07_APB-AC-0_4_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_010",
+        "RT07_013"
+      ],
+      "verifier_refs": [
+        "RT07_011",
+        "RT07_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 171,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1528,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1699
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT07_014",
+        "RT07_011",
+        "RT07_013",
+        "RT07_010",
+        "RT07_004",
+        "RT07_006",
+        "RT07_005",
+        "RT07_012",
+        "RT07_009",
+        "RT07_003"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_07_APB-AC-0_4_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_010",
+        "RT07_013"
+      ],
+      "verifier_refs": [
+        "RT07_011",
+        "RT07_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1529,
+        "completion_tokens": 946,
+        "total_tokens": 2475,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 813
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1529
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT07_014",
+        "RT07_011",
+        "RT07_013",
+        "RT07_010",
+        "RT07_004",
+        "RT07_006",
+        "RT07_005",
+        "RT07_012",
+        "RT07_009",
+        "RT07_003"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_08_APB-AC-0_5_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_010",
+        "RT08_013"
+      ],
+      "verifier_refs": [
+        "RT08_011",
+        "RT08_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 190,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1520,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1710
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT08_011",
+        "RT08_014",
+        "RT08_013",
+        "RT08_010",
+        "RT08_006",
+        "RT08_005",
+        "RT08_012",
+        "RT08_008",
+        "RT08_009",
+        "RT08_004"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_08_APB-AC-0_5_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_010",
+        "RT08_013"
+      ],
+      "verifier_refs": [
+        "RT08_011",
+        "RT08_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1522,
+        "completion_tokens": 694,
+        "total_tokens": 2216,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 573
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1522
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT08_011",
+        "RT08_014",
+        "RT08_013",
+        "RT08_010",
+        "RT08_006",
+        "RT08_005",
+        "RT08_012",
+        "RT08_008",
+        "RT08_009",
+        "RT08_004"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_09_APB-AC-3_1_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_010",
+        "RT09_013"
+      ],
+      "verifier_refs": [
+        "RT09_011",
+        "RT09_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 174,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1600,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 1774
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT09_011",
+        "RT09_014",
+        "RT09_006",
+        "RT09_004",
+        "RT09_013",
+        "RT09_010",
+        "RT09_007",
+        "RT09_008",
+        "RT09_002",
+        "RT09_001"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_09_APB-AC-3_1_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_010",
+        "RT09_013"
+      ],
+      "verifier_refs": [
+        "RT09_011",
+        "RT09_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1594,
+        "completion_tokens": 1204,
+        "total_tokens": 2798,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1082
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1594
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT09_011",
+        "RT09_014",
+        "RT09_006",
+        "RT09_004",
+        "RT09_013",
+        "RT09_010",
+        "RT09_007",
+        "RT09_008",
+        "RT09_002",
+        "RT09_001"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_10_APB-AC-0_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT10_008"
+      ],
+      "verifier_refs": [
+        "RT10_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 141,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1466,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1607
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT10_009",
+        "RT10_012",
+        "RT10_008",
+        "RT10_011",
+        "RT10_004",
+        "RT10_003",
+        "RT10_005",
+        "RT10_002",
+        "RT10_006",
+        "RT10_001"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_10_APB-AC-0_1_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT10_008"
+      ],
+      "verifier_refs": [
+        "RT10_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1473,
+        "completion_tokens": 1308,
+        "total_tokens": 2781,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1187
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1473
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT10_009",
+        "RT10_012",
+        "RT10_008",
+        "RT10_011",
+        "RT10_004",
+        "RT10_003",
+        "RT10_005",
+        "RT10_002",
+        "RT10_006",
+        "RT10_001"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_11_APB-AC-0_2_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "finalize",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT11_013",
+        "RT11_015"
+      ],
+      "verifier_refs": [
+        "RT11_014",
+        "RT11_016"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1639,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1822
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT11_016",
+        "RT11_014",
+        "RT11_015",
+        "RT11_013",
+        "RT11_010",
+        "RT11_004",
+        "RT11_009",
+        "RT11_012",
+        "RT11_011",
+        "RT11_005"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_11_APB-AC-0_2_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT11_013",
+        "RT11_015"
+      ],
+      "verifier_refs": [
+        "RT11_014",
+        "RT11_016"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1626,
+        "completion_tokens": 1656,
+        "total_tokens": 3282,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1557
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1626
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT11_016",
+        "RT11_014",
+        "RT11_015",
+        "RT11_013",
+        "RT11_010",
+        "RT11_004",
+        "RT11_009",
+        "RT11_012",
+        "RT11_011",
+        "RT11_005"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_12_APB-AC-0_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_013"
+      ],
+      "verifier_refs": [
+        "RT12_014"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 140,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1569,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1709
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT12_016",
+        "RT12_014",
+        "RT12_013",
+        "RT12_015",
+        "RT12_008",
+        "RT12_010",
+        "RT12_004",
+        "RT12_012",
+        "RT12_005",
+        "RT12_003"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_12_APB-AC-0_3_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1564,
+        "completion_tokens": 1047,
+        "total_tokens": 2611,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 949
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1564
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT12_016",
+        "RT12_014",
+        "RT12_013",
+        "RT12_015",
+        "RT12_008",
+        "RT12_010",
+        "RT12_004",
+        "RT12_012",
+        "RT12_005",
+        "RT12_003"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_13_APB-AC-0_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT13_013"
+      ],
+      "verifier_refs": [
+        "RT13_014"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 161,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1736,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1897
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT13_014",
+        "RT13_016",
+        "RT13_015",
+        "RT13_013",
+        "RT13_004",
+        "RT13_009",
+        "RT13_003",
+        "RT13_010",
+        "RT13_008",
+        "RT13_006"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_13_APB-AC-0_5_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT13_013"
+      ],
+      "verifier_refs": [
+        "RT13_014"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1718,
+        "completion_tokens": 1243,
+        "total_tokens": 2961,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1116
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1718
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT13_014",
+        "RT13_016",
+        "RT13_015",
+        "RT13_013",
+        "RT13_004",
+        "RT13_009",
+        "RT13_003",
+        "RT13_010",
+        "RT13_008",
+        "RT13_006"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_14_APB-AC-3_2_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "finalize",
+      "selected_candidate": "C02, C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_004",
+        "RT14_008",
+        "RT14_011"
+      ],
+      "verifier_refs": [
+        "RT14_009",
+        "RT14_012"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 204,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1499,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1703
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT14_012",
+        "RT14_009",
+        "RT14_008",
+        "RT14_011",
+        "RT14_004",
+        "RT14_003",
+        "RT14_005",
+        "RT14_002",
+        "RT14_006",
+        "RT14_007"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_14_APB-AC-3_2_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_008"
+      ],
+      "verifier_refs": [
+        "RT14_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1506,
+        "completion_tokens": 1388,
+        "total_tokens": 2894,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1256
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1506
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT14_012",
+        "RT14_009",
+        "RT14_008",
+        "RT14_011",
+        "RT14_004",
+        "RT14_003",
+        "RT14_005",
+        "RT14_002",
+        "RT14_006",
+        "RT14_007"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "finalize",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_004",
+        "RT15_008",
+        "RT15_011"
+      ],
+      "verifier_refs": [
+        "RT15_009",
+        "RT15_012"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 218,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1495,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1713
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT15_012",
+        "RT15_009",
+        "RT15_003",
+        "RT15_008",
+        "RT15_004",
+        "RT15_005",
+        "RT15_011",
+        "RT15_002",
+        "RT15_006",
+        "RT15_007"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_008",
+        "RT15_011"
+      ],
+      "verifier_refs": [
+        "RT15_009",
+        "RT15_012"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1503,
+        "completion_tokens": 1213,
+        "total_tokens": 2716,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1100
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1503
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT15_012",
+        "RT15_009",
+        "RT15_003",
+        "RT15_008",
+        "RT15_004",
+        "RT15_005",
+        "RT15_011",
+        "RT15_002",
+        "RT15_006",
+        "RT15_007"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_16_APB-AC-1_1_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": true,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT16_022",
+        "RT16_024"
+      ],
+      "verifier_refs": [
+        "RT16_022",
+        "RT16_024"
+      ],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 157,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1953,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 2110
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT16_014",
+        "RT16_008",
+        "RT16_007",
+        "RT16_013",
+        "RT16_016",
+        "RT16_020",
+        "RT16_018",
+        "RT16_024",
+        "RT16_012",
+        "RT16_019"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_16_APB-AC-1_1_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": true,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT16_022",
+        "RT16_024"
+      ],
+      "verifier_refs": [
+        "RT16_022",
+        "RT16_024"
+      ],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1896,
+        "completion_tokens": 1305,
+        "total_tokens": 3201,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1165
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1896
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT16_014",
+        "RT16_008",
+        "RT16_007",
+        "RT16_013",
+        "RT16_016",
+        "RT16_020",
+        "RT16_018",
+        "RT16_024",
+        "RT16_012",
+        "RT16_019"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_17_APB-AC-1_2_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT17_022",
+        "RT17_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 154,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1737,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1891
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT17_024",
+        "RT17_020",
+        "RT17_022",
+        "RT17_014",
+        "RT17_004",
+        "RT17_019",
+        "RT17_008",
+        "RT17_013",
+        "RT17_021",
+        "RT17_023"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_17_APB-AC-1_2_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT17_022",
+        "RT17_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1705,
+        "completion_tokens": 1479,
+        "total_tokens": 3184,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1392
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1705
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT17_024",
+        "RT17_020",
+        "RT17_022",
+        "RT17_014",
+        "RT17_004",
+        "RT17_019",
+        "RT17_008",
+        "RT17_013",
+        "RT17_021",
+        "RT17_023"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_18_APB-AC-1_4_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT18_022",
+        "RT18_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 161,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1966,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 2127
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT18_016",
+        "RT18_012",
+        "RT18_018",
+        "RT18_010",
+        "RT18_022",
+        "RT18_024",
+        "RT18_006",
+        "RT18_014",
+        "RT18_008",
+        "RT18_013"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_18_APB-AC-1_4_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT18_022",
+        "RT18_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1910,
+        "completion_tokens": 854,
+        "total_tokens": 2764,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 766
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1910
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT18_016",
+        "RT18_012",
+        "RT18_018",
+        "RT18_010",
+        "RT18_022",
+        "RT18_024",
+        "RT18_006",
+        "RT18_014",
+        "RT18_008",
+        "RT18_013"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_19_APB-AC-1_5_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT19_006",
+        "RT19_010",
+        "RT19_012"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 142,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1811,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1953
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT19_006",
+        "RT19_024",
+        "RT19_012",
+        "RT19_010",
+        "RT19_022",
+        "RT19_018",
+        "RT19_016",
+        "RT19_004",
+        "RT19_007",
+        "RT19_013"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_19_APB-AC-1_5_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1777,
+        "completion_tokens": 513,
+        "total_tokens": 2290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 432
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1777
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT19_006",
+        "RT19_024",
+        "RT19_012",
+        "RT19_010",
+        "RT19_022",
+        "RT19_018",
+        "RT19_016",
+        "RT19_004",
+        "RT19_007",
+        "RT19_013"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_20_APB-AC-3_2_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT20_016",
+        "RT20_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 175,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1848,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 2023
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT20_016",
+        "RT20_012",
+        "RT20_024",
+        "RT20_018",
+        "RT20_022",
+        "RT20_006",
+        "RT20_010",
+        "RT20_013",
+        "RT20_004",
+        "RT20_014"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_20_APB-AC-3_2_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1810,
+        "completion_tokens": 699,
+        "total_tokens": 2509,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 613
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1810
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT20_016",
+        "RT20_012",
+        "RT20_024",
+        "RT20_018",
+        "RT20_022",
+        "RT20_006",
+        "RT20_010",
+        "RT20_013",
+        "RT20_004",
+        "RT20_014"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_21_APB-AC-3_3_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT21_016",
+        "RT21_018",
+        "RT21_022",
+        "RT21_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1895,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 2078
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT21_017",
+        "RT21_016",
+        "RT21_024",
+        "RT21_022",
+        "RT21_018",
+        "RT21_012",
+        "RT21_006",
+        "RT21_011",
+        "RT21_007",
+        "RT21_005"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_21_APB-AC-3_3_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1855,
+        "completion_tokens": 659,
+        "total_tokens": 2514,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 556
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1855
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT21_017",
+        "RT21_016",
+        "RT21_024",
+        "RT21_022",
+        "RT21_018",
+        "RT21_012",
+        "RT21_006",
+        "RT21_011",
+        "RT21_007",
+        "RT21_005"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_22_APB-AC-1_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT22_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 196,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1795,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1991
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT22_004",
+        "RT22_020",
+        "RT22_018",
+        "RT22_014",
+        "RT22_010",
+        "RT22_009",
+        "RT22_005",
+        "RT22_007",
+        "RT22_011",
+        "RT22_016"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_22_APB-AC-1_1_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1772,
+        "completion_tokens": 1228,
+        "total_tokens": 3000,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1113
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1772
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT22_004",
+        "RT22_020",
+        "RT22_018",
+        "RT22_014",
+        "RT22_010",
+        "RT22_009",
+        "RT22_005",
+        "RT22_007",
+        "RT22_011",
+        "RT22_016"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_23_APB-AC-1_3_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT23_020",
+        "RT23_022"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 169,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1741,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1910
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT23_022",
+        "RT23_020",
+        "RT23_009",
+        "RT23_006",
+        "RT23_016",
+        "RT23_014",
+        "RT23_010",
+        "RT23_004",
+        "RT23_017",
+        "RT23_011"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_23_APB-AC-1_3_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1710,
+        "completion_tokens": 938,
+        "total_tokens": 2648,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 839
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1710
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT23_022",
+        "RT23_020",
+        "RT23_009",
+        "RT23_006",
+        "RT23_016",
+        "RT23_014",
+        "RT23_010",
+        "RT23_004",
+        "RT23_017",
+        "RT23_011"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_24_APB-AC-3_4_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": "C05",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT24_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 157,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1768,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1925
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT24_020",
+        "RT24_022",
+        "RT24_016",
+        "RT24_014",
+        "RT24_008",
+        "RT24_005",
+        "RT24_004",
+        "RT24_011",
+        "RT24_006",
+        "RT24_012"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_24_APB-AC-3_4_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": "C05",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT24_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1743,
+        "completion_tokens": 1074,
+        "total_tokens": 2817,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 982
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1743
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT24_020",
+        "RT24_022",
+        "RT24_016",
+        "RT24_014",
+        "RT24_008",
+        "RT24_005",
+        "RT24_004",
+        "RT24_011",
+        "RT24_006",
+        "RT24_012"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_25_APB-AC-1_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT25_017"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 161,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1748,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 1909
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT25_004",
+        "RT25_008",
+        "RT25_013",
+        "RT25_005",
+        "RT25_009",
+        "RT25_007",
+        "RT25_014",
+        "RT25_003",
+        "RT25_017",
+        "RT25_015"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_25_APB-AC-1_1_protocol_full",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1724,
+        "completion_tokens": 1204,
+        "total_tokens": 2928,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1115
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1724
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT25_004",
+        "RT25_008",
+        "RT25_013",
+        "RT25_005",
+        "RT25_009",
+        "RT25_007",
+        "RT25_014",
+        "RT25_003",
+        "RT25_017",
+        "RT25_015"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_26_APB-AC-1_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT26_017",
+        "RT26_019"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 152,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1709,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1861
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT26_013",
+        "RT26_019",
+        "RT26_004",
+        "RT26_008",
+        "RT26_017",
+        "RT26_005",
+        "RT26_009",
+        "RT26_003",
+        "RT26_011",
+        "RT26_014"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_26_APB-AC-1_2_protocol_full",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT26_003",
+        "RT26_005",
+        "RT26_008",
+        "RT26_009",
+        "RT26_013",
+        "RT26_017",
+        "RT26_019"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1685,
+        "completion_tokens": 1324,
+        "total_tokens": 3009,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1197
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1685
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT26_013",
+        "RT26_019",
+        "RT26_004",
+        "RT26_008",
+        "RT26_017",
+        "RT26_005",
+        "RT26_009",
+        "RT26_003",
+        "RT26_011",
+        "RT26_014"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_27_APB-AC-1_2_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT27_018",
+        "RT27_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 185,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1735,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1920
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT27_014",
+        "RT27_015",
+        "RT27_018",
+        "RT27_020",
+        "RT27_012",
+        "RT27_016",
+        "RT27_011",
+        "RT27_013",
+        "RT27_004",
+        "RT27_009"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_27_APB-AC-1_2_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT27_018",
+        "RT27_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1710,
+        "completion_tokens": 1324,
+        "total_tokens": 3034,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1235
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1710
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT27_014",
+        "RT27_015",
+        "RT27_018",
+        "RT27_020",
+        "RT27_012",
+        "RT27_016",
+        "RT27_011",
+        "RT27_013",
+        "RT27_004",
+        "RT27_009"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_28_APB-AC-1_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [
+        "RT28_017"
+      ],
+      "material_refs": [
+        "RT28_019",
+        "RT28_021"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 190,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1812,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 2002
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT28_004",
+        "RT28_013",
+        "RT28_021",
+        "RT28_019",
+        "RT28_015",
+        "RT28_005",
+        "RT28_008",
+        "RT28_009",
+        "RT28_003",
+        "RT28_016"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_28_APB-AC-1_3_protocol_full",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [
+        "RT28_017"
+      ],
+      "material_refs": [
+        "RT28_003",
+        "RT28_005",
+        "RT28_008",
+        "RT28_009",
+        "RT28_013",
+        "RT28_015",
+        "RT28_019",
+        "RT28_021"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1778,
+        "completion_tokens": 1942,
+        "total_tokens": 3720,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1782
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1778
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT28_004",
+        "RT28_013",
+        "RT28_021",
+        "RT28_019",
+        "RT28_015",
+        "RT28_005",
+        "RT28_008",
+        "RT28_009",
+        "RT28_003",
+        "RT28_016"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_29_APB-AC-1_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [
+        "RT29_017",
+        "RT29_019"
+      ],
+      "material_refs": [
+        "RT29_018",
+        "RT29_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 181,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1758,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1939
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT29_014",
+        "RT29_016",
+        "RT29_013",
+        "RT29_018",
+        "RT29_020",
+        "RT29_011",
+        "RT29_012",
+        "RT29_015",
+        "RT29_009",
+        "RT29_017"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_29_APB-AC-1_3_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [
+        "RT29_017",
+        "RT29_019"
+      ],
+      "material_refs": [
+        "RT29_013",
+        "RT29_014",
+        "RT29_018",
+        "RT29_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1727,
+        "completion_tokens": 827,
+        "total_tokens": 2554,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 680
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1727
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT29_014",
+        "RT29_016",
+        "RT29_013",
+        "RT29_018",
+        "RT29_020",
+        "RT29_011",
+        "RT29_012",
+        "RT29_015",
+        "RT29_009",
+        "RT29_017"
+      ]
+    },
+    {
+      "provider": "glm",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_30_APB-AC-1_4_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT30_018",
+        "RT30_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 160,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1709,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1869
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT30_012",
+        "RT30_018",
+        "RT30_013",
+        "RT30_014",
+        "RT30_015",
+        "RT30_016",
+        "RT30_011",
+        "RT30_020",
+        "RT30_010",
+        "RT30_009"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "arm": "hashed_dense_retrieval_memory",
+      "episode": "realtrace_30_APB-AC-1_4_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT30_018",
+        "RT30_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 1685,
+        "completion_tokens": 1114,
+        "total_tokens": 2799,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1018
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1685
+      },
+      "state_update_ok": true,
+      "final_retrieved_ids": [
+        "RT30_012",
+        "RT30_018",
+        "RT30_013",
+        "RT30_014",
+        "RT30_015",
+        "RT30_016",
+        "RT30_011",
+        "RT30_020",
+        "RT30_010",
+        "RT30_009"
+      ]
+    }
+  ],
+  "weak_status": {
+    "realtrace_01_APB-AC-3_4_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT01_020",
+        "RT01_017",
+        "RT01_008",
+        "RT01_016",
+        "RT01_005",
+        "RT01_011",
+        "RT01_012",
+        "RT01_015",
+        "RT01_006",
+        "RT01_019"
+      ]
+    },
+    "realtrace_02_APB-AC-3_5_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT02_017",
+        "RT02_020",
+        "RT02_012",
+        "RT02_019",
+        "RT02_016",
+        "RT02_004",
+        "RT02_006",
+        "RT02_010",
+        "RT02_008",
+        "RT02_013"
+      ]
+    },
+    "realtrace_03_APB-AC-0_1_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT03_014",
+        "RT03_011",
+        "RT03_013",
+        "RT03_006",
+        "RT03_004",
+        "RT03_010",
+        "RT03_005",
+        "RT03_008",
+        "RT03_002",
+        "RT03_001"
+      ]
+    },
+    "realtrace_04_APB-AC-0_2_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT04_011",
+        "RT04_014",
+        "RT04_013",
+        "RT04_010",
+        "RT04_008",
+        "RT04_006",
+        "RT04_004",
+        "RT04_007",
+        "RT04_009",
+        "RT04_005"
+      ]
+    },
+    "realtrace_05_APB-AC-0_3_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT05_014",
+        "RT05_011",
+        "RT05_004",
+        "RT05_013",
+        "RT05_006",
+        "RT05_010",
+        "RT05_008",
+        "RT05_005",
+        "RT05_002",
+        "RT05_001"
+      ]
+    },
+    "realtrace_06_APB-AC-0_4_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT06_015",
+        "RT06_018",
+        "RT06_008",
+        "RT06_017",
+        "RT06_003",
+        "RT06_014",
+        "RT06_010",
+        "RT06_004",
+        "RT06_005",
+        "RT06_011"
+      ]
+    },
+    "realtrace_07_APB-AC-0_4_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT07_014",
+        "RT07_011",
+        "RT07_013",
+        "RT07_010",
+        "RT07_004",
+        "RT07_006",
+        "RT07_005",
+        "RT07_012",
+        "RT07_009",
+        "RT07_003"
+      ]
+    },
+    "realtrace_08_APB-AC-0_5_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT08_011",
+        "RT08_014",
+        "RT08_013",
+        "RT08_010",
+        "RT08_006",
+        "RT08_005",
+        "RT08_012",
+        "RT08_008",
+        "RT08_009",
+        "RT08_004"
+      ]
+    },
+    "realtrace_09_APB-AC-3_1_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT09_011",
+        "RT09_014",
+        "RT09_006",
+        "RT09_004",
+        "RT09_013",
+        "RT09_010",
+        "RT09_007",
+        "RT09_008",
+        "RT09_002",
+        "RT09_001"
+      ]
+    },
+    "realtrace_10_APB-AC-0_1_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT10_009",
+        "RT10_012",
+        "RT10_008",
+        "RT10_011",
+        "RT10_004",
+        "RT10_003",
+        "RT10_005",
+        "RT10_002",
+        "RT10_006",
+        "RT10_001"
+      ]
+    },
+    "realtrace_11_APB-AC-0_2_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT11_016",
+        "RT11_014",
+        "RT11_015",
+        "RT11_013",
+        "RT11_010",
+        "RT11_004",
+        "RT11_009",
+        "RT11_012",
+        "RT11_011",
+        "RT11_005"
+      ]
+    },
+    "realtrace_12_APB-AC-0_3_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT12_016",
+        "RT12_014",
+        "RT12_013",
+        "RT12_015",
+        "RT12_008",
+        "RT12_010",
+        "RT12_004",
+        "RT12_012",
+        "RT12_005",
+        "RT12_003"
+      ]
+    },
+    "realtrace_13_APB-AC-0_5_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT13_014",
+        "RT13_016",
+        "RT13_015",
+        "RT13_013",
+        "RT13_004",
+        "RT13_009",
+        "RT13_003",
+        "RT13_010",
+        "RT13_008",
+        "RT13_006"
+      ]
+    },
+    "realtrace_14_APB-AC-3_2_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT14_012",
+        "RT14_009",
+        "RT14_008",
+        "RT14_011",
+        "RT14_004",
+        "RT14_003",
+        "RT14_005",
+        "RT14_002",
+        "RT14_006",
+        "RT14_007"
+      ]
+    },
+    "realtrace_15_APB-AC-3_5_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT15_012",
+        "RT15_009",
+        "RT15_003",
+        "RT15_008",
+        "RT15_004",
+        "RT15_005",
+        "RT15_011",
+        "RT15_002",
+        "RT15_006",
+        "RT15_007"
+      ]
+    },
+    "realtrace_16_APB-AC-1_1_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT16_014",
+        "RT16_008",
+        "RT16_007",
+        "RT16_013",
+        "RT16_016",
+        "RT16_020",
+        "RT16_018",
+        "RT16_024",
+        "RT16_012",
+        "RT16_019"
+      ]
+    },
+    "realtrace_17_APB-AC-1_2_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT17_024",
+        "RT17_020",
+        "RT17_022",
+        "RT17_014",
+        "RT17_004",
+        "RT17_019",
+        "RT17_008",
+        "RT17_013",
+        "RT17_021",
+        "RT17_023"
+      ]
+    },
+    "realtrace_18_APB-AC-1_4_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT18_016",
+        "RT18_012",
+        "RT18_018",
+        "RT18_010",
+        "RT18_022",
+        "RT18_024",
+        "RT18_006",
+        "RT18_014",
+        "RT18_008",
+        "RT18_013"
+      ]
+    },
+    "realtrace_19_APB-AC-1_5_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT19_006",
+        "RT19_024",
+        "RT19_012",
+        "RT19_010",
+        "RT19_022",
+        "RT19_018",
+        "RT19_016",
+        "RT19_004",
+        "RT19_007",
+        "RT19_013"
+      ]
+    },
+    "realtrace_20_APB-AC-3_2_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT20_016",
+        "RT20_012",
+        "RT20_024",
+        "RT20_018",
+        "RT20_022",
+        "RT20_006",
+        "RT20_010",
+        "RT20_013",
+        "RT20_004",
+        "RT20_014"
+      ]
+    },
+    "realtrace_21_APB-AC-3_3_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT21_017",
+        "RT21_016",
+        "RT21_024",
+        "RT21_022",
+        "RT21_018",
+        "RT21_012",
+        "RT21_006",
+        "RT21_011",
+        "RT21_007",
+        "RT21_005"
+      ]
+    },
+    "realtrace_22_APB-AC-1_1_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT22_004",
+        "RT22_020",
+        "RT22_018",
+        "RT22_014",
+        "RT22_010",
+        "RT22_009",
+        "RT22_005",
+        "RT22_007",
+        "RT22_011",
+        "RT22_016"
+      ]
+    },
+    "realtrace_23_APB-AC-1_3_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT23_022",
+        "RT23_020",
+        "RT23_009",
+        "RT23_006",
+        "RT23_016",
+        "RT23_014",
+        "RT23_010",
+        "RT23_004",
+        "RT23_017",
+        "RT23_011"
+      ]
+    },
+    "realtrace_24_APB-AC-3_4_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT24_020",
+        "RT24_022",
+        "RT24_016",
+        "RT24_014",
+        "RT24_008",
+        "RT24_005",
+        "RT24_004",
+        "RT24_011",
+        "RT24_006",
+        "RT24_012"
+      ]
+    },
+    "realtrace_25_APB-AC-1_1_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT25_004",
+        "RT25_008",
+        "RT25_013",
+        "RT25_005",
+        "RT25_009",
+        "RT25_007",
+        "RT25_014",
+        "RT25_003",
+        "RT25_017",
+        "RT25_015"
+      ]
+    },
+    "realtrace_26_APB-AC-1_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT26_013",
+        "RT26_019",
+        "RT26_004",
+        "RT26_008",
+        "RT26_017",
+        "RT26_005",
+        "RT26_009",
+        "RT26_003",
+        "RT26_011",
+        "RT26_014"
+      ]
+    },
+    "realtrace_27_APB-AC-1_2_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT27_014",
+        "RT27_015",
+        "RT27_018",
+        "RT27_020",
+        "RT27_012",
+        "RT27_016",
+        "RT27_011",
+        "RT27_013",
+        "RT27_004",
+        "RT27_009"
+      ]
+    },
+    "realtrace_28_APB-AC-1_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT28_004",
+        "RT28_013",
+        "RT28_021",
+        "RT28_019",
+        "RT28_015",
+        "RT28_005",
+        "RT28_008",
+        "RT28_009",
+        "RT28_003",
+        "RT28_016"
+      ]
+    },
+    "realtrace_29_APB-AC-1_3_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT29_014",
+        "RT29_016",
+        "RT29_013",
+        "RT29_018",
+        "RT29_020",
+        "RT29_011",
+        "RT29_012",
+        "RT29_015",
+        "RT29_009",
+        "RT29_017"
+      ]
+    },
+    "realtrace_30_APB-AC-1_4_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": [],
+      "final_retrieved_ids": [
+        "RT30_012",
+        "RT30_018",
+        "RT30_013",
+        "RT30_014",
+        "RT30_015",
+        "RT30_016",
+        "RT30_011",
+        "RT30_020",
+        "RT30_010",
+        "RT30_009"
+      ]
+    }
+  },
+  "interpretation_guard": "Controls for a deterministic vector-style retrieval memory baseline. It ranks redacted events with feature-hashed dense vectors, but excludes candidate/evidence/verifier/finalization lifecycle fields. It does not cover neural embeddings, rerankers, MemGPT, or full external memory frameworks."
+}

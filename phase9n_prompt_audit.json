@@ -1,0 +1,32 @@
+{
+  "episode_count": 30,
+  "providers": [
+    "glm",
+    "deepseek"
+  ],
+  "model": "qwen3.5:9b",
+  "qwen_num_predict": 2048,
+  "max_tokens": 2048,
+  "rag_top_k": 8,
+  "control": "RAG-style retrieval memory without security-specific lifecycle fields",
+  "qwen_prompt_chars": {
+    "count": 96,
+    "min": 2557,
+    "p50": 4116,
+    "p90": 4645,
+    "p95": 4652,
+    "p99": 5047,
+    "max": 5047
+  },
+  "strong_prompt_chars": {
+    "count": 30,
+    "min": 3411,
+    "p50": 3435,
+    "p90": 3450,
+    "p95": 3471,
+    "p99": 3471,
+    "max": 3471
+  },
+  "leak_findings": [],
+  "prompt_audit_failures": 0
+}
