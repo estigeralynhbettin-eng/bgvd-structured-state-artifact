@@ -1,0 +1,2775 @@
+{
+  "date": "2026-07-08",
+  "phase_id": "v3j",
+  "design": "Matched-budget weak free-form memory baseline",
+  "episode_count": 30,
+  "providers": [
+    "glm",
+    "deepseek"
+  ],
+  "weak_model": "qwen3.5:9b",
+  "prompt_audit": {
+    "episode_count": 30,
+    "providers": [
+      "glm",
+      "deepseek"
+    ],
+    "model": "qwen3.5:9b",
+    "qwen_num_predict": 2048,
+    "max_tokens": 2048
+  },
+  "aggregate": {
+    "deepseek::raw_running_log": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 2,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 3,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.7333333333333333
+    },
+    "deepseek::untyped_curated_state": {
+      "total": 30,
+      "correct": 26,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.8666666666666667
+    },
+    "deepseek::untyped_weak_qwen35_9b": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 9,
+      "verifier_cited": 9,
+      "accuracy": 0.7333333333333333
+    },
+    "glm::raw_running_log": {
+      "total": 30,
+      "correct": 25,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.8333333333333334
+    },
+    "glm::untyped_curated_state": {
+      "total": 30,
+      "correct": 26,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 11,
+      "accuracy": 0.8666666666666667
+    },
+    "glm::untyped_weak_qwen35_9b": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 1,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 10,
+      "accuracy": 0.7333333333333333
+    },
+    "glm::schema_guided_weak_memory": {
+      "total": 30,
+      "correct": 27,
+      "false_finalize": 0,
+      "wrong_candidate": 3,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 12,
+      "verifier_cited": 12,
+      "accuracy": 0.9
+    },
+    "deepseek::schema_guided_weak_memory": {
+      "total": 30,
+      "correct": 27,
+      "false_finalize": 0,
+      "wrong_candidate": 3,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 13,
+      "verifier_cited": 13,
+      "accuracy": 0.9
+    },
+    "glm::matched_freeform_weak_memory": {
+      "total": 30,
+      "correct": 22,
+      "false_finalize": 0,
+      "wrong_candidate": 1,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "material_cited": 11,
+      "verifier_cited": 10,
+      "accuracy": 0.7333333333333333
+    },
+    "deepseek::matched_freeform_weak_memory": {
+      "total": 30,
+      "correct": 20,
+      "false_finalize": 0,
+      "wrong_candidate": 3,
+      "stale_or_superseded_misuse": 1,
+      "parse_failures": 1,
+      "state_update_failures": 0,
+      "material_cited": 9,
+      "verifier_cited": 9,
+      "accuracy": 0.6666666666666666
+    }
+  },
+  "contrasts": [
+    {
+      "provider": "pooled",
+      "arm_a": "schema_guided_weak_memory",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 60,
+      "a_better": 12,
+      "b_better": 0,
+      "ties": 48,
+      "p_one_sided_a_gt_b": 0.000244140625
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "untyped_curated_state",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 60,
+      "a_better": 11,
+      "b_better": 1,
+      "ties": 48,
+      "p_one_sided_a_gt_b": 0.003173828125
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "matched_freeform_weak_memory",
+      "arm_b": "untyped_weak_qwen35_9b",
+      "comparable": 60,
+      "a_better": 0,
+      "b_better": 2,
+      "ties": 58,
+      "p_one_sided_a_gt_b": 1.0
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "schema_guided_weak_memory",
+      "arm_b": "untyped_weak_qwen35_9b",
+      "comparable": 60,
+      "a_better": 10,
+      "b_better": 0,
+      "ties": 50,
+      "p_one_sided_a_gt_b": 0.0009765625
+    },
+    {
+      "provider": "pooled",
+      "arm_a": "untyped_curated_state",
+      "arm_b": "schema_guided_weak_memory",
+      "comparable": 60,
+      "a_better": 6,
+      "b_better": 8,
+      "ties": 46,
+      "p_one_sided_a_gt_b": 0.78802490234375
+    },
+    {
+      "provider": "glm",
+      "arm_a": "schema_guided_weak_memory",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 30,
+      "a_better": 5,
+      "b_better": 0,
+      "ties": 25,
+      "p_one_sided_a_gt_b": 0.03125
+    },
+    {
+      "provider": "glm",
+      "arm_a": "untyped_curated_state",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 30,
+      "a_better": 5,
+      "b_better": 1,
+      "ties": 24,
+      "p_one_sided_a_gt_b": 0.109375
+    },
+    {
+      "provider": "deepseek",
+      "arm_a": "schema_guided_weak_memory",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 30,
+      "a_better": 7,
+      "b_better": 0,
+      "ties": 23,
+      "p_one_sided_a_gt_b": 0.0078125
+    },
+    {
+      "provider": "deepseek",
+      "arm_a": "untyped_curated_state",
+      "arm_b": "matched_freeform_weak_memory",
+      "comparable": 30,
+      "a_better": 6,
+      "b_better": 0,
+      "ties": 24,
+      "p_one_sided_a_gt_b": 0.015625
+    }
+  ],
+  "new_rows": [
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_01_APB-AC-3_4_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT01_016",
+        "RT01_019"
+      ],
+      "verifier_refs": [
+        "RT01_017",
+        "RT01_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 180,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 568,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 748
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_01_APB-AC-3_4_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT01_016",
+        "RT01_019"
+      ],
+      "verifier_refs": [
+        "RT01_017",
+        "RT01_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 556,
+        "completion_tokens": 579,
+        "total_tokens": 1135,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 452
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 556
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_02_APB-AC-3_5_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT02_016",
+        "RT02_019"
+      ],
+      "verifier_refs": [
+        "RT02_017",
+        "RT02_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 200,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 646,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 846
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_02_APB-AC-3_5_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT02_016",
+        "RT02_019"
+      ],
+      "verifier_refs": [
+        "RT02_017",
+        "RT02_020"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 633,
+        "completion_tokens": 299,
+        "total_tokens": 932,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 193
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 633
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_03_APB-AC-0_1_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT03_010",
+        "RT03_013"
+      ],
+      "verifier_refs": [
+        "RT03_011",
+        "RT03_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 180,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 622,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 802
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_03_APB-AC-0_1_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT03_010",
+        "RT03_013"
+      ],
+      "verifier_refs": [
+        "RT03_011",
+        "RT03_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 611,
+        "completion_tokens": 737,
+        "total_tokens": 1348,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 612
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 611
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_04_APB-AC-0_2_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT04_010",
+        "RT04_013"
+      ],
+      "verifier_refs": [
+        "RT04_011",
+        "RT04_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 160,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 617,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 777
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_04_APB-AC-0_2_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": true,
+      "stale_refs_in_support_fields": [
+        "RT04_009",
+        "RT04_012"
+      ],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT04_009",
+        "RT04_010",
+        "RT04_012",
+        "RT04_013"
+      ],
+      "verifier_refs": [
+        "RT04_011",
+        "RT04_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 602,
+        "completion_tokens": 390,
+        "total_tokens": 992,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 215
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 602
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_05_APB-AC-0_3_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "round2_C02_committed_redacted_material_deposit",
+        "round2_worker1_C02_proposal",
+        "round2_worker2_C02_proposal"
+      ],
+      "verifier_refs": [
+        "round2_C02_terminal_verifier_accepted"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 205,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 539,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 744
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_05_APB-AC-0_3_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "C02_material_deposit"
+      ],
+      "verifier_refs": [
+        "C02_terminal_verifier_true"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 535,
+        "completion_tokens": 483,
+        "total_tokens": 1018,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 389
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 535
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_06_APB-AC-0_4_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_014",
+        "RT06_017"
+      ],
+      "verifier_refs": [
+        "RT06_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 198,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 577,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 775
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_06_APB-AC-0_4_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C03",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_014"
+      ],
+      "verifier_refs": [
+        "RT06_015"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 573,
+        "completion_tokens": 588,
+        "total_tokens": 1161,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 457
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 573
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_07_APB-AC-0_4_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_010",
+        "RT07_013"
+      ],
+      "verifier_refs": [
+        "RT07_011",
+        "RT07_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 212,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 706,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 918
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_07_APB-AC-0_4_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_010",
+        "RT07_013"
+      ],
+      "verifier_refs": [
+        "RT07_011",
+        "RT07_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 695,
+        "completion_tokens": 296,
+        "total_tokens": 991,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 162
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 695
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_08_APB-AC-0_5_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_010",
+        "RT08_013"
+      ],
+      "verifier_refs": [
+        "RT08_011",
+        "RT08_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 665,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 848
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_08_APB-AC-0_5_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "finalize",
+      "selected_candidate": "C02",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_010",
+        "RT08_013"
+      ],
+      "verifier_refs": [
+        "RT08_011",
+        "RT08_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 656,
+        "completion_tokens": 618,
+        "total_tokens": 1274,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 478
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 656
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_09_APB-AC-3_1_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_010",
+        "RT09_013"
+      ],
+      "verifier_refs": [
+        "RT09_011",
+        "RT09_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 522,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 705
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_09_APB-AC-3_1_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C02",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_010",
+        "RT09_013"
+      ],
+      "verifier_refs": [
+        "RT09_011",
+        "RT09_014"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 515,
+        "completion_tokens": 528,
+        "total_tokens": 1043,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 423
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 515
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_10_APB-AC-0_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT10_08",
+        "RT10_11"
+      ],
+      "verifier_refs": [
+        "RT10_09",
+        "RT10_12"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 213,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 572,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 785
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_10_APB-AC-0_1_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 565,
+        "completion_tokens": 1066,
+        "total_tokens": 1631,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 979
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 565
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_11_APB-AC-0_2_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 203,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 526,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 729
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_11_APB-AC-0_2_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 526,
+        "completion_tokens": 303,
+        "total_tokens": 829,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 223
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 526
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_12_APB-AC-0_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_013"
+      ],
+      "verifier_refs": [
+        "RT12_014"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 132,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 566,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 698
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_12_APB-AC-0_3_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_013"
+      ],
+      "verifier_refs": [
+        "RT12_014"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 560,
+        "completion_tokens": 650,
+        "total_tokens": 1210,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 537
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 560
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_13_APB-AC-0_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT13_013",
+        "RT13_015"
+      ],
+      "verifier_refs": [
+        "RT13_014",
+        "RT13_016"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 164,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 689
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_13_APB-AC-0_5_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C05",
+      "decision": "finalize",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT13_013",
+        "RT13_015"
+      ],
+      "verifier_refs": [
+        "RT13_014",
+        "RT13_016"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 523,
+        "completion_tokens": 1273,
+        "total_tokens": 1796,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1153
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 523
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_14_APB-AC-3_2_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "finalize",
+      "selected_candidate": "C01",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_011"
+      ],
+      "verifier_refs": [
+        "RT14_012"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 202,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 636,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 838
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_14_APB-AC-3_2_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "parse_ok": false,
+      "provider_failure_type": "schema_failure",
+      "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+      "correct": false,
+      "false_finalize": false,
+      "stale_or_superseded_misuse": false,
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_008",
+        "RT15_011"
+      ],
+      "verifier_refs": [
+        "RT15_009",
+        "RT15_012"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 163,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 544,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 707
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "finalize",
+      "expected_candidate": "C01",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_008",
+        "RT15_011"
+      ],
+      "verifier_refs": [
+        "RT15_009",
+        "RT15_012"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 541,
+        "completion_tokens": 888,
+        "total_tokens": 1429,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 761
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 541
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_16_APB-AC-1_1_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [
+        "RT16_009",
+        "RT16_011",
+        "RT16_015",
+        "RT16_023"
+      ],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT16_009",
+        "RT16_010",
+        "RT16_011",
+        "RT16_012",
+        "RT16_013",
+        "RT16_014",
+        "RT16_015",
+        "RT16_016",
+        "RT16_018",
+        "RT16_019",
+        "RT16_020",
+        "RT16_022",
+        "RT16_023",
+        "RT16_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 228,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 802,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1030
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_16_APB-AC-1_1_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [
+        "RT16_009",
+        "RT16_011",
+        "RT16_015",
+        "RT16_023"
+      ],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT16_009",
+        "RT16_010",
+        "RT16_011",
+        "RT16_012",
+        "RT16_013",
+        "RT16_014",
+        "RT16_015",
+        "RT16_016",
+        "RT16_018",
+        "RT16_019",
+        "RT16_020",
+        "RT16_022",
+        "RT16_023",
+        "RT16_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 785,
+        "completion_tokens": 888,
+        "total_tokens": 1673,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 725
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 785
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_17_APB-AC-1_2_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT17_010",
+        "RT17_012",
+        "RT17_016",
+        "RT17_018",
+        "RT17_022",
+        "RT17_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 155,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 976,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1131
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_17_APB-AC-1_2_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 706,
+        "total_tokens": 1662,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 617
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 956
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_18_APB-AC-1_4_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT18_016",
+        "RT18_018",
+        "RT18_022",
+        "RT18_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 210,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 611,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 821
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_18_APB-AC-1_4_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT18_016",
+        "RT18_018",
+        "RT18_022",
+        "RT18_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 597,
+        "completion_tokens": 548,
+        "total_tokens": 1145,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 449
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 597
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_19_APB-AC-1_5_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT19_006",
+        "RT19_010",
+        "RT19_012",
+        "RT19_016",
+        "RT19_018",
+        "RT19_022",
+        "RT19_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 173,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 911,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1084
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_19_APB-AC-1_5_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT19_006",
+        "RT19_010",
+        "RT19_012",
+        "RT19_016",
+        "RT19_018",
+        "RT19_022",
+        "RT19_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 891,
+        "completion_tokens": 1080,
+        "total_tokens": 1971,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 949
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 891
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_20_APB-AC-3_2_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT20_022",
+        "RT20_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 161,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 505,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 666
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_20_APB-AC-3_2_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 495,
+        "completion_tokens": 1111,
+        "total_tokens": 1606,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1027
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 495
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_21_APB-AC-3_3_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT21_022",
+        "RT21_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 168,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 875,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1043
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_21_APB-AC-3_3_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT21_022",
+        "RT21_024"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 848,
+        "completion_tokens": 504,
+        "total_tokens": 1352,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 415
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 848
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_22_APB-AC-1_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [
+        "RT22_019"
+      ],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT22_018",
+        "RT22_019",
+        "RT22_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 189,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 579,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 768
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_22_APB-AC-1_1_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [
+        "RT22_017",
+        "RT22_019"
+      ],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT22_004",
+        "RT22_015",
+        "RT22_016",
+        "RT22_017",
+        "RT22_018",
+        "RT22_019",
+        "RT22_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 571,
+        "completion_tokens": 1292,
+        "total_tokens": 1863,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1178
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 571
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_23_APB-AC-1_3_typed_summary",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT23_020",
+        "RT23_022"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 152,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 526,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 678
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_23_APB-AC-1_3_typed_summary",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 520,
+        "completion_tokens": 674,
+        "total_tokens": 1194,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 583
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 520
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_24_APB-AC-3_4_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT24_020",
+        "RT24_022"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 165,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 497,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 662
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_24_APB-AC-3_4_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT24_020",
+        "RT24_022"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 488,
+        "completion_tokens": 591,
+        "total_tokens": 1079,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 502
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 488
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_25_APB-AC-1_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [
+        "RT25_016"
+      ],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT25_014",
+        "RT25_015",
+        "RT25_016",
+        "RT25_017"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 161,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 523,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 684
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_25_APB-AC-1_1_protocol_full",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT25_017"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 518,
+        "completion_tokens": 282,
+        "total_tokens": 800,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 208
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 518
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_26_APB-AC-1_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT26_013",
+        "RT26_017",
+        "RT26_019"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 174,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 534,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 708
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_26_APB-AC-1_2_protocol_full",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT26_013",
+        "RT26_017",
+        "RT26_019"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 523,
+        "completion_tokens": 616,
+        "total_tokens": 1139,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 528
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 523
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_27_APB-AC-1_2_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT27_018",
+        "RT27_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 189,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 605,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 794
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_27_APB-AC-1_2_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT27_018",
+        "RT27_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 599,
+        "completion_tokens": 1108,
+        "total_tokens": 1707,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 998
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 599
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_28_APB-AC-1_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT28_019",
+        "RT28_021"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 154,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 509,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 663
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_28_APB-AC-1_3_protocol_full",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT28_019",
+        "RT28_021"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 502,
+        "completion_tokens": 417,
+        "total_tokens": 919,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 302
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 502
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_29_APB-AC-1_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT29_018",
+        "RT29_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 222,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 523,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 745
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_29_APB-AC-1_3_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 519,
+        "completion_tokens": 1958,
+        "total_tokens": 2477,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1854
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 519
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_30_APB-AC-1_4_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT30_009",
+        "RT30_010",
+        "RT30_011",
+        "RT30_012",
+        "RT30_013",
+        "RT30_014",
+        "RT30_018",
+        "RT30_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 197,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 560,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 757
+      },
+      "state_update_ok": true
+    },
+    {
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "episode": "realtrace_30_APB-AC-1_4_protocol_no_conclude",
+      "provider_model": "deepseek-v4-pro",
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT30_009",
+        "RT30_010",
+        "RT30_011",
+        "RT30_012",
+        "RT30_013",
+        "RT30_014",
+        "RT30_018",
+        "RT30_020"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "prompt_tokens": 550,
+        "completion_tokens": 1572,
+        "total_tokens": 2122,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1450
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 550
+      },
+      "state_update_ok": true
+    }
+  ],
+  "weak_status": {
+    "realtrace_01_APB-AC-3_4_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": []
+    },
+    "realtrace_02_APB-AC-3_5_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": []
+    },
+    "realtrace_03_APB-AC-0_1_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_04_APB-AC-0_2_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_05_APB-AC-0_3_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_06_APB-AC-0_4_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": []
+    },
+    "realtrace_07_APB-AC-0_4_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_08_APB-AC-0_5_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_09_APB-AC-3_1_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_10_APB-AC-0_1_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_11_APB-AC-0_2_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": []
+    },
+    "realtrace_12_APB-AC-0_3_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": []
+    },
+    "realtrace_13_APB-AC-0_5_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "round_failures": []
+    },
+    "realtrace_14_APB-AC-3_2_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_15_APB-AC-3_5_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "round_failures": []
+    },
+    "realtrace_16_APB-AC-1_1_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_17_APB-AC-1_2_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_18_APB-AC-1_4_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_19_APB-AC-1_5_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_20_APB-AC-3_2_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_21_APB-AC-3_3_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_22_APB-AC-1_1_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_23_APB-AC-1_3_typed_summary": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_24_APB-AC-3_4_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_25_APB-AC-1_1_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_26_APB-AC-1_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_27_APB-AC-1_2_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_28_APB-AC-1_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_29_APB-AC-1_3_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    },
+    "realtrace_30_APB-AC-1_4_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "round_failures": []
+    }
+  },
+  "interpretation_guard": "Controls for qwen output budget in the V3i structured-memory result."
+}

@@ -1,0 +1,33 @@
+{
+  "episode_count": 30,
+  "providers": [
+    "glm",
+    "deepseek"
+  ],
+  "model": "qwen3.5:9b",
+  "qwen_num_predict": 2048,
+  "max_tokens": 2048,
+  "dense_top_k": 10,
+  "dense_dim": 384,
+  "control": "Hashed dense-vector event retrieval memory without security-specific lifecycle fields",
+  "qwen_prompt_chars": {
+    "count": 96,
+    "min": 2557,
+    "p50": 4146,
+    "p90": 5109,
+    "p95": 5115,
+    "p99": 5511,
+    "max": 5511
+  },
+  "strong_prompt_chars": {
+    "count": 30,
+    "min": 4088,
+    "p50": 4132,
+    "p90": 4163,
+    "p95": 4180,
+    "p99": 4180,
+    "max": 4180
+  },
+  "leak_findings": [],
+  "prompt_audit_failures": 0
+}

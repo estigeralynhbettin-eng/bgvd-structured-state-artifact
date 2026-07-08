@@ -1,0 +1,23 @@
+{
+  "title": "Artifact for Structured State Interfaces for Access-Control Verifier Replay in Defensive LLM Security Agents",
+  "upload_type": "dataset",
+  "description": "Sanitized replay-fixture artifact for a defensive LLM security-agent study.\nThe artifact contains redacted access-control verifier-replay fixtures, summary\nJSON files, result-to-claim mapping, leakage audit reports, and an offline\nvalidator that recomputes the manuscript-level paired contrasts without external\nmodel calls or benchmark services. The artifact does not contain live targets,\ncredentials, operational exploit commands, network addresses, or target-specific\nreproduction procedures.",
+  "creators": [
+    {
+      "name": "Anonymous Authors",
+      "affiliation": "Withheld for anonymous review"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "LLM security agents",
+    "structured state interface",
+    "defensive cybersecurity",
+    "weak-to-strong handoff",
+    "verifier replay",
+    "artifact evaluation"
+  ],
+  "version": "2026-07-09-rc1",
+  "notes": "For double-blind review, replace anonymous creator metadata only after the review policy allows de-anonymization. If Zenodo's public DOI would break anonymity, use an anonymous OSF view or journal artifact-review service during review and publish the DOI after acceptance."
+}

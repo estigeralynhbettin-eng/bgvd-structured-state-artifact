@@ -1,0 +1,4415 @@
+[
+  {
+    "name": "realtrace_01_APB-AC-3_4_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "4",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "5",
+      "duplicate_proposal_count": "3",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C03",
+    "current_material_refs": [
+      "RT01_019"
+    ],
+    "current_verifier_refs": [
+      "RT01_020"
+    ],
+    "stale_refs": [
+      "RT01_003",
+      "RT01_004",
+      "RT01_005",
+      "RT01_009",
+      "RT01_011",
+      "RT01_015",
+      "RT01_018"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT01_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT01_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT01_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT01_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT01_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT01_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT01_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT01_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT01_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT01_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT01_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT01_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT01_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT01_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT01_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT01_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT01_017",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        },
+        {
+          "id": "RT01_018",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT01_019",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT01_020",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_02_APB-AC-3_5_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "5",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "5",
+      "duplicate_proposal_count": "3",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C03",
+    "current_material_refs": [
+      "RT02_019"
+    ],
+    "current_verifier_refs": [
+      "RT02_020"
+    ],
+    "stale_refs": [
+      "RT02_003",
+      "RT02_004",
+      "RT02_005",
+      "RT02_009",
+      "RT02_011",
+      "RT02_015",
+      "RT02_018"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT02_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT02_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT02_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT02_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT02_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT02_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT02_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT02_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT02_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT02_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT02_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT02_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT02_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT02_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT02_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT02_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT02_017",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        },
+        {
+          "id": "RT02_018",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT02_019",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT02_020",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_03_APB-AC-0_1_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "1",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "RT03_013"
+    ],
+    "current_verifier_refs": [
+      "RT03_014"
+    ],
+    "stale_refs": [
+      "RT03_003",
+      "RT03_004",
+      "RT03_005",
+      "RT03_009",
+      "RT03_012"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT03_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT03_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT03_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT03_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT03_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT03_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT03_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT03_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT03_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT03_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT03_011",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        },
+        {
+          "id": "RT03_012",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT03_013",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT03_014",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_04_APB-AC-0_2_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "2",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "RT04_013"
+    ],
+    "current_verifier_refs": [
+      "RT04_014"
+    ],
+    "stale_refs": [
+      "RT04_003",
+      "RT04_004",
+      "RT04_005",
+      "RT04_009",
+      "RT04_012"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT04_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT04_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT04_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT04_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT04_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT04_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT04_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT04_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT04_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT04_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT04_011",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        },
+        {
+          "id": "RT04_012",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT04_013",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT04_014",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_05_APB-AC-0_3_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "3",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "RT05_013"
+    ],
+    "current_verifier_refs": [
+      "RT05_014"
+    ],
+    "stale_refs": [
+      "RT05_003",
+      "RT05_004",
+      "RT05_005",
+      "RT05_009",
+      "RT05_012"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT05_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT05_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT05_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT05_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT05_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT05_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT05_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT05_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT05_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT05_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT05_011",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        },
+        {
+          "id": "RT05_012",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT05_013",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT05_014",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_06_APB-AC-0_4_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "4",
+      "arm": "protocol_no_conclude",
+      "success": "True",
+      "first_verified_exec_step": "5",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C03",
+    "current_material_refs": [
+      "RT06_017"
+    ],
+    "current_verifier_refs": [
+      "RT06_018"
+    ],
+    "stale_refs": [
+      "RT06_003",
+      "RT06_007",
+      "RT06_009",
+      "RT06_013",
+      "RT06_016"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT06_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT06_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT06_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT06_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT06_005",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT06_006",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT06_007",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT06_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT06_009",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT06_010",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT06_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT06_012",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT06_013",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT06_014",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT06_015",
+          "candidate": "C04",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C04 in the redacted authorized trace."
+        },
+        {
+          "id": "RT06_016",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT06_017",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT06_018",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_07_APB-AC-0_4_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "4",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "RT07_013"
+    ],
+    "current_verifier_refs": [
+      "RT07_014"
+    ],
+    "stale_refs": [
+      "RT07_003",
+      "RT07_004",
+      "RT07_005",
+      "RT07_009",
+      "RT07_012"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT07_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT07_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT07_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT07_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT07_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT07_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT07_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT07_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT07_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT07_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT07_011",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        },
+        {
+          "id": "RT07_012",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT07_013",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT07_014",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_08_APB-AC-0_5_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "5",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "RT08_013"
+    ],
+    "current_verifier_refs": [
+      "RT08_014"
+    ],
+    "stale_refs": [
+      "RT08_003",
+      "RT08_004",
+      "RT08_005",
+      "RT08_009",
+      "RT08_012"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT08_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT08_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT08_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT08_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT08_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT08_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT08_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT08_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT08_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT08_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT08_011",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        },
+        {
+          "id": "RT08_012",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT08_013",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT08_014",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_09_APB-AC-3_1_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "1",
+      "arm": "typed_summary",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C02",
+    "current_material_refs": [
+      "RT09_013"
+    ],
+    "current_verifier_refs": [
+      "RT09_014"
+    ],
+    "stale_refs": [
+      "RT09_003",
+      "RT09_004",
+      "RT09_005",
+      "RT09_009",
+      "RT09_012"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT09_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT09_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT09_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT09_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT09_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT09_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT09_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT09_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT09_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT09_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT09_011",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        },
+        {
+          "id": "RT09_012",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT09_013",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT09_014",
+          "candidate": "C02",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C02 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_10_APB-AC-0_1_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "1",
+      "arm": "protocol_no_conclude",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "1",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C01",
+    "current_material_refs": [
+      "RT10_011"
+    ],
+    "current_verifier_refs": [
+      "RT10_012"
+    ],
+    "stale_refs": [
+      "RT10_003",
+      "RT10_007",
+      "RT10_010"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT10_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT10_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT10_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT10_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT10_005",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT10_006",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT10_007",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT10_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT10_009",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        },
+        {
+          "id": "RT10_010",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT10_011",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT10_012",
+          "candidate": "C01",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C01 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_11_APB-AC-0_2_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "2",
+      "arm": "protocol_no_conclude",
+      "success": "True",
+      "first_verified_exec_step": "5",
+      "duplicate_proposal_count": "1",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C05",
+    "current_material_refs": [
+      "RT11_015"
+    ],
+    "current_verifier_refs": [
+      "RT11_016"
+    ],
+    "stale_refs": [
+      "RT11_003",
+      "RT11_006",
+      "RT11_008"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT11_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT11_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT11_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT11_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT11_005",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT11_006",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT11_007",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT11_008",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT11_009",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT11_010",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT11_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT11_012",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT11_013",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT11_014",
+          "candidate": "C04",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C04 in the redacted authorized trace."
+        },
+        {
+          "id": "RT11_015",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT11_016",
+          "candidate": "C05",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C05 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_12_APB-AC-0_3_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "3",
+      "arm": "protocol_no_conclude",
+      "success": "True",
+      "first_verified_exec_step": "5",
+      "duplicate_proposal_count": "1",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C05",
+    "current_material_refs": [
+      "RT12_015"
+    ],
+    "current_verifier_refs": [
+      "RT12_016"
+    ],
+    "stale_refs": [
+      "RT12_003",
+      "RT12_007",
+      "RT12_009"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT12_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT12_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT12_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT12_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT12_005",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT12_006",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT12_007",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT12_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT12_009",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT12_010",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT12_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT12_012",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT12_013",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT12_014",
+          "candidate": "C04",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C04 in the redacted authorized trace."
+        },
+        {
+          "id": "RT12_015",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT12_016",
+          "candidate": "C05",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C05 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_13_APB-AC-0_5_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-0",
+      "seed": "5",
+      "arm": "protocol_no_conclude",
+      "success": "True",
+      "first_verified_exec_step": "5",
+      "duplicate_proposal_count": "1",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C05",
+    "current_material_refs": [
+      "RT13_015"
+    ],
+    "current_verifier_refs": [
+      "RT13_016"
+    ],
+    "stale_refs": [
+      "RT13_003",
+      "RT13_006",
+      "RT13_008"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT13_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT13_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT13_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT13_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT13_005",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT13_006",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT13_007",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT13_008",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT13_009",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT13_010",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT13_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT13_012",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT13_013",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT13_014",
+          "candidate": "C04",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C04 in the redacted authorized trace."
+        },
+        {
+          "id": "RT13_015",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT13_016",
+          "candidate": "C05",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C05 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_14_APB-AC-3_2_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "2",
+      "arm": "protocol_no_conclude",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "1",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C01",
+    "current_material_refs": [
+      "RT14_011"
+    ],
+    "current_verifier_refs": [
+      "RT14_012"
+    ],
+    "stale_refs": [
+      "RT14_003",
+      "RT14_007",
+      "RT14_010"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT14_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT14_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT14_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT14_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT14_005",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT14_006",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT14_007",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT14_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT14_009",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        },
+        {
+          "id": "RT14_010",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT14_011",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT14_012",
+          "candidate": "C01",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C01 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_15_APB-AC-3_5_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "5",
+      "arm": "protocol_no_conclude",
+      "success": "True",
+      "first_verified_exec_step": "3",
+      "duplicate_proposal_count": "1",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "finalize",
+    "expected_candidate": "C01",
+    "current_material_refs": [
+      "RT15_011"
+    ],
+    "current_verifier_refs": [
+      "RT15_012"
+    ],
+    "stale_refs": [
+      "RT15_003",
+      "RT15_007",
+      "RT15_010"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT15_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT15_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT15_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT15_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT15_005",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT15_006",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT15_007",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT15_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT15_009",
+          "candidate": "C03",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C03 in the redacted authorized trace."
+        },
+        {
+          "id": "RT15_010",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT15_011",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT15_012",
+          "candidate": "C01",
+          "kind": "terminal_verifier",
+          "status": "true",
+          "summary": "Terminal verifier accepted candidate C01 in the redacted authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_16_APB-AC-1_1_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "1",
+      "arm": "typed_summary",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "4",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT16_003",
+      "RT16_004",
+      "RT16_005",
+      "RT16_009",
+      "RT16_011",
+      "RT16_015",
+      "RT16_017",
+      "RT16_021",
+      "RT16_023"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT16_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT16_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT16_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT16_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT16_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT16_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT16_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT16_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT16_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT16_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT16_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT16_017",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_018",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT16_019",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT16_020",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT16_021",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_022",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT16_023",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT16_024",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_17_APB-AC-1_2_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "2",
+      "arm": "typed_summary",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "4",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT17_003",
+      "RT17_004",
+      "RT17_005",
+      "RT17_009",
+      "RT17_011",
+      "RT17_015",
+      "RT17_017",
+      "RT17_021",
+      "RT17_023"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT17_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT17_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT17_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT17_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT17_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT17_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT17_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT17_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT17_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT17_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT17_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT17_017",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_018",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT17_019",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT17_020",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT17_021",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_022",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT17_023",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT17_024",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_18_APB-AC-1_4_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "4",
+      "arm": "typed_summary",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "4",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT18_003",
+      "RT18_004",
+      "RT18_005",
+      "RT18_009",
+      "RT18_011",
+      "RT18_015",
+      "RT18_017",
+      "RT18_021",
+      "RT18_023"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT18_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT18_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT18_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT18_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT18_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT18_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT18_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT18_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT18_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT18_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT18_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT18_017",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_018",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT18_019",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT18_020",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT18_021",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_022",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT18_023",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT18_024",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_19_APB-AC-1_5_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "5",
+      "arm": "typed_summary",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "4",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT19_003",
+      "RT19_004",
+      "RT19_005",
+      "RT19_009",
+      "RT19_011",
+      "RT19_015",
+      "RT19_017",
+      "RT19_021",
+      "RT19_023"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT19_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT19_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT19_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT19_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT19_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT19_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT19_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT19_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT19_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT19_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT19_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT19_017",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_018",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT19_019",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT19_020",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT19_021",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_022",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT19_023",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT19_024",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_20_APB-AC-3_2_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "2",
+      "arm": "typed_summary",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "4",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT20_003",
+      "RT20_004",
+      "RT20_005",
+      "RT20_009",
+      "RT20_011",
+      "RT20_015",
+      "RT20_017",
+      "RT20_021",
+      "RT20_023"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT20_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT20_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT20_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT20_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT20_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT20_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT20_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT20_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT20_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT20_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT20_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT20_017",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_018",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT20_019",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT20_020",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT20_021",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_022",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT20_023",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT20_024",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_21_APB-AC-3_3_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "3",
+      "arm": "typed_summary",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "4",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT21_003",
+      "RT21_004",
+      "RT21_005",
+      "RT21_009",
+      "RT21_011",
+      "RT21_015",
+      "RT21_017",
+      "RT21_021",
+      "RT21_023"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT21_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT21_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT21_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT21_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT21_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT21_008",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT21_009",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_010",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT21_011",
+          "candidate": "C02",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C02 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_012",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT21_013",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT21_014",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT21_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT21_017",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_018",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT21_019",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT21_020",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT21_021",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_022",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT21_023",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT21_024",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_22_APB-AC-1_1_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "1",
+      "arm": "protocol_no_conclude",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "3",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT22_003",
+      "RT22_006",
+      "RT22_008",
+      "RT22_013",
+      "RT22_017",
+      "RT22_019"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT22_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT22_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT22_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT22_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT22_005",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT22_006",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT22_007",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT22_008",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT22_009",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT22_010",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT22_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT22_012",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT22_013",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT22_014",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT22_015",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C05 in authorized trace round 4."
+        },
+        {
+          "id": "RT22_016",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT22_017",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT22_018",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT22_019",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT22_020",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_23_APB-AC-1_3_typed_summary",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "3",
+      "arm": "typed_summary",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "3",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT23_003",
+      "RT23_004",
+      "RT23_005",
+      "RT23_013",
+      "RT23_015",
+      "RT23_019",
+      "RT23_021"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT23_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT23_002",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT23_003",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT23_004",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT23_005",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT23_006",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT23_007",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C02 in authorized trace round 2."
+        },
+        {
+          "id": "RT23_008",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT23_009",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT23_010",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT23_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT23_012",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT23_013",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT23_014",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT23_015",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT23_016",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT23_017",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C05 in authorized trace round 4."
+        },
+        {
+          "id": "RT23_018",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 4."
+        },
+        {
+          "id": "RT23_019",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT23_020",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT23_021",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT23_022",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_24_APB-AC-3_4_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-3",
+      "seed": "4",
+      "arm": "protocol_no_conclude",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "3",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT24_003",
+      "RT24_007",
+      "RT24_009",
+      "RT24_013",
+      "RT24_015",
+      "RT24_019",
+      "RT24_021"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT24_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT24_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT24_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT24_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT24_005",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT24_006",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT24_007",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT24_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT24_009",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT24_010",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT24_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT24_012",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT24_013",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT24_014",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT24_015",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT24_016",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT24_017",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C05 in authorized trace round 4."
+        },
+        {
+          "id": "RT24_018",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 4."
+        },
+        {
+          "id": "RT24_019",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT24_020",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT24_021",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT24_022",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_25_APB-AC-1_1_protocol_full",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "1",
+      "arm": "protocol_full",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "0",
+      "conclude_recovery_events": "1"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT25_012",
+      "RT25_016"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT25_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT25_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT25_003",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT25_004",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Candidate C01 experienced an interruption but committed evidence was preserved by the trace runtime."
+        },
+        {
+          "id": "RT25_005",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT25_006",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT25_007",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 2."
+        },
+        {
+          "id": "RT25_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT25_009",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT25_010",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT25_011",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT25_012",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT25_013",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT25_014",
+          "candidate": "C06",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C06 in authorized trace round 4."
+        },
+        {
+          "id": "RT25_015",
+          "candidate": "C06",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C06 in authorized trace round 4."
+        },
+        {
+          "id": "RT25_016",
+          "candidate": "C06",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C06 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT25_017",
+          "candidate": "C06",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C06 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_26_APB-AC-1_2_protocol_full",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "2",
+      "arm": "protocol_full",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "0",
+      "conclude_recovery_events": "1"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT26_012",
+      "RT26_016",
+      "RT26_018"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT26_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT26_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT26_003",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT26_004",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Candidate C01 experienced an interruption but committed evidence was preserved by the trace runtime."
+        },
+        {
+          "id": "RT26_005",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT26_006",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT26_007",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 2."
+        },
+        {
+          "id": "RT26_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT26_009",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT26_010",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT26_011",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT26_012",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT26_013",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT26_014",
+          "candidate": "C06",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C06 in authorized trace round 4."
+        },
+        {
+          "id": "RT26_015",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 4."
+        },
+        {
+          "id": "RT26_016",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT26_017",
+          "candidate": "C06",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C06 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT26_018",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT26_019",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_27_APB-AC-1_2_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "2",
+      "arm": "protocol_no_conclude",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT27_003",
+      "RT27_006",
+      "RT27_008",
+      "RT27_017",
+      "RT27_019"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT27_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT27_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT27_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT27_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT27_005",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT27_006",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT27_007",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT27_008",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT27_009",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT27_010",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT27_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT27_012",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT27_013",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT27_014",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT27_015",
+          "candidate": "C06",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C06 in authorized trace round 4."
+        },
+        {
+          "id": "RT27_016",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT27_017",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT27_018",
+          "candidate": "C06",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C06 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT27_019",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT27_020",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_28_APB-AC-1_3_protocol_full",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "3",
+      "arm": "protocol_full",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "0",
+      "conclude_recovery_events": "1"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT28_012",
+      "RT28_014",
+      "RT28_018",
+      "RT28_020"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT28_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT28_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT28_003",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT28_004",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Candidate C01 experienced an interruption but committed evidence was preserved by the trace runtime."
+        },
+        {
+          "id": "RT28_005",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT28_006",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT28_007",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 2."
+        },
+        {
+          "id": "RT28_008",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT28_009",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT28_010",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT28_011",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 3."
+        },
+        {
+          "id": "RT28_012",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT28_013",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT28_014",
+          "candidate": "C03",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C03 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT28_015",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT28_016",
+          "candidate": "C06",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C06 in authorized trace round 4."
+        },
+        {
+          "id": "RT28_017",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 4."
+        },
+        {
+          "id": "RT28_018",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT28_019",
+          "candidate": "C06",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C06 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT28_020",
+          "candidate": "C05",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C05 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT28_021",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_29_APB-AC-1_3_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "3",
+      "arm": "protocol_no_conclude",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT29_003",
+      "RT29_006",
+      "RT29_008",
+      "RT29_017",
+      "RT29_019"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT29_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT29_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT29_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT29_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT29_005",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT29_006",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT29_007",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT29_008",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT29_009",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT29_010",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT29_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT29_012",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT29_013",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT29_014",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT29_015",
+          "candidate": "C06",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C06 in authorized trace round 4."
+        },
+        {
+          "id": "RT29_016",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT29_017",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT29_018",
+          "candidate": "C06",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C06 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT29_019",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT29_020",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "realtrace_30_APB-AC-1_4_protocol_no_conclude",
+    "source": "phase9e_multi_worker_claim",
+    "trace_meta": {
+      "task_id": "APB-AC-1",
+      "seed": "4",
+      "arm": "protocol_no_conclude",
+      "success": "False",
+      "first_verified_exec_step": "",
+      "duplicate_proposal_count": "2",
+      "lost_writeback_events": "1",
+      "conclude_recovery_events": "0"
+    },
+    "expected_decision": "continue",
+    "expected_candidate": null,
+    "current_material_refs": [],
+    "current_verifier_refs": [],
+    "stale_refs": [
+      "RT30_003",
+      "RT30_006",
+      "RT30_008",
+      "RT30_017",
+      "RT30_019"
+    ],
+    "rounds": [
+      [
+        {
+          "id": "RT30_001",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 1."
+        },
+        {
+          "id": "RT30_002",
+          "candidate": "C02",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C02 in authorized trace round 1."
+        },
+        {
+          "id": "RT30_003",
+          "candidate": "C01",
+          "kind": "failed_path",
+          "summary": "Redacted candidate C01 produced no committed evidence due to interruption/blocking in the authorized trace."
+        },
+        {
+          "id": "RT30_004",
+          "candidate": "C02",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C02 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT30_005",
+          "candidate": "C01",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C01 in authorized trace round 2."
+        },
+        {
+          "id": "RT30_006",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT30_007",
+          "candidate": "C03",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C03 in authorized trace round 2."
+        },
+        {
+          "id": "RT30_008",
+          "candidate": "C01",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C01 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT30_009",
+          "candidate": "C01",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C01 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT30_010",
+          "candidate": "C03",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C03 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT30_011",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C04 in authorized trace round 3."
+        },
+        {
+          "id": "RT30_012",
+          "candidate": "C05",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C05 in authorized trace round 3."
+        },
+        {
+          "id": "RT30_013",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT30_014",
+          "candidate": "C05",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C05 was deposited from the authorized trace."
+        }
+      ],
+      [
+        {
+          "id": "RT30_015",
+          "candidate": "C06",
+          "kind": "worker_note",
+          "summary": "Worker 1 proposed redacted candidate C06 in authorized trace round 4."
+        },
+        {
+          "id": "RT30_016",
+          "candidate": "C04",
+          "kind": "worker_note",
+          "summary": "Worker 2 proposed redacted candidate C04 in authorized trace round 4."
+        },
+        {
+          "id": "RT30_017",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was proposed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT30_018",
+          "candidate": "C06",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C06 was deposited from the authorized trace."
+        },
+        {
+          "id": "RT30_019",
+          "candidate": "C04",
+          "kind": "duplicate_worker_output",
+          "summary": "Redacted candidate C04 was executed redundantly in the real-derived trace."
+        },
+        {
+          "id": "RT30_020",
+          "candidate": "C04",
+          "kind": "material_trace",
+          "summary": "Committed redacted material evidence for candidate C04 was deposited from the authorized trace."
+        }
+      ]
+    ]
+  }
+]

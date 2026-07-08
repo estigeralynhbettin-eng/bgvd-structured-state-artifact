@@ -1,0 +1,28 @@
+{
+  "episode_count": 8,
+  "providers": [
+    "glm",
+    "deepseek"
+  ],
+  "qwen_prompt_chars": {
+    "count": 64,
+    "min": 1225,
+    "p50": 2032,
+    "p95": 2323,
+    "max": 2323
+  },
+  "strong_prompt_chars": {
+    "count": 40,
+    "min": 1187,
+    "p50": 1427,
+    "p95": 1794,
+    "max": 1794
+  },
+  "prompt_audit_failures": 0,
+  "leak_findings": [],
+  "top_k": 5,
+  "model": "qwen3.5:9b",
+  "qwen_num_predict": 2048,
+  "max_tokens": 2048,
+  "design": "pressure-reduced low-pressure counterfactual replay"
+}

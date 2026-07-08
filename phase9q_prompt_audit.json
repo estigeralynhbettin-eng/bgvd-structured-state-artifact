@@ -1,0 +1,10 @@
+{
+  "prompt_count": 20,
+  "length_chars": {
+    "min": 2099,
+    "p50": 2819,
+    "max": 3926
+  },
+  "leak_findings": [],
+  "status": "pass"
+}

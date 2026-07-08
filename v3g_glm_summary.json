@@ -1,0 +1,2671 @@
+{
+  "date": "2026-07-07",
+  "phase_id": "v3g",
+  "design": "Held-out weak-to-strong cost pilot with paid all-strong state updater",
+  "episode_count": 15,
+  "redaction_audit": {
+    "pass": true,
+    "findings": []
+  },
+  "prompt_audit": {
+    "prompt_count": 87,
+    "char_min": 1125,
+    "char_p50": 2362,
+    "char_p95": 4548,
+    "char_max": 5418,
+    "rough_token_max": 1354
+  },
+  "aggregate": {
+    "glm::raw_running_log": {
+      "total": 15,
+      "correct": 15,
+      "false_finalize": 0,
+      "wrong_candidate": 0,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "state_update_tokens": 0,
+      "finalizer_tokens": 19471,
+      "strong_paid_tokens": 19471,
+      "accuracy": 1.0,
+      "strong_tokens_per_correct": 1298.0666666666666
+    },
+    "glm::weak_curated_state": {
+      "total": 15,
+      "correct": 15,
+      "false_finalize": 0,
+      "wrong_candidate": 0,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "state_update_tokens": 0,
+      "finalizer_tokens": 10766,
+      "strong_paid_tokens": 10766,
+      "accuracy": 1.0,
+      "strong_tokens_per_correct": 717.7333333333333
+    },
+    "glm::weak_raw_qwen35_state": {
+      "total": 15,
+      "correct": 5,
+      "false_finalize": 0,
+      "wrong_candidate": 4,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 1,
+      "state_update_tokens": 0,
+      "finalizer_tokens": 10264,
+      "strong_paid_tokens": 10264,
+      "accuracy": 0.3333333333333333,
+      "strong_tokens_per_correct": 2052.8
+    },
+    "glm::all_strong_state": {
+      "total": 15,
+      "correct": 5,
+      "false_finalize": 0,
+      "wrong_candidate": 9,
+      "stale_or_superseded_misuse": 0,
+      "parse_failures": 0,
+      "state_update_failures": 0,
+      "state_update_tokens": 68303,
+      "finalizer_tokens": 18961,
+      "strong_paid_tokens": 87264,
+      "accuracy": 0.3333333333333333,
+      "strong_tokens_per_correct": 17452.8
+    }
+  },
+  "contrasts": [
+    {
+      "provider": "glm",
+      "contrast": "weak_curated_state > weak_raw_qwen35_state",
+      "comparable": 15,
+      "better": 10,
+      "baseline_better": 0,
+      "ties": 5,
+      "p_one_sided": 0.0009765625
+    },
+    {
+      "provider": "glm",
+      "contrast": "weak_curated_state > all_strong_state",
+      "comparable": 15,
+      "better": 10,
+      "baseline_better": 0,
+      "ties": 5,
+      "p_one_sided": 0.0009765625
+    },
+    {
+      "provider": "glm",
+      "contrast": "all_strong_state > weak_curated_state",
+      "comparable": 15,
+      "better": 0,
+      "baseline_better": 10,
+      "ties": 5,
+      "p_one_sided": 1.0
+    }
+  ],
+  "rows": [
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT01_004",
+        "RT01_009",
+        "RT01_010",
+        "RT01_013",
+        "RT01_014",
+        "RT01_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 154,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1380,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1534
+      },
+      "finalizer_tokens": 1534,
+      "strong_paid_tokens": 1534
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 187,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 627,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 814
+      },
+      "finalizer_tokens": 814,
+      "strong_paid_tokens": 814
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT01_015",
+        "RT01_016",
+        "RT01_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 151,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 516,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 667
+      },
+      "finalizer_tokens": 667,
+      "strong_paid_tokens": 667
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 6752,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 125,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1161,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1286
+      },
+      "finalizer_tokens": 1286,
+      "strong_paid_tokens": 8038
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT02_004",
+        "RT02_007",
+        "RT02_008",
+        "RT02_012",
+        "RT02_014",
+        "RT02_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 151,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1380,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 1531
+      },
+      "finalizer_tokens": 1531,
+      "strong_paid_tokens": 1531
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 136,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 627,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 763
+      },
+      "finalizer_tokens": 763,
+      "strong_paid_tokens": 763
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT02_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 139,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 539,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 678
+      },
+      "finalizer_tokens": 678,
+      "strong_paid_tokens": 678
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 7114,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 154,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1158,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1312
+      },
+      "finalizer_tokens": 1312,
+      "strong_paid_tokens": 8426
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT03_004",
+        "RT03_008",
+        "RT03_010",
+        "RT03_013",
+        "RT03_014",
+        "RT03_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 174,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1380,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1554
+      },
+      "finalizer_tokens": 1554,
+      "strong_paid_tokens": 1554
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 187,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 626,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 813
+      },
+      "finalizer_tokens": 813,
+      "strong_paid_tokens": 813
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT03_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 159,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 573,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 732
+      },
+      "finalizer_tokens": 732,
+      "strong_paid_tokens": 732
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 7463,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT03_004",
+        "RT03_008",
+        "RT03_013",
+        "RT03_014",
+        "RT03_018"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 190,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1304,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1494
+      },
+      "finalizer_tokens": 1494,
+      "strong_paid_tokens": 8957
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT04_003",
+        "RT04_005",
+        "RT04_008",
+        "RT04_009",
+        "RT04_012",
+        "RT04_013",
+        "RT04_017",
+        "RT04_019"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 171,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1436,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1607
+      },
+      "finalizer_tokens": 1607,
+      "strong_paid_tokens": 1607
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 148,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 643,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 791
+      },
+      "finalizer_tokens": 791,
+      "strong_paid_tokens": 791
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT04_017",
+        "RT04_019"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 490,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 673
+      },
+      "finalizer_tokens": 673,
+      "strong_paid_tokens": 673
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 7085,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 121,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1295,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 1416
+      },
+      "finalizer_tokens": 1416,
+      "strong_paid_tokens": 8501
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 192,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1436,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1628
+      },
+      "finalizer_tokens": 1628,
+      "strong_paid_tokens": 1628
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 130,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 643,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 773
+      },
+      "finalizer_tokens": 773,
+      "strong_paid_tokens": 773
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT05_017",
+        "RT05_019"
+      ],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 145,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 487,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 632
+      },
+      "finalizer_tokens": 632,
+      "strong_paid_tokens": 632
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 7503,
+      "state_update_ok": true,
+      "expected_decision": "continue",
+      "expected_candidate": null,
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": null,
+      "verifier_cited": null,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 132,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1457,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1589
+      },
+      "finalizer_tokens": 1589,
+      "strong_paid_tokens": 9092
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_010"
+      ],
+      "verifier_refs": [
+        "RT06_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 133,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 64
+        },
+        "total_tokens": 1103
+      },
+      "finalizer_tokens": 1103,
+      "strong_paid_tokens": 1103
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_010"
+      ],
+      "verifier_refs": [
+        "RT06_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 146,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 677
+      },
+      "finalizer_tokens": 677,
+      "strong_paid_tokens": 677
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_008",
+        "RT06_010"
+      ],
+      "verifier_refs": [
+        "RT06_009",
+        "RT06_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 179,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 553,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 732
+      },
+      "finalizer_tokens": 732,
+      "strong_paid_tokens": 732
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2898,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT06_008"
+      ],
+      "verifier_refs": [
+        "RT06_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 191,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 958,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1149
+      },
+      "finalizer_tokens": 1149,
+      "strong_paid_tokens": 4047
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_010"
+      ],
+      "verifier_refs": [
+        "RT07_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 141,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1111
+      },
+      "finalizer_tokens": 1111,
+      "strong_paid_tokens": 1111
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_010"
+      ],
+      "verifier_refs": [
+        "RT07_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 126,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 657
+      },
+      "finalizer_tokens": 657,
+      "strong_paid_tokens": 657
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "realtrace_07_APB-AC-0_R2_C03_evidence_deposit"
+      ],
+      "verifier_refs": [
+        "realtrace_07_APB-AC-0_R2_C03_terminal_verifier_true"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 205,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 604,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 809
+      },
+      "finalizer_tokens": 809,
+      "strong_paid_tokens": 809
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2848,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT07_008",
+        "RT07_010"
+      ],
+      "verifier_refs": [
+        "RT07_009",
+        "RT07_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 207,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 930,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1137
+      },
+      "finalizer_tokens": 1137,
+      "strong_paid_tokens": 3985
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_010"
+      ],
+      "verifier_refs": [
+        "RT08_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 145,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 64
+        },
+        "total_tokens": 1115
+      },
+      "finalizer_tokens": 1115,
+      "strong_paid_tokens": 1115
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_010"
+      ],
+      "verifier_refs": [
+        "RT08_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 136,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 667
+      },
+      "finalizer_tokens": 667,
+      "strong_paid_tokens": 667
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "realtrace_08_APB-AC-0_3_protocol_full:round2:material_commitment:C03"
+      ],
+      "verifier_refs": [
+        "realtrace_08_APB-AC-0_3_protocol_full:round2:terminal_verifier:C03"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 547,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 730
+      },
+      "finalizer_tokens": 730,
+      "strong_paid_tokens": 730
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2927,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT08_008"
+      ],
+      "verifier_refs": [
+        "RT08_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 184,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 977,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1161
+      },
+      "finalizer_tokens": 1161,
+      "strong_paid_tokens": 4088
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_010"
+      ],
+      "verifier_refs": [
+        "RT09_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 165,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 1135
+      },
+      "finalizer_tokens": 1135,
+      "strong_paid_tokens": 1135
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_010"
+      ],
+      "verifier_refs": [
+        "RT09_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 146,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 677
+      },
+      "finalizer_tokens": 677,
+      "strong_paid_tokens": 677
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 182,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 504,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 686
+      },
+      "finalizer_tokens": 686,
+      "strong_paid_tokens": 686
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2836,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT09_008",
+        "RT09_010"
+      ],
+      "verifier_refs": [
+        "RT09_009",
+        "RT09_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 208,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 928,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1136
+      },
+      "finalizer_tokens": 1136,
+      "strong_paid_tokens": 3972
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT10_010"
+      ],
+      "verifier_refs": [
+        "RT10_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 132,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1102
+      },
+      "finalizer_tokens": 1102,
+      "strong_paid_tokens": 1102
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT10_010"
+      ],
+      "verifier_refs": [
+        "RT10_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 131,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 64
+        },
+        "total_tokens": 662
+      },
+      "finalizer_tokens": 662,
+      "strong_paid_tokens": 662
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 163,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 455,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 618
+      },
+      "finalizer_tokens": 618,
+      "strong_paid_tokens": 618
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2676,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT10_008"
+      ],
+      "verifier_refs": [
+        "RT10_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 874,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1057
+      },
+      "finalizer_tokens": 1057,
+      "strong_paid_tokens": 3733
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT11_010"
+      ],
+      "verifier_refs": [
+        "RT11_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 148,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1118
+      },
+      "finalizer_tokens": 1118,
+      "strong_paid_tokens": 1118
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT11_010"
+      ],
+      "verifier_refs": [
+        "RT11_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 136,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 667
+      },
+      "finalizer_tokens": 667,
+      "strong_paid_tokens": 667
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": false,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT11_003",
+        "RT11_005"
+      ],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 140,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 472,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 612
+      },
+      "finalizer_tokens": 612,
+      "strong_paid_tokens": 612
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2769,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT11_008"
+      ],
+      "verifier_refs": [
+        "RT11_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 191,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 919,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1110
+      },
+      "finalizer_tokens": 1110,
+      "strong_paid_tokens": 3879
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_010"
+      ],
+      "verifier_refs": [
+        "RT12_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 139,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 1109
+      },
+      "finalizer_tokens": 1109,
+      "strong_paid_tokens": 1109
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_010"
+      ],
+      "verifier_refs": [
+        "RT12_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 125,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 656
+      },
+      "finalizer_tokens": 656,
+      "strong_paid_tokens": 656
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_008",
+        "RT12_010"
+      ],
+      "verifier_refs": [
+        "RT12_009",
+        "RT12_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 179,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 508,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 687
+      },
+      "finalizer_tokens": 687,
+      "strong_paid_tokens": 687
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2823,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT12_008",
+        "RT12_010"
+      ],
+      "verifier_refs": [
+        "RT12_009",
+        "RT12_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 237,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 929,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1166
+      },
+      "finalizer_tokens": 1166,
+      "strong_paid_tokens": 3989
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": "C06",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT13_014"
+      ],
+      "verifier_refs": [
+        "RT13_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 152,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1208,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 1360
+      },
+      "finalizer_tokens": 1360,
+      "strong_paid_tokens": 1360
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": "C06",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT13_014"
+      ],
+      "verifier_refs": [
+        "RT13_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 135,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 606,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 741
+      },
+      "finalizer_tokens": 741,
+      "strong_paid_tokens": 741
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 166,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 497,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 663
+      },
+      "finalizer_tokens": 663,
+      "strong_paid_tokens": 663
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 4728,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "continue",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [],
+      "verifier_refs": [],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 156,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1118,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1274
+      },
+      "finalizer_tokens": 1274,
+      "strong_paid_tokens": 6002
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": "C06",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_014"
+      ],
+      "verifier_refs": [
+        "RT14_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 154,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1208,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1362
+      },
+      "finalizer_tokens": 1362,
+      "strong_paid_tokens": 1362
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": "C06",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_014"
+      ],
+      "verifier_refs": [
+        "RT14_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 136,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 606,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 742
+      },
+      "finalizer_tokens": 742,
+      "strong_paid_tokens": 742
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": null,
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_012",
+        "RT14_014"
+      ],
+      "verifier_refs": [
+        "RT14_013",
+        "RT14_015"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 181,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 511,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 692
+      },
+      "finalizer_tokens": 692,
+      "strong_paid_tokens": 692
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 4918,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C06",
+      "decision": "finalize",
+      "selected_candidate": "C05",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT14_012"
+      ],
+      "verifier_refs": [
+        "RT14_013"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 181,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1248,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1429
+      },
+      "finalizer_tokens": 1429,
+      "strong_paid_tokens": 6347
+    },
+    {
+      "provider": "glm",
+      "arm": "raw_running_log",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": null,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_010"
+      ],
+      "verifier_refs": [
+        "RT15_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 132,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 970,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1102
+      },
+      "finalizer_tokens": 1102,
+      "strong_paid_tokens": 1102
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_curated_state",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C04",
+      "correct": true,
+      "false_finalize": false,
+      "wrong_candidate": false,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_010"
+      ],
+      "verifier_refs": [
+        "RT15_011"
+      ],
+      "material_cited": true,
+      "verifier_cited": true,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 135,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 666
+      },
+      "finalizer_tokens": 666,
+      "strong_paid_tokens": 666
+    },
+    {
+      "provider": "glm",
+      "arm": "weak_raw_qwen35_state",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 0,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_008"
+      ],
+      "verifier_refs": [
+        "RT15_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 139,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 514,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "total_tokens": 653
+      },
+      "finalizer_tokens": 653,
+      "strong_paid_tokens": 653
+    },
+    {
+      "provider": "glm",
+      "arm": "all_strong_state",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "provider_model": "glm-5.2",
+      "state_update_tokens": 2963,
+      "state_update_ok": true,
+      "expected_decision": "finalize",
+      "expected_candidate": "C04",
+      "decision": "finalize",
+      "selected_candidate": "C03",
+      "correct": false,
+      "false_finalize": false,
+      "wrong_candidate": true,
+      "stale_or_superseded_misuse": false,
+      "stale_refs_in_support_fields": [],
+      "stale_refs_marked_or_noted": [],
+      "material_refs": [
+        "RT15_008"
+      ],
+      "verifier_refs": [
+        "RT15_009"
+      ],
+      "material_cited": false,
+      "verifier_cited": false,
+      "parse_ok": true,
+      "provider_failure_type": "ok",
+      "usage": {
+        "completion_tokens": 176,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens": 1069,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 1245
+      },
+      "finalizer_tokens": 1245,
+      "strong_paid_tokens": 4208
+    }
+  ],
+  "weak_status": {
+    "weak_raw_qwen35_state::realtrace_01_APB-AC-1_5_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4
+    },
+    "weak_raw_qwen35_state::realtrace_02_APB-AC-3_1_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4
+    },
+    "weak_raw_qwen35_state::realtrace_03_APB-AC-3_3_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4
+    },
+    "weak_raw_qwen35_state::realtrace_04_APB-AC-1_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4
+    },
+    "weak_raw_qwen35_state::realtrace_05_APB-AC-1_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4
+    },
+    "weak_raw_qwen35_state::realtrace_06_APB-AC-0_1_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2
+    },
+    "weak_raw_qwen35_state::realtrace_07_APB-AC-0_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2
+    },
+    "weak_raw_qwen35_state::realtrace_08_APB-AC-0_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2
+    },
+    "weak_raw_qwen35_state::realtrace_09_APB-AC-0_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2
+    },
+    "weak_raw_qwen35_state::realtrace_10_APB-AC-0_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2
+    },
+    "weak_raw_qwen35_state::realtrace_11_APB-AC-3_1_protocol_full": {
+      "all_rounds_ok": false,
+      "rounds": 2
+    },
+    "weak_raw_qwen35_state::realtrace_12_APB-AC-3_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2
+    },
+    "weak_raw_qwen35_state::realtrace_13_APB-AC-3_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 3
+    },
+    "weak_raw_qwen35_state::realtrace_14_APB-AC-3_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 3
+    },
+    "weak_raw_qwen35_state::realtrace_15_APB-AC-3_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2
+    }
+  },
+  "all_strong_status": {
+    "glm::all_strong_state::realtrace_01_APB-AC-1_5_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 6752
+    },
+    "glm::all_strong_state::realtrace_02_APB-AC-3_1_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 7114
+    },
+    "glm::all_strong_state::realtrace_03_APB-AC-3_3_protocol_no_conclude": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 7463
+    },
+    "glm::all_strong_state::realtrace_04_APB-AC-1_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 7085
+    },
+    "glm::all_strong_state::realtrace_05_APB-AC-1_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 4,
+      "state_update_tokens": 7503
+    },
+    "glm::all_strong_state::realtrace_06_APB-AC-0_1_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2898
+    },
+    "glm::all_strong_state::realtrace_07_APB-AC-0_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2848
+    },
+    "glm::all_strong_state::realtrace_08_APB-AC-0_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2927
+    },
+    "glm::all_strong_state::realtrace_09_APB-AC-0_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2836
+    },
+    "glm::all_strong_state::realtrace_10_APB-AC-0_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2676
+    },
+    "glm::all_strong_state::realtrace_11_APB-AC-3_1_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2769
+    },
+    "glm::all_strong_state::realtrace_12_APB-AC-3_2_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2823
+    },
+    "glm::all_strong_state::realtrace_13_APB-AC-3_3_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "state_update_tokens": 4728
+    },
+    "glm::all_strong_state::realtrace_14_APB-AC-3_4_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 3,
+      "state_update_tokens": 4918
+    },
+    "glm::all_strong_state::realtrace_15_APB-AC-3_5_protocol_full": {
+      "all_rounds_ok": true,
+      "rounds": 2,
+      "state_update_tokens": 2963
+    }
+  }
+}
