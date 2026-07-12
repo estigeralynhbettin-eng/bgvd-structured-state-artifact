@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:bgvd-state:schema:event:v1",
+  "title": "BGVD-State Event",
+  "type": "object",
+  "required": ["id", "type", "summary"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "type": {
+      "enum": [
+        "tool_call",
+        "observation",
+        "hypothesis",
+        "material_evidence",
+        "verifier_result",
+        "invalidation",
+        "failed_path",
+        "candidate_update",
+        "finalization"
+      ]
+    },
+    "summary": {"type": "string", "minLength": 1},
+    "candidate_id": {"type": ["string", "null"]},
+    "timestamp": {"type": ["string", "null"]},
+    "refs": {"type": "array", "items": {"type": "string"}},
+    "invalidates": {"type": "array", "items": {"type": "string"}},
+    "verifier_status": {"type": ["boolean", "null"]},
+    "outcome": {"type": ["string", "null"]},
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": false
+}

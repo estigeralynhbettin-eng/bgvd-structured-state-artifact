@@ -1,85 +1,146 @@
-# Sanitized Fixture Release Candidate
+# BGVD-State
 
-Date: 2026-07-09
+BGVD-State is evidence-lifecycle middleware for verifier-gated handoff in
+defensive LLM security agents. It records model and tool events, maintains
+candidate identity, binds material evidence and verifier results, preserves
+failed paths, invalidates stale evidence, and produces a compact handoff packet
+for a stronger model or human analyst.
 
-This directory is a release candidate for the structured-state-interface manuscript evidence. It contains redacted replay fixtures and result summaries only. It does not contain live targets, credentials, operational exploit commands, network addresses, or target-specific reproduction procedures.
+The safety-critical state transitions are deterministic. No API key, model
+service, container, or live target is required to use the core package.
 
-## Scope
+## Why It Exists
 
-The release candidate supports the accompanying manuscript on structured state
-interfaces for defensive LLM security-agent verifier replay.
+A prose summary can mention the right facts while losing the relations that
+make a security finding valid: which evidence supports which candidate, whether
+the verifier result is current, which paths have failed, and whether
+finalization is allowed. BGVD-State makes those relations explicit and checks
+them before a finding can be finalized.
 
-The scientific claim supported by this package is bounded:
+This repository also contains the sanitized replay artifact used to evaluate
+the accompanying structured-state-interface study. The software does not claim
+that typed blackboards universally outperform prose memory or that it discovers
+real-world vulnerabilities.
 
-- security-specific structured state interfaces improve defensive weak-to-strong handoff over matched-budget weak free-form memory;
-- the improvement is not explained by ordinary generic JSON organization;
-- the improvement is not explained by the tested simple lexical, BM25-style, or dependency-free hashed dense-vector event-retrieval memory under state pressure;
-- a targeted local open-weight finalizer subset preserves the schema-favoring direction on selected schema-discordant replay cases;
-- the improvement is pressure-dependent and disappears in pressure-reduced replay;
-- deterministic runtime evidence curation is one auditable implementation, not a uniquely superior mechanism;
-- typed protocol surface alone does not improve over information-equivalent curated prose;
-- the weak-to-strong cost result is a strong paid-token proxy result, not total cost of ownership.
+## Installation
 
-## Included Files
+BGVD-State supports Python 3.10-3.12 and has no runtime dependencies.
 
-| File | Purpose |
-|---|---|
-| `v3e_episodes.redacted.json` | 30 redacted real-trace-derived fixtures used by V3e |
-| `v3e_summary.json` | V3e arm-level and row-level outcomes |
-| `v3e_stats.md` | V3e statistical report |
-| `v3i_episodes.redacted.json` | V3i fixtures, same 30-fixture family |
-| `v3i_summary.json` | Schema-guided weak-memory baseline result |
-| `v3j_episodes.redacted.json` | V3j fixtures, same 30-fixture family |
-| `v3j_summary.json` | Matched-budget free-form weak-memory baseline result |
-| `v3k_episodes.redacted.json` | V3k fixtures, same 30-fixture family |
-| `v3k_summary.json` | Generic structured weak-memory control result |
-| `v3k_result.md` | V3k generic structured-memory result report |
-| `phase9n_episodes.redacted.json` | 30 redacted fixtures used by the lexical event-retrieval memory control |
-| `phase9n_summary_protocol_repaired.json` | Phase9n protocol-repaired lexical event-retrieval result |
-| `phase9n_result.md` | Phase9n result report |
-| `phase9n_prompt_audit.json` | Phase9n prompt/leak audit summary |
-| `phase9p_episodes.redacted.json` | 30 redacted fixtures used by the BM25-style event-retrieval memory control |
-| `phase9p_summary_protocol_repaired.json` | Phase9p protocol-repaired BM25-style event-retrieval result |
-| `phase9p_result.md` | Phase9p result report |
-| `phase9p_prompt_audit.json` | Phase9p prompt/leak audit summary |
-| `phase9r_episodes.redacted.json` | 30 redacted fixtures used by the hashed dense-vector event-retrieval memory control |
-| `phase9r_summary.json` | Phase9r hashed dense-vector event-retrieval result |
-| `phase9r_result.md` | Phase9r result report |
-| `phase9r_prompt_audit.json` | Phase9r prompt/leak audit summary |
-| `phase9q_open_weight_summary.json` | Phase9q local open-weight finalizer subset sensitivity result |
-| `phase9q_open_weight_result.md` | Phase9q result report |
-| `phase9q_prompt_audit.json` | Phase9q prompt/leak audit summary |
-| `phase9o_episodes.redacted.json` | 8 pressure-reduced low-pressure counterfactual fixtures |
-| `phase9o_summary_protocol_repaired.json` | Phase9o protocol-repaired low-pressure boundary result |
-| `phase9o_result.md` | Phase9o result report |
-| `phase9o_prompt_audit.json` | Phase9o prompt/leak audit summary |
-| `v3g_episodes.redacted.json` | 15 held-out cost fixtures |
-| `v3g_glm_summary.json` | V3g GLM held-out result |
-| `v3g_deepseek_summary.json` | V3g DeepSeek held-out result |
-| `v3h_episodes.redacted.json` | 15 held-out strong-curated ablation fixtures |
-| `v3h_glm_summary.json` | V3h GLM strong-curated result |
-| `v3h_deepseek_summary.json` | V3h DeepSeek strong-curated result |
-| `REPRODUCE.md` | Reproduction notes and result-to-figure mapping |
-| `validate_structured_state_artifact.py` | Offline artifact validator that recomputes manuscript-level contrasts, leakage-audit status, and strong-token proxy from this release directory or ZIP |
+```bash
+python -m pip install .
+```
 
-## Fixed Selection Protocol
+For an editable development install:
 
-Fixtures were selected for state-management pressure rather than exploit novelty. A fixture must contain:
+```bash
+python -m pip install -e .
+```
 
-1. at least one candidate security finding;
-2. at least one material-evidence relation;
-3. at least one verifier relation, stale or failed-path relation, or finalization decision point;
-4. no live target operation requirement in the manuscript-visible packet.
+## Ten-Minute Example
 
-Fixtures with a single obvious answer and no competing evidence relation were excluded because they do not test handoff state management. V3g/V3h held-out fixtures were excluded from V3e before cost evaluation.
+Replay a sanitized candidate-replacement event stream:
 
-## Redaction Policy
+```bash
+bgvd-state replay \
+  --events examples/candidate_replacement/events.json \
+  --state-out state.json \
+  --handoff-out handoff.json
+```
 
-The redaction removes operational command text, target-specific payload strings, network addresses, credentials, and direct reproduction steps. The retained information is state-level evidence: candidate identifiers, event references, evidence summaries, verifier status, stale markers, failed paths, and finalization eligibility.
+Check the current candidate:
 
-## Release Caveat
+```bash
+bgvd-state gate --state state.json --candidate C_CURRENT
+```
 
-This is a release candidate for external artifact review. Before final
-publication, run the leakage audit and artifact validator again after download,
-decide whether raw model outputs should be included or omitted, and assign
-stable artifact identifiers.
+The gate allows `C_CURRENT` and rejects `C_OLD`, whose evidence was invalidated.
+The second example demonstrates that an old positive verifier cannot override a
+current negative verifier:
+
+```bash
+bgvd-state replay \
+  --events examples/stale_verifier/events.json \
+  --state-out stale-state.json \
+  --handoff-out stale-handoff.json
+
+bgvd-state gate --state stale-state.json --candidate C_STALE
+```
+
+The final command exits with status `2` because finalization is rejected.
+
+## Python API
+
+```python
+from bgvd_state import EvidenceLifecycle, Event, EventType, FinalizationGate
+
+lifecycle = EvidenceLifecycle()
+lifecycle.apply(Event(
+    id="E0001",
+    type=EventType.MATERIAL_EVIDENCE,
+    summary="A redacted defensive observation.",
+    candidate_id="C1",
+))
+lifecycle.apply(Event(
+    id="E0002",
+    type=EventType.VERIFIER_RESULT,
+    summary="The current terminal verifier is positive.",
+    candidate_id="C1",
+    verifier_status=True,
+))
+
+decision = FinalizationGate().evaluate(lifecycle.state, "C1")
+assert decision.allowed
+```
+
+## Runtime Components
+
+- `EventStore`: append-only, unique event records with JSONL persistence.
+- `EvidenceLifecycle`: deterministic event-to-state transitions.
+- `Candidate`: proposed, partial, verified, rejected, superseded, or finalized.
+- `FailedPath`: rejected routes and their evidence references.
+- `FinalizationGate`: requires current material evidence and a current positive
+  verifier result bound to the same candidate.
+- `HandoffBuilder`: separates active, rejected, superseded, and finalized
+  candidates and emits invalidated evidence, failed paths, frontier items, and
+  finalization eligibility.
+
+## Test and Validate
+
+```bash
+python -m unittest discover -s tests -v
+python validate_structured_state_artifact.py \
+  --artifact . \
+  --out-dir artifact_validation_output
+```
+
+The test suite runs on Windows and Linux with Python 3.10 and 3.12 in GitHub
+Actions. The artifact validator performs no model calls and starts no services.
+
+## Sanitized Research Artifact
+
+The root-level `v3*` and `phase9*` JSON/Markdown files are redacted replay
+fixtures and result summaries. `REPRODUCE.md` maps the paper-facing contrasts to
+those files. The release excludes live targets, credentials, operational
+commands, network addresses, target-specific payloads, and direct reproduction
+procedures.
+
+The bounded evidence represented in the artifact is:
+
+- security-specific state semantics improve weak-to-strong handoff over the
+  tested matched free-form, generic structured, and retrieval-memory controls
+  under selected verifier-replay state pressure;
+- the advantage disappears in pressure-reduced replay and does not generalize
+  to the tested cross-family source-audit setting;
+- typed protocol surface alone does not improve over information-equivalent
+  curated prose.
+
+## Licenses
+
+Code under `src/`, `tests/`, `examples/`, and the standalone validator is MIT
+licensed; see `LICENSE.txt`. Sanitized fixtures, result summaries, and artifact
+documentation are CC BY 4.0; see `DATA_LICENSE.txt`.
+
+## Responsible Use
+
+Use this package only for defensive research, authorized environments, and
+false-positive control. See `SECURITY.md` for disclosure guidance.

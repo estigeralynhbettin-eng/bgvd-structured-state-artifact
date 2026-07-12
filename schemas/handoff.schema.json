@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:bgvd-state:schema:handoff:v1",
+  "title": "BGVD-State Handoff Packet",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "active_candidates",
+    "rejected_candidates",
+    "superseded_candidates",
+    "finalized_candidates",
+    "failed_paths",
+    "invalidated_event_ids",
+    "frontier",
+    "open_questions",
+    "finalization_allowed_for"
+  ],
+  "properties": {
+    "schema_version": {"const": "bgvd.handoff.v1"},
+    "active_candidates": {"type": "array", "items": {"$ref": "#/$defs/candidate"}},
+    "rejected_candidates": {"type": "array", "items": {"$ref": "#/$defs/candidate"}},
+    "superseded_candidates": {"type": "array", "items": {"$ref": "#/$defs/candidate"}},
+    "finalized_candidates": {"type": "array", "items": {"$ref": "#/$defs/candidate"}},
+    "failed_paths": {"type": "array", "items": {"type": "object"}},
+    "invalidated_event_ids": {"type": "array", "items": {"type": "string"}},
+    "frontier": {"type": "array", "items": {"type": "string"}},
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "finalization_allowed_for": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "current_material_evidence_refs",
+        "invalidated_refs",
+        "failed_refs",
+        "finalization_allowed",
+        "gate_reasons"
+      ],
+      "properties": {
+        "id": {"type": "string"},
+        "status": {"type": "string"},
+        "vulnerability_type": {"type": ["string", "null"]},
+        "target_object": {"type": ["string", "null"]},
+        "current_material_evidence_refs": {"type": "array", "items": {"type": "string"}},
+        "current_verifier_ref": {"type": ["string", "null"]},
+        "current_verifier_status": {"type": ["boolean", "null"]},
+        "invalidated_refs": {"type": "array", "items": {"type": "string"}},
+        "failed_refs": {"type": "array", "items": {"type": "string"}},
+        "finalization_allowed": {"type": "boolean"},
+        "gate_reasons": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
