@@ -1,0 +1,43 @@
+{
+  "events": [
+    {
+      "id": "E0001",
+      "type": "hypothesis",
+      "candidate_id": "C_OLD",
+      "summary": "An initial authorization-boundary candidate is proposed."
+    },
+    {
+      "id": "E0002",
+      "type": "material_evidence",
+      "candidate_id": "C_OLD",
+      "summary": "A redacted material observation supports the initial candidate."
+    },
+    {
+      "id": "E0003",
+      "type": "verifier_result",
+      "candidate_id": "C_OLD",
+      "verifier_status": true,
+      "summary": "The verifier initially returns a positive result."
+    },
+    {
+      "id": "E0004",
+      "type": "invalidation",
+      "candidate_id": "C_OLD",
+      "invalidates": ["E0002", "E0003"],
+      "summary": "A reset invalidates the old material and verifier evidence."
+    },
+    {
+      "id": "E0005",
+      "type": "material_evidence",
+      "candidate_id": "C_CURRENT",
+      "summary": "A current redacted observation supports the replacement candidate."
+    },
+    {
+      "id": "E0006",
+      "type": "verifier_result",
+      "candidate_id": "C_CURRENT",
+      "verifier_status": true,
+      "summary": "The verifier returns a positive result for the replacement candidate."
+    }
+  ]
+}
