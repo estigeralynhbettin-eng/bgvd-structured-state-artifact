@@ -1,0 +1,36 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "BGVD-State",
+  "description": "Evidence-lifecycle middleware for verifier-gated handoff in defensive LLM security agents.",
+  "version": "1.0.0",
+  "datePublished": "2026-07-13",
+  "codeRepository": "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact",
+  "license": "https://spdx.org/licenses/MIT",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "Python 3.10-3.12",
+  "applicationCategory": "Research software",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Yi",
+      "familyName": "Lv",
+      "affiliation": "School of Computer Science and Technology, Tongji University"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Cheng",
+      "familyName": "Wang",
+      "affiliation": "School of Computer Science and Technology, Tongji University"
+    }
+  ],
+  "keywords": [
+    "cybersecurity",
+    "LLM agents",
+    "evidence lifecycle",
+    "verifier-gated finalization",
+    "handoff"
+  ],
+  "developmentStatus": "active",
+  "issueTracker": "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/issues"
+}

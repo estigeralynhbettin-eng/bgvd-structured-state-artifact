@@ -1,0 +1,31 @@
+{
+  "events": [
+    {
+      "id": "E0101",
+      "type": "material_evidence",
+      "candidate_id": "C_STALE",
+      "summary": "A redacted material observation is recorded."
+    },
+    {
+      "id": "E0102",
+      "type": "verifier_result",
+      "candidate_id": "C_STALE",
+      "verifier_status": true,
+      "summary": "The first verifier result is positive."
+    },
+    {
+      "id": "E0103",
+      "type": "invalidation",
+      "candidate_id": "C_STALE",
+      "invalidates": ["E0102"],
+      "summary": "A later check invalidates the earlier verifier result."
+    },
+    {
+      "id": "E0104",
+      "type": "verifier_result",
+      "candidate_id": "C_STALE",
+      "verifier_status": false,
+      "summary": "The current verifier result is negative."
+    }
+  ]
+}

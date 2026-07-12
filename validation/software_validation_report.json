@@ -1,0 +1,408 @@
+{
+  "schema_version": "bgvd.software_validation.v1",
+  "generated_at": "2026-07-12T15:53:00.835911+00:00",
+  "status": "PASS",
+  "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "test_count": 15,
+  "checks": [
+    {
+      "check_id": "SW-LINT",
+      "command": [
+        "<repo>\\.venv\\Scripts\\ruff.exe",
+        "check",
+        "src",
+        "tests",
+        "tools"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "check_id": "SW-FORMAT",
+      "command": [
+        "<repo>\\.venv\\Scripts\\ruff.exe",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "tools"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "12 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "check_id": "SW-TEST",
+      "command": [
+        "<repo>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "...............                                                          [100%]\n15 passed in 0.14s\n",
+      "stderr": ""
+    },
+    {
+      "check_id": "SW-BUILD",
+      "command": [
+        "<repo>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "build"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "running egg_info\nwriting src\\bgvd_state.egg-info\\PKG-INFO\nwriting dependency_links to src\\bgvd_state.egg-info\\dependency_links.txt\nwriting entry points to src\\bgvd_state.egg-info\\entry_points.txt\nwriting requirements to src\\bgvd_state.egg-info\\requires.txt\nwriting top-level names to src\\bgvd_state.egg-info\\top_level.txt\nreading manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\nreading manifest template 'MANIFEST.in'\nadding license file 'LICENSE.txt'\nwriting manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\nrunning sdist\nrunning egg_info\nwriting src\\bgvd_state.egg-info\\PKG-INFO\nwriting dependency_links to src\\bgvd_state.egg-info\\dependency_links.txt\nwriting entry points to src\\bgvd_state.egg-info\\entry_points.txt\nwriting requirements to src\\bgvd_state.egg-info\\requires.txt\nwriting top-level names to src\\bgvd_state.egg-info\\top_level.txt\nreading manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\nreading manifest template 'MANIFEST.in'\nadding license file 'LICENSE.txt'\nwriting manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\nrunning check\ncreating bgvd_state-1.0.0\ncreating bgvd_state-1.0.0\\docs\ncreating bgvd_state-1.0.0\\examples\\candidate_replacement\ncreating bgvd_state-1.0.0\\examples\\stale_verifier\ncreating bgvd_state-1.0.0\\schemas\ncreating bgvd_state-1.0.0\\src\\bgvd_state\ncreating bgvd_state-1.0.0\\src\\bgvd_state.egg-info\ncreating bgvd_state-1.0.0\\tests\ncopying files to bgvd_state-1.0.0...\ncopying CHANGELOG.md -> bgvd_state-1.0.0\ncopying DATA_LICENSE.txt -> bgvd_state-1.0.0\ncopying LICENSE.txt -> bgvd_state-1.0.0\ncopying MANIFEST.in -> bgvd_state-1.0.0\ncopying README.md -> bgvd_state-1.0.0\ncopying SECURITY.md -> bgvd_state-1.0.0\ncopying pyproject.toml -> bgvd_state-1.0.0\ncopying docs\\api.md -> bgvd_state-1.0.0\\docs\ncopying docs\\integration.md -> bgvd_state-1.0.0\\docs\ncopying examples\\candidate_replacement\\README.md -> bgvd_state-1.0.0\\examples\\candidate_replacement\ncopying examples\\candidate_replacement\\events.json -> bgvd_state-1.0.0\\examples\\candidate_replacement\ncopying examples\\stale_verifier\\README.md -> bgvd_state-1.0.0\\examples\\stale_verifier\ncopying examples\\stale_verifier\\events.json -> bgvd_state-1.0.0\\examples\\stale_verifier\ncopying schemas\\event.schema.json -> bgvd_state-1.0.0\\schemas\ncopying schemas\\handoff.schema.json -> bgvd_state-1.0.0\\schemas\ncopying src\\bgvd_state\\__init__.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state\\__main__.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state\\cli.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state\\engine.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state\\gate.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state\\handoff.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state\\models.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state\\store.py -> bgvd_state-1.0.0\\src\\bgvd_state\ncopying src\\bgvd_state.egg-info\\PKG-INFO -> bgvd_state-1.0.0\\src\\bgvd_state.egg-info\ncopying src\\bgvd_state.egg-info\\SOURCES.txt -> bgvd_state-1.0.0\\src\\bgvd_state.egg-info\ncopying src\\bgvd_state.egg-info\\dependency_links.txt -> bgvd_state-1.0.0\\src\\bgvd_state.egg-info\ncopying src\\bgvd_state.egg-info\\entry_points.txt -> bgvd_state-1.0.0\\src\\bgvd_state.egg-info\ncopying src\\bgvd_state.egg-info\\requires.txt -> bgvd_state-1.0.0\\src\\bgvd_state.egg-info\ncopying src\\bgvd_state.egg-info\\top_level.txt -> bgvd_state-1.0.0\\src\\bgvd_state.egg-info\ncopying tests\\test_cli.py -> bgvd_state-1.0.0\\tests\ncopying tests\\test_lifecycle.py -> bgvd_state-1.0.0\\tests\ncopying tests\\test_schemas.py -> bgvd_state-1.0.0\\tests\ncopying src\\bgvd_state.egg-info\\SOURCES.txt -> bgvd_state-1.0.0\\src\\bgvd_state.egg-info\nWriting bgvd_state-1.0.0\\setup.cfg\nCreating tar archive\nremoving 'bgvd_state-1.0.0' (and everything under it)\nrunning egg_info\nwriting src\\bgvd_state.egg-info\\PKG-INFO\nwriting dependency_links to src\\bgvd_state.egg-info\\dependency_links.txt\nwriting entry points to src\\bgvd_state.egg-info\\entry_points.txt\nwriting requirements to src\\bgvd_state.egg-info\\requires.txt\nwriting top-level names to src\\bgvd_state.egg-info\\top_level.txt\nreading manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\nreading manifest template 'MANIFEST.in'\nadding license file 'LICENSE.txt'\nwriting manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\nrunning bdist_wheel\nrunning build\nrunning build_py\ncreating build\\lib\\bgvd_state\ncopying src\\bgvd_state\\cli.py -> build\\lib\\bgvd_state\ncopying src\\bgvd_state\\engine.py -> build\\lib\\bgvd_state\ncopying src\\bgvd_state\\gate.py -> build\\lib\\bgvd_state\ncopying src\\bgvd_state\\handoff.py -> build\\lib\\bgvd_state\ncopying src\\bgvd_state\\models.py -> build\\lib\\bgvd_state\ncopying src\\bgvd_state\\store.py -> build\\lib\\bgvd_state\ncopying src\\bgvd_state\\__init__.py -> build\\lib\\bgvd_state\ncopying src\\bgvd_state\\__main__.py -> build\\lib\\bgvd_state\nrunning egg_info\nwriting src\\bgvd_state.egg-info\\PKG-INFO\nwriting dependency_links to src\\bgvd_state.egg-info\\dependency_links.txt\nwriting entry points to src\\bgvd_state.egg-info\\entry_points.txt\nwriting requirements to src\\bgvd_state.egg-info\\requires.txt\nwriting top-level names to src\\bgvd_state.egg-info\\top_level.txt\nreading manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\nreading manifest template 'MANIFEST.in'\nadding license file 'LICENSE.txt'\nwriting manifest file 'src\\bgvd_state.egg-info\\SOURCES.txt'\ninstalling to build\\bdist.win-amd64\\wheel\nrunning install\nrunning install_lib\ncreating build\\bdist.win-amd64\\wheel\ncreating build\\bdist.win-amd64\\wheel\\bgvd_state\ncopying build\\lib\\bgvd_state\\cli.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\ncopying build\\lib\\bgvd_state\\engine.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\ncopying build\\lib\\bgvd_state\\gate.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\ncopying build\\lib\\bgvd_state\\handoff.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\ncopying build\\lib\\bgvd_state\\models.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\ncopying build\\lib\\bgvd_state\\store.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\ncopying build\\lib\\bgvd_state\\__init__.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\ncopying build\\lib\\bgvd_state\\__main__.py -> build\\bdist.win-amd64\\wheel\\.\\bgvd_state\nrunning install_egg_info\nCopying src\\bgvd_state.egg-info to build\\bdist.win-amd64\\wheel\\.\\bgvd_state-1.0.0-py3.12.egg-info\nrunning install_scripts\ncreating build\\bdist.win-amd64\\wheel\\bgvd_state-1.0.0.dist-info\\WHEEL\ncreating 'D:\\\\lunwen\\\\BGVD\\\\outputs\\\\github_publish\\\\bgvd-structured-state-artifact\\\\dist\\\\.tmp-hqqne94a\\\\bgvd_state-1.0.0-py3-none-any.whl' and adding 'build\\\\bdist.win-amd64\\\\wheel' to it\nadding 'bgvd_state/__init__.py'\nadding 'bgvd_state/__main__.py'\nadding 'bgvd_state/cli.py'\nadding 'bgvd_state/engine.py'\nadding 'bgvd_state/gate.py'\nadding 'bgvd_state/handoff.py'\nadding 'bgvd_state/models.py'\nadding 'bgvd_state/store.py'\nadding 'bgvd_state-1.0.0.dist-info/licenses/LICENSE.txt'\nadding 'bgvd_state-1.0.0.dist-info/METADATA'\nadding 'bgvd_state-1.0.0.dist-info/WHEEL'\nadding 'bgvd_state-1.0.0.dist-info/entry_points.txt'\nadding 'bgvd_state-1.0.0.dist-info/top_level.txt'\nadding 'bgvd_state-1.0.0.dist-info/RECORD'\nremoving build\\bdist.win-amd64\\wheel\nSuccessfully built bgvd_state-1.0.0.tar.gz and bgvd_state-1.0.0-py3-none-any.whl\n",
+      "stderr": "* Creating isolated environment: venv+pip...\n* Installing packages in isolated environment:\n  - setuptools>=77\n* Getting build dependencies for sdist...\n* Installed build dependency versions:\n  - setuptools==83.0.0\n* Building sdist...\n* Building wheel from sdist\n* Creating isolated environment: venv+pip...\n* Installing packages in isolated environment:\n  - setuptools>=77\n* Getting build dependencies for wheel...\n* Installed build dependency versions:\n  - setuptools==83.0.0\n* Building wheel...\n"
+    },
+    {
+      "check_id": "SW-EXAMPLE-REPLACEMENT",
+      "command": [
+        "<repo>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "bgvd_state",
+        "replay",
+        "--events",
+        "examples/candidate_replacement/events.json",
+        "--state-out",
+        "<repo>\\validation\\run_outputs\\candidate_state.json",
+        "--handoff-out",
+        "<repo>\\validation\\run_outputs\\candidate_handoff.json"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "check_id": "SW-GATE-CURRENT",
+      "command": [
+        "<repo>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "bgvd_state",
+        "gate",
+        "--state",
+        "<repo>\\validation\\run_outputs\\candidate_state.json",
+        "--candidate",
+        "C_CURRENT",
+        "--out",
+        "<repo>\\validation\\run_outputs\\candidate_gate.json"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "check_id": "SW-EXAMPLE-STALE",
+      "command": [
+        "<repo>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "bgvd_state",
+        "replay",
+        "--events",
+        "examples/stale_verifier/events.json",
+        "--state-out",
+        "<repo>\\validation\\run_outputs\\stale_state.json",
+        "--handoff-out",
+        "<repo>\\validation\\run_outputs\\stale_handoff.json"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "check_id": "SW-GATE-STALE-REJECT",
+      "command": [
+        "<repo>\\.venv\\Scripts\\python.exe",
+        "-m",
+        "bgvd_state",
+        "gate",
+        "--state",
+        "<repo>\\validation\\run_outputs\\stale_state.json",
+        "--candidate",
+        "C_STALE",
+        "--out",
+        "<repo>\\validation\\run_outputs\\stale_gate.json"
+      ],
+      "return_code": 2,
+      "expected_return_codes": [
+        2
+      ],
+      "passed": true,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "check_id": "ARTIFACT-REGRESSION",
+      "command": [
+        "<repo>\\.venv\\Scripts\\python.exe",
+        "validate_structured_state_artifact.py",
+        "--artifact",
+        ".",
+        "--out-dir",
+        "<repo>\\validation\\run_outputs\\artifact_validation"
+      ],
+      "return_code": 0,
+      "expected_return_codes": [
+        0
+      ],
+      "passed": true,
+      "stdout": "{\"status\": \"PASS\", \"json\": \"D:\\\\lunwen\\\\BGVD\\\\outputs\\\\github_publish\\\\bgvd-structured-state-artifact\\\\validation\\\\run_outputs\\\\artifact_validation\\\\artifact_validation_report.json\", \"markdown\": \"D:\\\\lunwen\\\\BGVD\\\\outputs\\\\github_publish\\\\bgvd-structured-state-artifact\\\\validation\\\\run_outputs\\\\artifact_validation\\\\ARTIFACT_VALIDATION_REPORT.md\"}\n",
+      "stderr": ""
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "CITATION.cff",
+      "bytes": 722,
+      "sha256": "e7537cc39527bda37699f4b2e36262f02696ee5dd0d401a0b5bad8667422bbd2"
+    },
+    {
+      "path": "codemeta.json",
+      "bytes": 1223,
+      "sha256": "8aa54d9ef14c1ec191b397a67ae9e57503e058aec29a2d0d3fed8f7470b69cef"
+    },
+    {
+      "path": "DATA_LICENSE.txt",
+      "bytes": 407,
+      "sha256": "2f24c287f94d9668046638039ee8e000cd0cb88e43294661a1f6cc63907d496d"
+    },
+    {
+      "path": "docs/api.md",
+      "bytes": 1877,
+      "sha256": "62d2fe96536d1e1f4773f5787544b480ddec44374cf590acb83e7df97a4b7bdd"
+    },
+    {
+      "path": "docs/integration.md",
+      "bytes": 1703,
+      "sha256": "94d74527bef79f7e6ee72c59418f275975b84b520e501547370cfd2e0a88ac76"
+    },
+    {
+      "path": "examples/candidate_replacement/events.json",
+      "bytes": 1240,
+      "sha256": "8c89cc4b185741a9de5f99b838edfa31e0fb549c7454458465dbf2dfcb284e4b"
+    },
+    {
+      "path": "examples/candidate_replacement/README.md",
+      "bytes": 579,
+      "sha256": "d9cc601aef27b3d8c761b62413646a06fe608af53671f1df5176fd404dfc0164"
+    },
+    {
+      "path": "examples/stale_verifier/events.json",
+      "bytes": 801,
+      "sha256": "2a008ab7b5497bca782d6bb06ff65f520f883cce445762434014648b4f78e902"
+    },
+    {
+      "path": "examples/stale_verifier/README.md",
+      "bytes": 571,
+      "sha256": "d3c2f3f8e014c5ea1d4dfeae1bc39a1e135be69facbc4203791582159e2c4345"
+    },
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1098,
+      "sha256": "754f3300f825b9013c26c0a928b31169a8a037c0c6acb0bfe19b7631059d2903"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1452,
+      "sha256": "f629b2ba8d63885d9a78de55a3455b47a6fb482f19b743828cc00b47c0cb33ee"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5017,
+      "sha256": "42ebe5e811e9b5c32c12ddadf16931c491461974171e15077241803d52c4f081"
+    },
+    {
+      "path": "schemas/event.schema.json",
+      "bytes": 1007,
+      "sha256": "274806badb74c0604fb44348fba357bd23394ab82d0a26fcac82bfda037a8a73"
+    },
+    {
+      "path": "schemas/handoff.schema.json",
+      "bytes": 2328,
+      "sha256": "9fb2686e3b761b8fe661f798aeb56fb27080479a784804fab0b6d7e312b57214"
+    },
+    {
+      "path": "src/bgvd_state/__init__.py",
+      "bytes": 606,
+      "sha256": "6097d293a0cc6b90f6b9d80d5630806db33abc0f35d53a85efccff9cd23bc0f9"
+    },
+    {
+      "path": "src/bgvd_state/__main__.py",
+      "bytes": 51,
+      "sha256": "482b8693e2fe6dbd732e3d7961e03827d3efa187bad11d29da188be580ebbeea"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 717,
+      "sha256": "79c7b75a99933c56e7e2771c86240ce2bc2020f796d5fc08d383976ec6b3a28b"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/__main__.cpython-312.pyc",
+      "bytes": 275,
+      "sha256": "5df42c6ef78954fbd349313b4d7b50a45dccac3de23d8007f7bb2e95b5d58561"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/cli.cpython-312.pyc",
+      "bytes": 5354,
+      "sha256": "a89736cbdc0a25336fac2ac5c6d3e4c69a0707af47ffb9ca9550eda8836dba94"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/engine.cpython-312.pyc",
+      "bytes": 10805,
+      "sha256": "7b9a5e6297d461e94297611e6ff935b40a4a303320ce135b9dddaef10f553c07"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/gate.cpython-312.pyc",
+      "bytes": 2724,
+      "sha256": "0b29dee7e9a76c70c1b8c35bb1f6c27126d7977aa20bef3aaf66bab4da0e933d"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/handoff.cpython-312.pyc",
+      "bytes": 3814,
+      "sha256": "f62c7cb51c5dc81c2ecd574fc2d62b8f9d57f1ea85237189d8df80079cc52fd2"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/models.cpython-312.pyc",
+      "bytes": 9757,
+      "sha256": "538e0f6689b8602b7e615efdbf2f858555679817210c02638e9171f083ab5a38"
+    },
+    {
+      "path": "src/bgvd_state/__pycache__/store.cpython-312.pyc",
+      "bytes": 4264,
+      "sha256": "ae958770d611cd7bee70c5017415b3ee26ceb93363385fd1180568536169414e"
+    },
+    {
+      "path": "src/bgvd_state/cli.py",
+      "bytes": 3219,
+      "sha256": "9a8aeeeb0c0e18314b55ee93b5c236d95151ae21ba12f4ad47a51210f2a0af7b"
+    },
+    {
+      "path": "src/bgvd_state/engine.py",
+      "bytes": 7168,
+      "sha256": "a33fc8cc74db4c53ec75e527b3b13549f40167875a19b99459b34d6795b907fb"
+    },
+    {
+      "path": "src/bgvd_state/gate.py",
+      "bytes": 1837,
+      "sha256": "88b34eccb8974c66495e9516aaea20623468f955be7bbfd60e1ab2d3c7025987"
+    },
+    {
+      "path": "src/bgvd_state/handoff.py",
+      "bytes": 2999,
+      "sha256": "0c7ad8b1a85d1b8521befd17e57443adb127eee11c100acf2dd7d2170fdb7e1b"
+    },
+    {
+      "path": "src/bgvd_state/models.py",
+      "bytes": 6144,
+      "sha256": "6f1826feac2dc53419ff7c0205c687cd9a13310c9caec33d9ea16f25288931e9"
+    },
+    {
+      "path": "src/bgvd_state/store.py",
+      "bytes": 1966,
+      "sha256": "e2ccb3972e8fba177ceadc63e5b914a5910ffa68db092a87a370b1ec2dd97760"
+    },
+    {
+      "path": "src/bgvd_state.egg-info/dependency_links.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/bgvd_state.egg-info/entry_points.txt",
+      "bytes": 51,
+      "sha256": "c73804b20b73a01084ddae2a3d8f6aa75cc60f08f98d3cf53bb9bcb30d6b9079"
+    },
+    {
+      "path": "src/bgvd_state.egg-info/PKG-INFO",
+      "bytes": 6228,
+      "sha256": "e17847055a06a7687391d89601eb427ff4d299af8f0de9ea9152d4f8d2ecc5a7"
+    },
+    {
+      "path": "src/bgvd_state.egg-info/requires.txt",
+      "bytes": 57,
+      "sha256": "df0c008cfaaf6ca51eb2895eba36e0e3458fbb002ca8d9c9c55e9ef2f96800a6"
+    },
+    {
+      "path": "src/bgvd_state.egg-info/SOURCES.txt",
+      "bytes": 823,
+      "sha256": "9e436ee981819300519f42ac0304f18b6d1d3bba9b354771925eac9ba800d124"
+    },
+    {
+      "path": "src/bgvd_state.egg-info/top_level.txt",
+      "bytes": 11,
+      "sha256": "be365d908ebf9e7ed3a73ed92a968203e40e8836371d88fc766a7c2ad2cd4a43"
+    },
+    {
+      "path": "tests/__pycache__/test_cli.cpython-312-pytest-9.1.1.pyc",
+      "bytes": 3290,
+      "sha256": "1ba71a8190a21f730bf4ffce968d659b80a804bd39d3be7a60c8bffda06e6600"
+    },
+    {
+      "path": "tests/__pycache__/test_cli.cpython-312.pyc",
+      "bytes": 3170,
+      "sha256": "b86f8518d371f85da471cadb68876d9c1057d1be44b41f2f354c4c1f3231fe4e"
+    },
+    {
+      "path": "tests/__pycache__/test_lifecycle.cpython-312-pytest-9.1.1.pyc",
+      "bytes": 12767,
+      "sha256": "82e219463c3fd52fff0211026a3820ae9117b6e8a7e84cc2319fbb3012a50f5c"
+    },
+    {
+      "path": "tests/__pycache__/test_lifecycle.cpython-312.pyc",
+      "bytes": 9254,
+      "sha256": "58bb64445df133104e2da7889096bc3a72cc7537c2872dfc45394b16eb653fd1"
+    },
+    {
+      "path": "tests/__pycache__/test_schemas.cpython-312-pytest-9.1.1.pyc",
+      "bytes": 2757,
+      "sha256": "a58cfd433776d420d36eba0b7977470a9fbfa3b9e8eb0e81635c2718fa72ec97"
+    },
+    {
+      "path": "tests/test_cli.py",
+      "bytes": 1991,
+      "sha256": "1cee8d855591d9a28aa8db4fba46df2dadbf7dd4de46cdae5ea296297251fd08"
+    },
+    {
+      "path": "tests/test_lifecycle.py",
+      "bytes": 9062,
+      "sha256": "f3c8705a9ce5336030fdc22de5847ad0747172e8b7bf12f424f09aa73bff5dea"
+    },
+    {
+      "path": "tests/test_schemas.py",
+      "bytes": 1513,
+      "sha256": "db5ed8484872c064e1b398818d698278d5c598adf6776289c503fcad01d579c8"
+    },
+    {
+      "path": "tools/build_validation_report.py",
+      "bytes": 7237,
+      "sha256": "534fdac47bdd7ed1d6a65c063ae469419b09c8dff0d2753104ca60ed478956d0"
+    }
+  ]
+}

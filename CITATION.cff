@@ -1,16 +1,20 @@
 cff-version: 1.2.0
-title: "Artifact for Structured State Interfaces for Access-Control Verifier Replay in Defensive LLM Security Agents"
-message: "If you use this artifact, please cite the associated manuscript and this archived artifact DOI after it is assigned."
-type: dataset
+title: "BGVD-State: Evidence-lifecycle middleware for verifier-gated handoff in defensive LLM security agents"
+message: "Please cite the archived software release and its SoftwareX article when available."
+type: software
 authors:
-  - family-names: "Authors"
-    given-names: "Anonymous"
-version: "2026-07-09-rc1"
-date-released: "2026-07-09"
+  - family-names: "Lv"
+    given-names: "Yi"
+  - family-names: "Wang"
+    given-names: "Cheng"
+version: "1.0.0"
+date-released: "2026-07-13"
+repository-code: "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact"
+url: "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact"
 keywords:
   - LLM security agents
-  - structured state interface
+  - evidence lifecycle
   - defensive cybersecurity
   - weak-to-strong handoff
-  - verifier replay
-license: "CC-BY-4.0"
+  - verifier gate
+license: MIT

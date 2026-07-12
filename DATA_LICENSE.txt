@@ -1,0 +1,8 @@
+The sanitized replay fixtures, result summaries, leakage-audit reports, and
+artifact documentation in this repository are licensed under the Creative
+Commons Attribution 4.0 International License (CC BY 4.0):
+
+https://creativecommons.org/licenses/by/4.0/
+
+The Python source code under src/, tests/, examples/, and the standalone
+validator is licensed separately under the MIT License in LICENSE.txt.
