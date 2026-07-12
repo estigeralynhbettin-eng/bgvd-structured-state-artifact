@@ -22,6 +22,6 @@
     "verifier gate",
     "research software"
   ],
-  "version": "0.1.0",
+  "version": "1.0.0",
   "notes": "The formal v1.0.0 release date and DOI must be synchronized before deposition. Sanitized fixtures and result files are CC BY 4.0 under DATA_LICENSE.txt; source code is MIT licensed."
 }

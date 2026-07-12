@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 - Unreleased
+## 1.0.0 - 2026-07-13
 
 - Added the installable `bgvd-state` Python package.
 - Added deterministic event storage, candidate lifecycle management,
