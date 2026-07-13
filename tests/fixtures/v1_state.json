@@ -1,0 +1,128 @@
+{
+  "schema_version": "bgvd.state.v1",
+  "events": [
+    {
+      "id": "E0001",
+      "type": "hypothesis",
+      "summary": "An initial authorization-boundary candidate is proposed.",
+      "candidate_id": "C_OLD",
+      "timestamp": null,
+      "refs": [],
+      "invalidates": [],
+      "verifier_status": null,
+      "outcome": null,
+      "metadata": {}
+    },
+    {
+      "id": "E0002",
+      "type": "material_evidence",
+      "summary": "A redacted material observation supports the initial candidate.",
+      "candidate_id": "C_OLD",
+      "timestamp": null,
+      "refs": [],
+      "invalidates": [],
+      "verifier_status": null,
+      "outcome": null,
+      "metadata": {}
+    },
+    {
+      "id": "E0003",
+      "type": "verifier_result",
+      "summary": "The verifier initially returns a positive result.",
+      "candidate_id": "C_OLD",
+      "timestamp": null,
+      "refs": [],
+      "invalidates": [],
+      "verifier_status": true,
+      "outcome": null,
+      "metadata": {}
+    },
+    {
+      "id": "E0004",
+      "type": "invalidation",
+      "summary": "A reset invalidates the old material and verifier evidence.",
+      "candidate_id": "C_OLD",
+      "timestamp": null,
+      "refs": [],
+      "invalidates": [
+        "E0002",
+        "E0003"
+      ],
+      "verifier_status": null,
+      "outcome": null,
+      "metadata": {}
+    },
+    {
+      "id": "E0005",
+      "type": "material_evidence",
+      "summary": "A current redacted observation supports the replacement candidate.",
+      "candidate_id": "C_CURRENT",
+      "timestamp": null,
+      "refs": [],
+      "invalidates": [],
+      "verifier_status": null,
+      "outcome": null,
+      "metadata": {}
+    },
+    {
+      "id": "E0006",
+      "type": "verifier_result",
+      "summary": "The verifier returns a positive result for the replacement candidate.",
+      "candidate_id": "C_CURRENT",
+      "timestamp": null,
+      "refs": [],
+      "invalidates": [],
+      "verifier_status": true,
+      "outcome": null,
+      "metadata": {}
+    }
+  ],
+  "candidates": {
+    "C_OLD": {
+      "id": "C_OLD",
+      "vulnerability_type": null,
+      "target_object": null,
+      "status": "superseded",
+      "material_evidence_refs": [
+        "E0002"
+      ],
+      "verifier_refs": [
+        "E0003"
+      ],
+      "current_verifier_ref": null,
+      "current_verifier_status": null,
+      "failed_refs": [],
+      "invalidated_refs": [
+        "E0002",
+        "E0003"
+      ],
+      "rejection_reason": null,
+      "last_updated": "E0004"
+    },
+    "C_CURRENT": {
+      "id": "C_CURRENT",
+      "vulnerability_type": null,
+      "target_object": null,
+      "status": "verified",
+      "material_evidence_refs": [
+        "E0005"
+      ],
+      "verifier_refs": [
+        "E0006"
+      ],
+      "current_verifier_ref": "E0006",
+      "current_verifier_status": true,
+      "failed_refs": [],
+      "invalidated_refs": [],
+      "rejection_reason": null,
+      "last_updated": "E0006"
+    }
+  },
+  "failed_paths": [],
+  "invalidated_event_ids": [
+    "E0002",
+    "E0003"
+  ],
+  "frontier": [],
+  "open_questions": []
+}

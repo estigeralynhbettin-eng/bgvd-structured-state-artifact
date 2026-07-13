@@ -60,7 +60,13 @@ def run_check(
 def source_manifest() -> list[dict[str, Any]]:
     files: list[Path] = []
     for folder in ["src", "tests", "examples", "schemas", "docs", "tools"]:
-        files.extend(path for path in (ROOT / folder).rglob("*") if path.is_file())
+        files.extend(
+            path
+            for path in (ROOT / folder).rglob("*")
+            if path.is_file()
+            and "__pycache__" not in path.parts
+            and path.suffix not in {".pyc", ".pyo"}
+        )
     files.extend(
         ROOT / name
         for name in [
@@ -160,6 +166,48 @@ def main() -> int:
             expected_codes={2},
         ),
         run_check(
+            "SW-RUNTIME-CASE",
+            [
+                python,
+                "-m",
+                "bgvd_state",
+                "replay",
+                "--events",
+                "examples/discovery_runtime_case/events.json",
+                "--state-out",
+                str(run_dir / "runtime_case_state.json"),
+                "--handoff-out",
+                str(run_dir / "runtime_case_handoff.json"),
+            ],
+        ),
+        run_check(
+            "SW-RUNTIME-CASE-GATE",
+            [
+                python,
+                "-m",
+                "bgvd_state",
+                "gate",
+                "--state",
+                str(run_dir / "runtime_case_state.json"),
+                "--candidate",
+                "CASE-C06",
+                "--out",
+                str(run_dir / "runtime_case_gate.json"),
+            ],
+            expected_codes={2},
+        ),
+        run_check(
+            "SW-RUNTIME-ENGINEERING",
+            [
+                python,
+                "tools/validate_runtime_engineering.py",
+                "--out-dir",
+                str(run_dir / "runtime_engineering"),
+                "--repeats",
+                "100",
+            ],
+        ),
+        run_check(
             "ARTIFACT-REGRESSION",
             [
                 python,
@@ -210,6 +258,8 @@ def main() -> int:
             "",
             "The stale-verifier gate uses expected exit code `2`; that outcome is a passing",
             "negative-control check because unsupported finalization must be rejected.",
+            "The complete runtime case also uses expected exit code `2` after a current",
+            "negative scope verifier supersedes an earlier positive technical verifier.",
             "",
             f"Machine-readable report: `{json_path.name}`.",
         ]

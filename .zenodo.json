@@ -1,7 +1,7 @@
 {
-  "title": "BGVD-State: Evidence-lifecycle middleware for verifier-gated handoff in defensive LLM security agents",
+  "title": "BGVD-State: A replayable discovery-state runtime for evidence-gated LLM security agents",
   "upload_type": "software",
-  "description": "Model-independent, deterministic middleware for recording defensive security-agent events, preserving candidate and failed-path lifecycle, binding material and verifier evidence, rejecting stale evidence, enforcing verifier-gated finalization, and building weak-to-strong handoff packets. The repository also contains sanitized replay fixtures and an offline artifact validator. It contains no live targets, credentials, operational exploit commands, network addresses, or target-specific reproduction procedures.",
+  "description": "Model-independent discovery-state runtime for recording defensive security-agent events, replaying candidate and failed-path lifecycle, binding material and verifier evidence, rejecting stale evidence, persisting state, enforcing verifier-gated finalization, and building auditable handoff packets. The repository contains a de-identified engineering case, deterministic and performance validation, sanitized replay fixtures, and an offline artifact validator. It contains no live targets, credentials, operational exploit commands, network addresses, or target-specific reproduction procedures.",
   "creators": [
     {
       "name": "Lv, Yi",
@@ -20,8 +20,9 @@
     "defensive cybersecurity",
     "weak-to-strong handoff",
     "verifier gate",
-    "research software"
+    "research software",
+    "discovery runtime"
   ],
-  "version": "1.0.0",
-  "notes": "The formal v1.0.0 release date and DOI must be synchronized before deposition. Sanitized fixtures and result files are CC BY 4.0 under DATA_LICENSE.txt; source code is MIT licensed."
+  "version": "1.1.0",
+  "notes": "The formal v1.1.0 release date and DOI must be synchronized before deposition. Sanitized fixtures and result files are CC BY 4.0 under DATA_LICENSE.txt; source code is MIT licensed."
 }

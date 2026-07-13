@@ -8,7 +8,7 @@ from typing import Iterable
 
 from .gate import FinalizationGate
 from .models import Candidate, CandidateStatus, Event, EventType, FailedPath, SecurityState
-from .store import EventStore
+from .store import EventStore, atomic_write_text
 
 
 class EvidenceLifecycle:
@@ -72,11 +72,9 @@ class EvidenceLifecycle:
         return self.state
 
     def save(self, path: str | Path) -> None:
-        target = Path(path)
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(
+        atomic_write_text(
+            path,
             json.dumps(self.state.to_dict(), ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
         )
 
     @classmethod

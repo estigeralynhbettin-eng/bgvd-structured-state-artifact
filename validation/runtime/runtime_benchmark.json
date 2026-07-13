@@ -1,0 +1,287 @@
+{
+  "status": "PASS",
+  "runtime_version": "1.1.0",
+  "profile": "fixed_candidate_count",
+  "candidate_count": 6,
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+  },
+  "summary": [
+    {
+      "events": 100,
+      "candidates": 6,
+      "repeats": 5,
+      "median_replay_seconds": 0.0007584000122733414,
+      "stdev_replay_seconds": 1.750160661099416e-05,
+      "median_total_seconds": 0.006019499996909872,
+      "median_peak_memory_mib": 0.14752197265625,
+      "state_bytes": 24729,
+      "handoff_bytes": 2104,
+      "unique_state_hashes": 1,
+      "unique_handoff_hashes": 1
+    },
+    {
+      "events": 1000,
+      "candidates": 6,
+      "repeats": 5,
+      "median_replay_seconds": 0.00567750001209788,
+      "stdev_replay_seconds": 0.00011094717223114034,
+      "median_total_seconds": 0.052658400003565475,
+      "median_peak_memory_mib": 1.3092155456542969,
+      "state_bytes": 226329,
+      "handoff_bytes": 2104,
+      "unique_state_hashes": 1,
+      "unique_handoff_hashes": 1
+    },
+    {
+      "events": 10000,
+      "candidates": 6,
+      "repeats": 5,
+      "median_replay_seconds": 0.05506119999336079,
+      "stdev_replay_seconds": 0.001128713288375731,
+      "median_total_seconds": 0.570080900011817,
+      "median_peak_memory_mib": 13.151920318603516,
+      "state_bytes": 2242329,
+      "handoff_bytes": 2104,
+      "unique_state_hashes": 1,
+      "unique_handoff_hashes": 1
+    },
+    {
+      "events": 100000,
+      "candidates": 6,
+      "repeats": 5,
+      "median_replay_seconds": 0.582240699994145,
+      "stdev_replay_seconds": 0.024603183845052105,
+      "median_total_seconds": 6.378368800011231,
+      "median_peak_memory_mib": 130.19585800170898,
+      "state_bytes": 22402329,
+      "handoff_bytes": 2104,
+      "unique_state_hashes": 1,
+      "unique_handoff_hashes": 1
+    }
+  ],
+  "raw_runs": [
+    {
+      "events": 100,
+      "repeat": 1,
+      "replay_seconds": 0.0007851999835111201,
+      "total_seconds": 0.006090000009862706,
+      "peak_memory_mib": 0.152008056640625,
+      "state_bytes": 24729,
+      "handoff_bytes": 2104,
+      "state_sha256": "a060ccd29ec8ec3a4d19be58843a7e0cbe546dd9a39b4c22df3fc2a860c0b8b5",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100,
+      "repeat": 2,
+      "replay_seconds": 0.0007562999962829053,
+      "total_seconds": 0.006006900017382577,
+      "peak_memory_mib": 0.1475372314453125,
+      "state_bytes": 24729,
+      "handoff_bytes": 2104,
+      "state_sha256": "a060ccd29ec8ec3a4d19be58843a7e0cbe546dd9a39b4c22df3fc2a860c0b8b5",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100,
+      "repeat": 3,
+      "replay_seconds": 0.0007569000008516014,
+      "total_seconds": 0.005994400009512901,
+      "peak_memory_mib": 0.14752197265625,
+      "state_bytes": 24729,
+      "handoff_bytes": 2104,
+      "state_sha256": "a060ccd29ec8ec3a4d19be58843a7e0cbe546dd9a39b4c22df3fc2a860c0b8b5",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100,
+      "repeat": 4,
+      "replay_seconds": 0.0007984999974723905,
+      "total_seconds": 0.006111199996666983,
+      "peak_memory_mib": 0.1475067138671875,
+      "state_bytes": 24729,
+      "handoff_bytes": 2104,
+      "state_sha256": "a060ccd29ec8ec3a4d19be58843a7e0cbe546dd9a39b4c22df3fc2a860c0b8b5",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100,
+      "repeat": 5,
+      "replay_seconds": 0.0007584000122733414,
+      "total_seconds": 0.006019499996909872,
+      "peak_memory_mib": 0.147491455078125,
+      "state_bytes": 24729,
+      "handoff_bytes": 2104,
+      "state_sha256": "a060ccd29ec8ec3a4d19be58843a7e0cbe546dd9a39b4c22df3fc2a860c0b8b5",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 1000,
+      "repeat": 1,
+      "replay_seconds": 0.005762799992226064,
+      "total_seconds": 0.05441640000208281,
+      "peak_memory_mib": 1.3096275329589844,
+      "state_bytes": 226329,
+      "handoff_bytes": 2104,
+      "state_sha256": "1a57714259556a9165724c2ff333f3fcc8086b2b283584f910d4ca2d625cba21",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 1000,
+      "repeat": 2,
+      "replay_seconds": 0.005688600009307265,
+      "total_seconds": 0.05265470000449568,
+      "peak_memory_mib": 1.3092460632324219,
+      "state_bytes": 226329,
+      "handoff_bytes": 2104,
+      "state_sha256": "1a57714259556a9165724c2ff333f3fcc8086b2b283584f910d4ca2d625cba21",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 1000,
+      "repeat": 3,
+      "replay_seconds": 0.0054456999932881445,
+      "total_seconds": 0.052141300024231896,
+      "peak_memory_mib": 1.3092155456542969,
+      "state_bytes": 226329,
+      "handoff_bytes": 2104,
+      "state_sha256": "1a57714259556a9165724c2ff333f3fcc8086b2b283584f910d4ca2d625cba21",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 1000,
+      "repeat": 4,
+      "replay_seconds": 0.005564599996432662,
+      "total_seconds": 0.052658400003565475,
+      "peak_memory_mib": 1.3092002868652344,
+      "state_bytes": 226329,
+      "handoff_bytes": 2104,
+      "state_sha256": "1a57714259556a9165724c2ff333f3fcc8086b2b283584f910d4ca2d625cba21",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 1000,
+      "repeat": 5,
+      "replay_seconds": 0.00567750001209788,
+      "total_seconds": 0.053802299982635304,
+      "peak_memory_mib": 1.3091850280761719,
+      "state_bytes": 226329,
+      "handoff_bytes": 2104,
+      "state_sha256": "1a57714259556a9165724c2ff333f3fcc8086b2b283584f910d4ca2d625cba21",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 10000,
+      "repeat": 1,
+      "replay_seconds": 0.05622649998986162,
+      "total_seconds": 0.604447199992137,
+      "peak_memory_mib": 13.15810775756836,
+      "state_bytes": 2242329,
+      "handoff_bytes": 2104,
+      "state_sha256": "c611e8089c62be332d178fd9d12e27facf8f418f6cd349d5fca882d671a53ed0",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 10000,
+      "repeat": 2,
+      "replay_seconds": 0.05541169998468831,
+      "total_seconds": 0.573675399995409,
+      "peak_memory_mib": 13.151935577392578,
+      "state_bytes": 2242329,
+      "handoff_bytes": 2104,
+      "state_sha256": "c611e8089c62be332d178fd9d12e27facf8f418f6cd349d5fca882d671a53ed0",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 10000,
+      "repeat": 3,
+      "replay_seconds": 0.0532666000071913,
+      "total_seconds": 0.570080900011817,
+      "peak_memory_mib": 13.151920318603516,
+      "state_bytes": 2242329,
+      "handoff_bytes": 2104,
+      "state_sha256": "c611e8089c62be332d178fd9d12e27facf8f418f6cd349d5fca882d671a53ed0",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 10000,
+      "repeat": 4,
+      "replay_seconds": 0.05506119999336079,
+      "total_seconds": 0.5673212000110652,
+      "peak_memory_mib": 13.151905059814453,
+      "state_bytes": 2242329,
+      "handoff_bytes": 2104,
+      "state_sha256": "c611e8089c62be332d178fd9d12e27facf8f418f6cd349d5fca882d671a53ed0",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 10000,
+      "repeat": 5,
+      "replay_seconds": 0.05353890001424588,
+      "total_seconds": 0.5144096000003628,
+      "peak_memory_mib": 13.149921417236328,
+      "state_bytes": 2242329,
+      "handoff_bytes": 2104,
+      "state_sha256": "c611e8089c62be332d178fd9d12e27facf8f418f6cd349d5fca882d671a53ed0",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100000,
+      "repeat": 1,
+      "replay_seconds": 0.614028000010876,
+      "total_seconds": 6.563349500007462,
+      "peak_memory_mib": 130.1958885192871,
+      "state_bytes": 22402329,
+      "handoff_bytes": 2104,
+      "state_sha256": "87c637e34bf43d747b582fdb419b77bc9a0bdd2027138e3a6c7c3c8a22a9769c",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100000,
+      "repeat": 2,
+      "replay_seconds": 0.6138580999977421,
+      "total_seconds": 6.449659900012193,
+      "peak_memory_mib": 130.19587326049805,
+      "state_bytes": 22402329,
+      "handoff_bytes": 2104,
+      "state_sha256": "87c637e34bf43d747b582fdb419b77bc9a0bdd2027138e3a6c7c3c8a22a9769c",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100000,
+      "repeat": 3,
+      "replay_seconds": 0.5537903000076767,
+      "total_seconds": 6.378368800011231,
+      "peak_memory_mib": 130.19585800170898,
+      "state_bytes": 22402329,
+      "handoff_bytes": 2104,
+      "state_sha256": "87c637e34bf43d747b582fdb419b77bc9a0bdd2027138e3a6c7c3c8a22a9769c",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100000,
+      "repeat": 4,
+      "replay_seconds": 0.582240699994145,
+      "total_seconds": 6.170919399999548,
+      "peak_memory_mib": 130.19584274291992,
+      "state_bytes": 22402329,
+      "handoff_bytes": 2104,
+      "state_sha256": "87c637e34bf43d747b582fdb419b77bc9a0bdd2027138e3a6c7c3c8a22a9769c",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    },
+    {
+      "events": 100000,
+      "repeat": 5,
+      "replay_seconds": 0.5656682999979239,
+      "total_seconds": 6.153559399972437,
+      "peak_memory_mib": 130.19582748413086,
+      "state_bytes": 22402329,
+      "handoff_bytes": 2104,
+      "state_sha256": "87c637e34bf43d747b582fdb419b77bc9a0bdd2027138e3a6c7c3c8a22a9769c",
+      "handoff_sha256": "45dd8175f1bc52c9438d868ea85f23acb34b12b9107da4e55d578411aa57ed4f"
+    }
+  ]
+}

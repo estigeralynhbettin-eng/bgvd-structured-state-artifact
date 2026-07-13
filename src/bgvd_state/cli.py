@@ -11,6 +11,7 @@ from .engine import EvidenceLifecycle
 from .gate import FinalizationGate
 from .handoff import HandoffBuilder
 from .models import Event
+from .store import atomic_write_text
 
 
 def _read_events(path: Path) -> list[Event]:
@@ -34,8 +35,7 @@ def _read_events(path: Path) -> list[Event]:
 def _write_json(path: Path | None, value: dict[str, Any]) -> None:
     text = json.dumps(value, ensure_ascii=False, indent=2) + "\n"
     if path:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
+        atomic_write_text(path, text)
     else:
         print(text, end="")
 
@@ -60,7 +60,22 @@ def build_parser() -> argparse.ArgumentParser:
     handoff = sub.add_parser("handoff", help="Build a handoff packet from saved state.")
     handoff.add_argument("--state", required=True, type=Path)
     handoff.add_argument("--out", type=Path)
+
+    summary = sub.add_parser("summary", help="Print a concise runtime-state summary.")
+    summary.add_argument("--state", required=True, type=Path)
     return parser
+
+
+def _print_summary(lifecycle: EvidenceLifecycle) -> None:
+    packet = HandoffBuilder().build(lifecycle.state)
+    allowed = packet["finalization_allowed_for"]
+    print("BGVD-State Runtime Summary")
+    print(f"Events loaded: {len(lifecycle.state.events)}")
+    print(f"Candidates: {len(lifecycle.state.candidates)}")
+    print(f"Rejected candidates: {len(packet['rejected_candidates'])}")
+    print(f"Failed paths: {len(packet['failed_paths'])}")
+    print(f"Frontier items: {len(packet['frontier'])}")
+    print(f"Finalization allowed: {', '.join(allowed) if allowed else 'none'}")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -81,5 +96,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "handoff":
         lifecycle = EvidenceLifecycle.load(args.state)
         _write_json(args.out, HandoffBuilder().build(lifecycle.state))
+        return 0
+    if args.command == "summary":
+        _print_summary(EvidenceLifecycle.load(args.state))
         return 0
     raise AssertionError(f"unhandled command: {args.command}")

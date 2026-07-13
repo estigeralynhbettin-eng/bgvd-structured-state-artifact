@@ -1,0 +1,151 @@
+[
+  {
+    "id": "CASE-E001",
+    "type": "observation",
+    "summary": "Project A identity, license, fixed revision, and disclosure policy were recorded."
+  },
+  {
+    "id": "CASE-E002",
+    "type": "observation",
+    "summary": "Project B identity, license, fixed revision, and disclosure policy were recorded."
+  },
+  {
+    "id": "CASE-E003",
+    "type": "hypothesis",
+    "candidate_id": "CASE-C01",
+    "summary": "A path-derived resource may cross its intended storage boundary."
+  },
+  {
+    "id": "CASE-E004",
+    "type": "material_evidence",
+    "candidate_id": "CASE-C01",
+    "summary": "The reviewed path is normalized and restricted before storage access."
+  },
+  {
+    "id": "CASE-E005",
+    "type": "failed_path",
+    "candidate_id": "CASE-C01",
+    "summary": "No boundary-crossing path remained after the normalization guard.",
+    "refs": ["CASE-E004"],
+    "metadata": {"reason": "guard_blocks_candidate_path"}
+  },
+  {
+    "id": "CASE-E006",
+    "type": "hypothesis",
+    "candidate_id": "CASE-C02",
+    "summary": "A file movement helper may accept an unsafe destination."
+  },
+  {
+    "id": "CASE-E007",
+    "type": "material_evidence",
+    "candidate_id": "CASE-C02",
+    "summary": "Current callers derive destinations from validated storage names."
+  },
+  {
+    "id": "CASE-E008",
+    "type": "failed_path",
+    "candidate_id": "CASE-C02",
+    "summary": "No untrusted caller controlling the destination was established.",
+    "refs": ["CASE-E007"],
+    "metadata": {"reason": "no_untrusted_destination_control"}
+  },
+  {
+    "id": "CASE-E009",
+    "type": "hypothesis",
+    "candidate_id": "CASE-C03",
+    "summary": "A parser may expose an unbounded resource-consumption path."
+  },
+  {
+    "id": "CASE-E010",
+    "type": "material_evidence",
+    "candidate_id": "CASE-C03",
+    "summary": "The implementation performs an early integrity check and documents the known risk class."
+  },
+  {
+    "id": "CASE-E011",
+    "type": "failed_path",
+    "candidate_id": "CASE-C03",
+    "summary": "No new trigger or impact beyond the documented behavior was established.",
+    "refs": ["CASE-E010"],
+    "metadata": {"reason": "known_behavior_without_new_impact"}
+  },
+  {
+    "id": "CASE-E012",
+    "type": "hypothesis",
+    "candidate_id": "CASE-C04",
+    "summary": "Rendered administrative content may cross an authorization boundary."
+  },
+  {
+    "id": "CASE-E013",
+    "type": "material_evidence",
+    "candidate_id": "CASE-C04",
+    "summary": "Write access is restricted to an existing trusted administrative role."
+  },
+  {
+    "id": "CASE-E014",
+    "type": "failed_path",
+    "candidate_id": "CASE-C04",
+    "summary": "No lower-privilege content-write path was found.",
+    "refs": ["CASE-E013"],
+    "metadata": {"reason": "authorization_boundary_not_crossed"}
+  },
+  {
+    "id": "CASE-E015",
+    "type": "observation",
+    "summary": "Four malformed model outputs were retained as observations and excluded from candidate evidence."
+  },
+  {
+    "id": "CASE-E016",
+    "type": "observation",
+    "summary": "A second producer completed its environment and policy preflight."
+  },
+  {
+    "id": "CASE-E017",
+    "type": "hypothesis",
+    "candidate_id": "CASE-C05",
+    "summary": "A remote-input helper may apply validation before a later transformation."
+  },
+  {
+    "id": "CASE-E018",
+    "type": "material_evidence",
+    "candidate_id": "CASE-C05",
+    "summary": "The reviewed entry point is an explicit local operator action with no higher-privilege caller established."
+  },
+  {
+    "id": "CASE-E019",
+    "type": "failed_path",
+    "candidate_id": "CASE-C05",
+    "summary": "The initial review did not establish an external trigger or privileged trust boundary.",
+    "refs": ["CASE-E018"],
+    "metadata": {"reason": "external_trigger_not_established"}
+  },
+  {
+    "id": "CASE-E020",
+    "type": "hypothesis",
+    "candidate_id": "CASE-C06",
+    "summary": "A transformed remote input may reach a resource excluded by the initial validation policy."
+  },
+  {
+    "id": "CASE-E021",
+    "type": "material_evidence",
+    "candidate_id": "CASE-C06",
+    "summary": "A fully local, non-operational reproduction confirmed the transformed request behavior."
+  },
+  {
+    "id": "CASE-E022",
+    "type": "verifier_result",
+    "candidate_id": "CASE-C06",
+    "summary": "An independent technical verifier reproduced the behavior under the local test harness.",
+    "verifier_status": true,
+    "refs": ["CASE-E021"]
+  },
+  {
+    "id": "CASE-E023",
+    "type": "verifier_result",
+    "candidate_id": "CASE-C06",
+    "summary": "The current scope verifier found no supported privilege or trust-boundary impact, so disclosure eligibility is not established.",
+    "verifier_status": false,
+    "refs": ["CASE-E021", "CASE-E022"],
+    "metadata": {"verifier_role": "scope_and_disclosure_review"}
+  }
+]

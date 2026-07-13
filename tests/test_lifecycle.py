@@ -221,6 +221,59 @@ class EvidenceLifecycleTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate event id"):
             store.append(item)
 
+    def test_checkpoint_resume_matches_uninterrupted_replay(self) -> None:
+        items = [
+            event("E0001", EventType.HYPOTHESIS, "C1", "Candidate proposed."),
+            event("E0002", EventType.MATERIAL_EVIDENCE, "C1", "Evidence recorded."),
+            event(
+                "E0003",
+                EventType.VERIFIER_RESULT,
+                "C1",
+                "Positive verifier.",
+                verifier_status=True,
+            ),
+            event(
+                "E0004",
+                EventType.INVALIDATION,
+                "C1",
+                "Verifier invalidated.",
+                invalidates=["E0003"],
+            ),
+            event(
+                "E0005",
+                EventType.VERIFIER_RESULT,
+                "C1",
+                "Current negative verifier.",
+                verifier_status=False,
+            ),
+        ]
+        uninterrupted = EvidenceLifecycle()
+        uninterrupted.replay(items)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            checkpoint = Path(tmp) / "checkpoint.json"
+            resumed = EvidenceLifecycle()
+            resumed.replay(items[:3])
+            resumed.save(checkpoint)
+            resumed = EvidenceLifecycle.load(checkpoint)
+            resumed.replay(items[3:])
+
+        self.assertEqual(resumed.state.to_dict(), uninterrupted.state.to_dict())
+        self.assertEqual(
+            HandoffBuilder().build(resumed.state),
+            HandoffBuilder().build(uninterrupted.state),
+        )
+
+    def test_event_store_reports_malformed_jsonl_line(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "events.jsonl"
+            path.write_text(
+                '{"id":"E0001","type":"observation","summary":"Valid event."}\nnot-json\n',
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, "line 2"):
+                EventStore.from_jsonl(path)
+
     def test_example_aliases_are_supported(self) -> None:
         raw = {
             "id": "E0001",
