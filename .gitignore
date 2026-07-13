@@ -15,6 +15,7 @@ stale-handoff.json
 work/
 tmp/
 validation/run_outputs/
+validation/runtime_smoke/
 paper/
 *.aux
 *.bbl

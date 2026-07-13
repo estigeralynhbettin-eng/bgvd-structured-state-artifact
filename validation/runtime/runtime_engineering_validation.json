@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "runtime_version": "1.1.0",
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "case": {
+    "events": 23,
+    "candidates": 6,
+    "failed_paths": 5,
+    "finalization_allowed_for": [],
+    "gate_reasons": [
+      "current_verifier_not_positive"
+    ]
+  },
+  "determinism": {
+    "repeats": 100,
+    "unique_state_hashes": 1,
+    "unique_handoff_hashes": 1,
+    "unique_gate_hashes": 1,
+    "state_sha256": "a2993548ddfbfb843b8f38c78d06dd0d94747122a2866842220911851de81ab0",
+    "handoff_sha256": "2e07b4ef259efffd5eef394858a57fe3253e9a0ea3f9957aae6cf16e2285475b",
+    "gate_sha256": "4ab116da17ad5402c4a9ca4a2b188e1a6b67e1da6acf66dad9aabe8999b0e639"
+  },
+  "checks": {
+    "deterministic_replay": true,
+    "checkpoint_state_equivalence": true,
+    "checkpoint_handoff_equivalence": true,
+    "checkpoint_gate_equivalence": true,
+    "duplicate_event_rejected": true,
+    "malformed_jsonl_rejected": true,
+    "v1_state_loads": true,
+    "v1_handoff_builds": true,
+    "case_finalization_blocked": true
+  }
+}

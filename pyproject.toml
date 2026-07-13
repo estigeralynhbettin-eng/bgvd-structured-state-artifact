@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bgvd-state"
-version = "1.0.0"
-description = "Evidence-lifecycle middleware for verifier-gated handoff in defensive LLM security agents"
+version = "1.1.0"
+description = "Replayable discovery-state runtime for evidence-gated LLM security agents"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

@@ -3,10 +3,32 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
+import tempfile
 from typing import Iterable
 
 from .models import Event
+
+
+def atomic_write_text(path: str | Path, text: str) -> None:
+    """Atomically replace a UTF-8 text file after flushing its temporary copy."""
+
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(
+        prefix=f".{target.name}.", suffix=".tmp", dir=target.parent
+    )
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(text)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, target)
+    except BaseException:
+        temporary.unlink(missing_ok=True)
+        raise
 
 
 class EventStore:
@@ -35,10 +57,8 @@ class EventStore:
         return next((event for event in self._events if event.id == event_id), None)
 
     def to_jsonl(self, path: str | Path) -> None:
-        target = Path(path)
-        target.parent.mkdir(parents=True, exist_ok=True)
         text = "\n".join(json.dumps(event.to_dict(), ensure_ascii=False) for event in self._events)
-        target.write_text(text + ("\n" if text else ""), encoding="utf-8")
+        atomic_write_text(path, text + ("\n" if text else ""))
 
     @classmethod
     def from_jsonl(cls, path: str | Path) -> "EventStore":

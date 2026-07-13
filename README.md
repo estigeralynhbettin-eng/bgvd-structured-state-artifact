@@ -1,10 +1,10 @@
 # BGVD-State
 
-BGVD-State is evidence-lifecycle middleware for verifier-gated handoff in
-defensive LLM security agents. It records model and tool events, maintains
-candidate identity, binds material evidence and verifier results, preserves
-failed paths, invalidates stale evidence, and produces a compact handoff packet
-for a stronger model or human analyst.
+BGVD-State is a replayable discovery-state runtime for evidence-gated LLM
+security agents. It records model, tool, and human events; maintains candidate
+identity; binds material evidence and verifier results; preserves failed paths;
+invalidates stale evidence; persists runtime state; and produces a compact
+handoff packet for downstream clients.
 
 The safety-critical state transitions are deterministic. No API key, model
 service, container, or live target is required to use the core package.
@@ -36,7 +36,25 @@ For an editable development install:
 python -m pip install -e .
 ```
 
-## Ten-Minute Example
+## Complete Runtime Example
+
+Replay the de-identified 23-event engineering case:
+
+```bash
+bgvd-state replay \
+  --events examples/discovery_runtime_case/events.json \
+  --state-out state.json \
+  --handoff-out handoff.json
+bgvd-state summary --state state.json
+bgvd-state gate --state state.json --candidate CASE-C06
+```
+
+The summary reports six candidates and five retained failed paths. The gate
+exits with status `2`: an earlier positive technical verifier remains auditable,
+but the current scope verifier is negative. The external verifier supplies that
+scope decision; BGVD-State does not infer disclosure policy by itself.
+
+## Minimal Examples
 
 Replay a sanitized candidate-replacement event stream:
 
@@ -113,8 +131,23 @@ python validate_structured_state_artifact.py \
   --out-dir artifact_validation_output
 ```
 
-The test suite runs on Windows and Linux with Python 3.10 and 3.12 in GitHub
-Actions. The artifact validator performs no model calls and starts no services.
+The test suite runs on Windows and Linux with Python 3.10, 3.11, and 3.12 in
+GitHub Actions. The artifact validator performs no model calls and starts no
+services.
+
+Runtime engineering validation and the fixed-candidate performance protocol are
+documented in `docs/runtime-validation.md`. The released Windows benchmark uses
+five repetitions per size:
+
+| Events | Median replay (s) | Median end-to-end (s) | Peak Python MiB |
+|---:|---:|---:|---:|
+| 100 | 0.000758 | 0.006019 | 0.15 |
+| 1,000 | 0.005678 | 0.052658 | 1.31 |
+| 10,000 | 0.055061 | 0.570081 | 13.15 |
+| 100,000 | 0.582241 | 6.378369 | 130.20 |
+
+These measurements hold the concurrent candidate count at six. They do not
+claim concurrent-writer, distributed-storage, or unbounded-candidate scaling.
 
 ## Sanitized Research Artifact
 
