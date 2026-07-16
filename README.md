@@ -1,10 +1,11 @@
 # BGVD-State
 
-BGVD-State is a replayable discovery-state runtime for evidence-gated LLM
-security agents. It records model, tool, and human events; maintains candidate
-identity; binds material evidence and verifier results; preserves failed paths;
-invalidates stale evidence; persists runtime state; and produces a compact
-handoff packet for downstream clients.
+BGVD-State, named after the Blackboard-Guided Vulnerability Discovery project,
+is replayable state middleware for evidence-gated security-agent handoffs. It
+sits between event producers and downstream consumers, records model, tool,
+and human events, maintains candidate identity, binds material evidence and
+verifier results, preserves failed paths, invalidates stale evidence, persists
+state, and produces a compact handoff packet.
 
 The safety-critical state transitions are deterministic. No API key, model
 service, container, or live target is required to use the core package.
@@ -18,9 +19,9 @@ finalization is allowed. BGVD-State makes those relations explicit and checks
 them before a finding can be finalized.
 
 This repository also contains the sanitized replay artifact used to evaluate
-the accompanying structured-state-interface study. The software does not claim
-that typed blackboards universally outperform prose memory or that it discovers
-real-world vulnerabilities.
+the middleware under security-specific state pressure. The intended use is a
+long-running workflow in which candidate collisions, stale evidence, verifier
+replacement, or repeated failed paths make a plain transcript insufficient.
 
 ## Installation
 
@@ -36,30 +37,65 @@ For an editable development install:
 python -m pip install -e .
 ```
 
+## Reviewer Quick Check
+
+From a fresh clone, install the package before running the tests and examples:
+
+```bash
+python -m pip install .
+python -m unittest discover -s tests -v
+```
+
+The expected test result is `Ran 18 tests` followed by `OK`. The complete
+release audit is documented in `REPRODUCE.md` and can be run with:
+
+```bash
+python validate_structured_state_artifact.py \
+  --artifact . \
+  --out-dir artifact_validation_output
+```
+
+The expected final status is `PASS`. No model call, API key, container, or live
+target is used by either check.
+
+To regenerate the complete SoftwareX release report, including lint, format,
+tests, package build, examples, gate decisions, replay checks, and artifact
+regression, run:
+
+```bash
+python -m pip install -e ".[dev]"
+python tools/build_validation_report.py --out-dir validation
+```
+
+The expected report status is `PASS` with 12 passing checks and 18 tests. The
+machine-readable result is `validation/software_validation_report.json`.
+
 ## Complete Runtime Example
 
 Replay the de-identified 23-event engineering case:
 
 ```bash
-bgvd-state replay \
+python -m bgvd_state replay \
   --events examples/discovery_runtime_case/events.json \
   --state-out state.json \
   --handoff-out handoff.json
-bgvd-state summary --state state.json
-bgvd-state gate --state state.json --candidate CASE-C06
+python -m bgvd_state summary --state state.json
+python -m bgvd_state gate --state state.json --candidate CASE-C06
 ```
 
-The summary reports six candidates and five retained failed paths. The gate
-exits with status `2`: an earlier positive technical verifier remains auditable,
-but the current scope verifier is negative. The external verifier supplies that
-scope decision; BGVD-State does not infer disclosure policy by itself.
+The summary reports `23` events, `6` candidates, `5` rejected candidates, and
+`5` retained failed paths. The gate returns
+`"reasons": ["current_verifier_not_positive"]` and exits with status `2`.
+This is the expected result: an earlier positive technical verifier remains
+auditable, but the current scope verifier prevents the candidate from being
+reported.
 
 ## Minimal Examples
 
 Replay a sanitized candidate-replacement event stream:
 
 ```bash
-bgvd-state replay \
+python -m bgvd_state replay \
   --events examples/candidate_replacement/events.json \
   --state-out state.json \
   --handoff-out handoff.json
@@ -68,7 +104,7 @@ bgvd-state replay \
 Check the current candidate:
 
 ```bash
-bgvd-state gate --state state.json --candidate C_CURRENT
+python -m bgvd_state gate --state state.json --candidate C_CURRENT
 ```
 
 The gate allows `C_CURRENT` and rejects `C_OLD`, whose evidence was invalidated.
@@ -76,12 +112,12 @@ The second example demonstrates that an old positive verifier cannot override a
 current negative verifier:
 
 ```bash
-bgvd-state replay \
+python -m bgvd_state replay \
   --events examples/stale_verifier/events.json \
   --state-out stale-state.json \
   --handoff-out stale-handoff.json
 
-bgvd-state gate --state stale-state.json --candidate C_STALE
+python -m bgvd_state gate --state stale-state.json --candidate C_STALE
 ```
 
 The final command exits with status `2` because finalization is rejected.
@@ -124,12 +160,8 @@ assert decision.allowed
 
 ## Test and Validate
 
-```bash
-python -m unittest discover -s tests -v
-python validate_structured_state_artifact.py \
-  --artifact . \
-  --out-dir artifact_validation_output
-```
+See **Reviewer Quick Check** above for the installation, test, validation
+commands, and expected outputs.
 
 The test suite runs on Windows and Linux with Python 3.10, 3.11, and 3.12 in
 GitHub Actions. The artifact validator performs no model calls and starts no
@@ -141,13 +173,14 @@ five repetitions per size:
 
 | Events | Median replay (s) | Median end-to-end (s) | Peak Python MiB |
 |---:|---:|---:|---:|
-| 100 | 0.000758 | 0.006019 | 0.15 |
-| 1,000 | 0.005678 | 0.052658 | 1.31 |
-| 10,000 | 0.055061 | 0.570081 | 13.15 |
-| 100,000 | 0.582241 | 6.378369 | 130.20 |
+| 100 | 0.000726 | 0.006284 | 0.15 |
+| 1,000 | 0.005263 | 0.050503 | 1.31 |
+| 10,000 | 0.052356 | 0.558827 | 13.15 |
+| 100,000 | 1.337475 | 13.300971 | 130.20 |
 
-These measurements hold the concurrent candidate count at six. They do not
-claim concurrent-writer, distributed-storage, or unbounded-candidate scaling.
+These environment-specific measurements hold the candidate set at six. They
+are an engineering profile, not a speed advantage or a claim of
+concurrent-writer, distributed-storage, or unbounded-candidate scaling.
 
 ## Sanitized Research Artifact
 
@@ -157,15 +190,22 @@ those files. The release excludes live targets, credentials, operational
 commands, network addresses, target-specific payloads, and direct reproduction
 procedures.
 
+The local defensive review that produced the source lifecycle covered fixed
+revisions of `microsoft/TypeScript`, `django/django`, and `affaan-m/ECC`.
+Repository names, commits, roles, counts, and source-stream hashes are listed in
+`validation/runtime/authorized_review_use_manifest.json`. Candidate-specific
+source locations and reproduction details remain excluded from the public case.
+
 The bounded evidence represented in the artifact is:
 
 - security-specific state semantics improve weak-to-strong handoff over the
   tested matched free-form, generic structured, and retrieval-memory controls
   under selected verifier-replay state pressure;
-- the advantage disappears in pressure-reduced replay and does not generalize
-  to the tested cross-family source-audit setting;
-- typed protocol surface alone does not improve over information-equivalent
-  curated prose.
+- pressure-reduced and unambiguous tasks show no measurable advantage over
+  lighter logs or curated prose, which defines when the middleware is useful;
+- the tested cross-family source-audit setting did not reproduce the same
+  separation, so the released evidence supports a state-pressure condition
+  rather than a universal representation claim.
 
 ## Licenses
 

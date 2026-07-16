@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.1 - 2026-07-16
+
+- Clarified BGVD-State as middleware between security-event producers and
+  downstream models, reviewers, and reporting pipelines.
+- Added a reviewer quick check with installation, 18-test, replay, gate, and
+  expected-output instructions.
+- Published the three reviewed repositories and fixed commits while continuing
+  to withhold candidate-specific source locations and reproduction details.
+- Corrected the validation wording from concurrent candidates to a fixed
+  six-candidate event-volume profile.
+
 ## 1.1.0 - 2026-07-13
 
 - Reframed the package as a replayable discovery-state runtime while keeping

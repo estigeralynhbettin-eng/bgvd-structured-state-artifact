@@ -8,7 +8,6 @@ import hashlib
 import json
 import platform
 import re
-import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -20,7 +19,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def public_text(value: str) -> str:
-    return value.replace(str(ROOT), "<repo>").replace(ROOT.as_posix(), "<repo>")
+    variants = {
+        str(ROOT),
+        ROOT.as_posix(),
+        str(ROOT).replace("\\", "\\\\"),
+        ROOT.as_posix().replace("/", "\\/"),
+    }
+    for variant in sorted(variants, key=len, reverse=True):
+        value = value.replace(variant, "<repo>")
+    return value
 
 
 def sha256(path: Path) -> str:
@@ -98,10 +105,12 @@ def main() -> int:
     run_dir.mkdir(parents=True, exist_ok=True)
 
     python = sys.executable
-    ruff = shutil.which("ruff") or str(Path(python).with_name("ruff.exe"))
     checks = [
-        run_check("SW-LINT", [ruff, "check", "src", "tests", "tools"]),
-        run_check("SW-FORMAT", [ruff, "format", "--check", "src", "tests", "tools"]),
+        run_check("SW-LINT", [python, "-m", "ruff", "check", "src", "tests", "tools"]),
+        run_check(
+            "SW-FORMAT",
+            [python, "-m", "ruff", "format", "--check", "src", "tests", "tools"],
+        ),
         run_check("SW-TEST", [python, "-m", "pytest"]),
         run_check("SW-BUILD", [python, "-m", "build"]),
         run_check(
