@@ -107,7 +107,7 @@ def benchmark(sizes: list[int], repeats: int, candidate_count: int) -> dict[str,
         "status": "PASS"
         if all(row["unique_state_hashes"] == row["unique_handoff_hashes"] == 1 for row in rows)
         else "FAIL",
-        "runtime_version": "1.1.0",
+        "runtime_version": "1.1.1",
         "profile": "fixed_candidate_count",
         "candidate_count": candidate_count,
         "environment": {

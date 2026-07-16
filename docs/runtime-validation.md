@@ -1,6 +1,6 @@
 # Runtime Validation
 
-BGVD-State v1.1.0 separates software validation from the security-replay workload used in the accompanying study.
+BGVD-State v1.1.1 separates software validation from the security-replay workload used in the accompanying study.
 
 ## Complete Engineering Case
 

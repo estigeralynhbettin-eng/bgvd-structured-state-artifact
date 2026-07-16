@@ -1,6 +1,43 @@
 ﻿# Reproduction Notes
 
-Date: 2026-07-09
+Date: 2026-07-16
+
+## Reviewer Quick Check
+
+From a fresh clone, use Python 3.10--3.12 and run:
+
+```bash
+python -m pip install .
+python -m unittest discover -s tests -v
+python -m bgvd_state replay \
+  --events examples/discovery_runtime_case/events.json \
+  --state-out state.json \
+  --handoff-out handoff.json
+python -m bgvd_state summary --state state.json
+python -m bgvd_state gate --state state.json --candidate CASE-C06
+```
+
+Expected outputs:
+
+- the test suite reports `Ran 18 tests` and `OK`;
+- the summary reports 23 events, 6 candidates, 5 rejected candidates, and 5
+  failed paths;
+- the gate reports `allowed: false` with reason
+  `current_verifier_not_positive` and exits with status 2.
+
+The nonzero gate status is the expected safety decision, not a test failure.
+
+For the complete SoftwareX release audit, install the development tools and
+regenerate the validation report:
+
+```bash
+python -m pip install -e ".[dev]"
+python tools/build_validation_report.py --out-dir validation
+```
+
+Expected result: `PASS`, 12 passing checks, and 18 passing tests. The
+machine-readable result is written to
+`validation/software_validation_report.json`.
 
 ## Validate the Release Artifact
 

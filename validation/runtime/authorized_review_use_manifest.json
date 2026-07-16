@@ -1,0 +1,66 @@
+{
+  "result_id": "SW-AUTHORIZED-USE",
+  "status": "PASS",
+  "runtime_version": "1.1.1",
+  "original_authorized_review": {
+    "scope": "three fixed public open-source revisions reviewed in a policy-screened, locally executed defensive workflow",
+    "reviewed_revisions": [
+      {
+        "repository": "microsoft/TypeScript",
+        "commit": "637d5746b70257028fb95aad32ddec6b26ab0a14",
+        "role": "environment and scope qualification",
+        "event_count": 1,
+        "candidate_count": 0
+      },
+      {
+        "repository": "django/django",
+        "commit": "65a9f14196c338d70889bd54753370606b3fb4eb",
+        "role": "candidate lifecycle review",
+        "event_count": 14,
+        "candidate_count": 4
+      },
+      {
+        "repository": "affaan-m/ECC",
+        "commit": "40927950c49f6e742d341e20ff7b9b7e1e7bfff5",
+        "role": "candidate lifecycle review and local technical reproduction",
+        "event_count": 7,
+        "candidate_count": 2
+      }
+    ],
+    "event_stream_released": false,
+    "withholding_reason": "contains candidate-specific source locations and reproduction details that are unnecessary for validating the runtime",
+    "event_stream_sha256": "ba6222df5dfc19090a55dfa4a4d373b2b29d557eb6318738f450285d98bdd0be",
+    "events": 22,
+    "candidates": 6,
+    "failed_paths": 5,
+    "locally_reproduced_technical_candidates": 1,
+    "replay_command": "python scripts/replay_s0_blackboard.py"
+  },
+  "released_deidentified_case": {
+    "path": "examples/discovery_runtime_case/events.json",
+    "sha256": "d2ecbdb91182342b91559c28a185887943322db6e58d7feeecc52d196ddc31718",
+    "events": 23,
+    "candidates": 6,
+    "failed_paths": 5,
+    "scope_event": "CASE-E023",
+    "finalization_allowed_for": [],
+    "gate_reason": "current_verifier_not_positive",
+    "replay_command": "python tools/validate_runtime_engineering.py --out-dir validation/runtime"
+  },
+  "transformation": {
+    "preserved": [
+      "event ordering",
+      "candidate count",
+      "evidence and failed-path relationships",
+      "technical verifier history",
+      "subsequent scope decision"
+    ],
+    "removed": [
+      "source locations",
+      "network addresses",
+      "credentials",
+      "target-specific reproduction details"
+    ],
+    "added_for_public_case": "the subsequent negative scope decision as event 23"
+  }
+}

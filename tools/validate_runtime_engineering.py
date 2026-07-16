@@ -95,7 +95,7 @@ def validate(out_dir: Path, repeats: int) -> dict[str, Any]:
     status = "PASS" if all(checks.values()) else "FAIL"
     result = {
         "status": status,
-        "runtime_version": "1.1.0",
+        "runtime_version": "1.1.1",
         "environment": {
             "python": platform.python_version(),
             "platform": platform.platform(),
