@@ -31,7 +31,7 @@ jobs:
             system: Darwin
             machine: arm64
           - label: macOS Intel no-install reviewer kit
-            runner: macos-15
+            runner: macos-15-intel
             platform: macos-x64
             archive: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip
             checksum: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.sha256.txt
