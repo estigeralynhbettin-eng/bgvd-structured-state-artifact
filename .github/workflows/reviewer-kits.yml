@@ -24,7 +24,7 @@ jobs:
             system: Windows
             machine: AMD64
           - label: macOS Apple Silicon no-install reviewer kit
-            runner: macos-15-arm64
+            runner: macos-15
             platform: macos-arm64
             archive: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip
             checksum: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.sha256.txt
