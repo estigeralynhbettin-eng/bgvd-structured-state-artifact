@@ -25,7 +25,7 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "reviewer_output"
 LOGS = OUTPUT / "logs"
-PRIVATE_PYTHON = [sys.executable, "-I", "-s"]
+PRIVATE_PYTHON = [sys.executable, "-I", "-s", "-X", "utf8"]
 
 
 class CheckFailure(RuntimeError):
@@ -111,7 +111,12 @@ def _check_runtime_identity() -> dict[str, object]:
     executable = Path(sys.executable).resolve()
     if not executable.is_relative_to(runtime_root):
         raise CheckFailure("The check was not started with the bundled private runtime.")
-    if not sys.flags.isolated or not sys.flags.ignore_environment or not sys.flags.no_user_site:
+    if (
+        not sys.flags.isolated
+        or not sys.flags.ignore_environment
+        or not sys.flags.no_user_site
+        or not sys.flags.utf8_mode
+    ):
         raise CheckFailure("The bundled runtime did not start in the required isolated mode.")
     if site.ENABLE_USER_SITE is not False:
         raise CheckFailure("User-level Python packages were not disabled.")
@@ -287,6 +292,7 @@ def main() -> int:
                     "'isolated': sys.flags.isolated, "
                     "'ignore_environment': sys.flags.ignore_environment, "
                     "'no_user_site': sys.flags.no_user_site, "
+                    "'utf8_mode': sys.flags.utf8_mode, "
                     "'user_site_enabled': site.ENABLE_USER_SITE, "
                     "'jsonschema': importlib.metadata.version('jsonschema'), "
                     "'path': sys.path"

@@ -24,7 +24,7 @@ export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUTF8=1
 export PYTHONIOENCODING=utf-8
 
-"runtime/bin/python3" -I -s "reviewer_offline_check.py"
+"runtime/bin/python3" -I -s -X utf8 "reviewer_offline_check.py"
 BGVD_EXIT=$?
 
 echo

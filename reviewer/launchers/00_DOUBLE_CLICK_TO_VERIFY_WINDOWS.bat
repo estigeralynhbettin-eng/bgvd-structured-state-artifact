@@ -13,7 +13,7 @@ if not exist "runtime\python.exe" (
     exit /b 1
 )
 
-"runtime\python.exe" -I -s "reviewer_offline_check.py"
+"runtime\python.exe" -I -s -X utf8 "reviewer_offline_check.py"
 set "BGVD_EXIT=%errorlevel%"
 
 echo.

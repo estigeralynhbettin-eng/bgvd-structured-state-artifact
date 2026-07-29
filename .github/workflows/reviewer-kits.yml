@@ -100,6 +100,7 @@ jobs:
             '"isolated": 1',
             '"ignore_environment": 1',
             '"no_user_site": 1',
+            '"utf8_mode": 1',
             '"jsonschema": "4.23.0"'
           )) {
             if (-not $runtimeLog.Contains($required)) {
@@ -157,6 +158,7 @@ jobs:
           grep -F '"isolated": 1' "$output/logs/01_runtime.txt"
           grep -F '"ignore_environment": 1' "$output/logs/01_runtime.txt"
           grep -F '"no_user_site": 1' "$output/logs/01_runtime.txt"
+          grep -F '"utf8_mode": 1' "$output/logs/01_runtime.txt"
           grep -F '"jsonschema": "4.23.0"' "$output/logs/01_runtime.txt"
           test "$(uname -m)" = "$EXPECTED_MACHINE"
           file "$kit/runtime/bin/python3"
