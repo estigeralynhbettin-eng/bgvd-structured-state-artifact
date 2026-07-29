@@ -39,12 +39,19 @@ python -m pip install -e .
 
 ## Reviewer Quick Check — No Installation
 
-For the shortest reviewer path on 64-bit Windows 10 or Windows 11:
+Choose the no-install ZIP that matches the reviewer's computer:
 
-1. Download
-   [`BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip).
+| Computer | Reviewer kit |
+|---|---|
+| Windows 10/11 x64 | [`BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip) |
+| macOS Apple Silicon | [`BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip) |
+| macOS Intel | [`BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip) |
+
+Then:
+
+1. Download the matching ZIP.
 2. Extract the complete ZIP.
-3. Double-click `00_DOUBLE_CLICK_TO_VERIFY_WINDOWS.bat`.
+3. Double-click the Windows `.bat` or macOS `.command` file.
 
 The result page opens automatically. The expected headline is:
 
@@ -63,11 +70,16 @@ visible, unsupported finalization is blocked with the expected gate exit code
 `2`, and the offline artifact validator passes. The generated HTML result page
 links to the raw log for every step.
 
-Read the complete reviewer instructions and platform boundary in
+Each asset is built and executed on its matching operating system and CPU
+architecture in CI. Read the complete reviewer instructions and platform
+boundary in
 [`reviewer/00_READ_ME_FIRST.md`](reviewer/00_READ_ME_FIRST.md).
 
-The no-install asset above is verified for Windows 10/11 x64. It is not a
-macOS or iOS application. The source package itself supports Python 3.10--3.12.
+The macOS bundles are not notarized with a paid Apple Developer ID. On the
+first launch after a browser download, Gatekeeper may require the standard
+Control-click, **Open** confirmation. This is not an installation and does not
+need administrator access. iOS/iPadOS is not supported. The source package
+itself supports Python 3.10--3.12.
 
 ### Optional source-based check
 

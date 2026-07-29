@@ -1,22 +1,16 @@
 # Bundled Runtime Provenance
 
-The Windows x64 reviewer asset contains a private runtime so that reviewers do
-not need to install Python or packages.
+Each reviewer kit contains a private, platform-matched CPython runtime from
+Astral's `python-build-standalone` project:
 
-## CPython
+- Fixed release: `20260728`
+- CPython: `3.12.13`
+- Runtime variant: `install_only_stripped`
+- Upstream checksums:
+  [`SHA256SUMS`](https://github.com/astral-sh/python-build-standalone/releases/download/20260728/SHA256SUMS)
 
-- Distribution: CPython 3.12.10 Windows embeddable package, 64-bit
-- Official source:
-  `https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip`
-- Download SHA-256:
-  `4acbed6dd1c744b0376e3b1cf57ce906f9dc9e95e68824584c8099a63025a3c3`
-- Bundled `runtime/python.exe` SHA-256:
-  `4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a`
-- Bundled `runtime/python312.dll` SHA-256:
-  `9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120`
-- License: `runtime/LICENSE.txt`
-
-## Bundled Python dependencies
+The build script pins and verifies a distinct runtime archive for Windows x64,
+macOS Apple Silicon, and macOS Intel. It also vendors:
 
 - `attrs==26.1.0`
 - `jsonschema==4.23.0`
@@ -25,11 +19,7 @@ not need to install Python or packages.
 - `rpds-py==2026.6.3`
 - `typing-extensions==4.16.0`
 
-Package metadata and license files are retained under
-`runtime/Lib/site-packages/*-dist-info`.
-
-The runtime path configuration includes `../src`, so the reviewer workflow
-executes the unchanged BGVD-State source distributed in the asset. It does not
-install a second copy of BGVD-State. The embeddable runtime remains in isolated
-mode, ignores `PYTHONHOME` and `PYTHONPATH`, and does not load user-level
-site-packages from an existing Python installation.
+Every built kit includes its exact runtime asset name, upstream asset SHA-256,
+bundled-interpreter SHA-256, dependency versions, build metadata, and a
+per-file manifest. The reviewer workflow uses Python isolated mode (`-I -s`),
+clears `PYTHONHOME` and `PYTHONPATH`, and does not load user-level packages.

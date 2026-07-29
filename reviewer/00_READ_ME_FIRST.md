@@ -1,18 +1,16 @@
-# BGVD-State v1.1.1 Reviewer Quick Start — Windows x64
+# BGVD-State v1.1.1 Reviewer Quick Start
 
-This is the recommended entry point for reviewers.
-
-Supported by this no-install bundle: **64-bit Windows 10 or Windows 11**.
-
-This bundle is not a macOS or iOS application. The BGVD-State Python source is
-platform-independent, but no-install reviewer bundles must be downloaded for
-the reviewer's operating system. See `SUPPORTED_PLATFORMS.md`.
+This is the recommended entry point for reviewers. Choose the no-install bundle
+that matches the operating system and processor.
 
 ## Three Steps
 
-1. Download and extract the complete
-   [`BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip).
-2. Double-click `00_DOUBLE_CLICK_TO_VERIFY_WINDOWS.bat`.
+1. Download and extract one complete reviewer ZIP from the
+   [`v1.1.1` Release page](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/tag/v1.1.1):
+   - Windows x64: `BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip`
+   - macOS Apple Silicon: `BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip`
+   - macOS Intel: `BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip`
+2. Double-click the `00_DOUBLE_CLICK_TO_VERIFY_...` file.
 3. Read the result page that opens automatically.
 
 The expected headline is:
@@ -25,10 +23,10 @@ That is all that is required.
 
 ## Nothing to Install
 
-The Windows reviewer ZIP includes its own private Python runtime and all
-required packages. The check:
+Each reviewer ZIP includes its own private Python runtime and all required
+packages. The check:
 
-- does not use the computer's Python installation;
+- does not use the computer's Python or Anaconda installation;
 - does not install Python or any package;
 - does not need an internet connection;
 - does not need administrator permission;
@@ -37,11 +35,10 @@ required packages. The check:
   target; and
 - writes results only inside `reviewer_output` in the extracted folder.
 
-The private runtime is isolated from `PYTHONHOME`, `PYTHONPATH`, and user-level
-Python packages. An existing Python or Anaconda installation cannot override
-the packages used by the reviewer check.
+The private runtime uses isolated mode and ignores `PYTHONHOME`, `PYTHONPATH`,
+and user-level packages. An existing Python installation cannot override it.
 
-If Windows reports that `runtime/python.exe` is missing, the ZIP was not
+If the launcher reports that the private runtime is missing, the ZIP was not
 extracted completely or the download is incomplete. Re-extract or re-download
 the reviewer ZIP. Do not install anything.
 
@@ -67,9 +64,9 @@ After the run, the following page opens automatically:
 
 `reviewer_output/REVIEWER_CHECK_SUMMARY.html`
 
-It gives one clear `PASS` or `FAIL`, explains the conclusion, and links to the
-raw logs for every step. Markdown, plain-text, JSON, reconstructed state,
-handoff, gate, and artifact-validation outputs are stored in the same folder.
+It gives one clear `PASS` or `FAIL`, explains the conclusion, and links to six
+raw logs. Markdown, plain-text, JSON, reconstructed-state, handoff, gate, and
+artifact-validation outputs are stored in the same folder.
 
 ## What a PASS Supports
 
@@ -82,10 +79,17 @@ It does not claim autonomous vulnerability discovery, a maintainer-confirmed
 vulnerability, universal performance superiority, or production-scale
 distributed execution.
 
-## Technical Source Workflow
+## macOS First Launch
 
-The source-only workflow remains available for technical reviewers who prefer
-to use their own Python 3.10--3.12 environment:
+The macOS bundles are not notarized with a paid Apple Developer ID. If
+Gatekeeper blocks the first double-click after a browser download, Control-click
+the `.command` file, choose **Open**, and confirm **Open** once. This does not
+install software or require administrator permission. Subsequent launches can
+use a normal double-click.
+
+## Optional Source Workflow
+
+Technical reviewers who prefer their own Python 3.10--3.12 environment can run:
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -95,19 +99,12 @@ python validate_structured_state_artifact.py \
   --out-dir artifact_validation_output
 ```
 
-This optional workflow may download Python packages. It is not needed for the
-recommended no-install Windows check.
+This optional workflow may download Python packages. It is not needed for a
+no-install reviewer check.
 
 ## Package Integrity
 
-The Windows asset SHA-256 is:
-
-```text
-922f5110fefc8b23d8c8bfbb026065fa735a8c850ecffee68d59692560640c17
-```
-
-The checksum file is available beside the ZIP on the
-[`v1.1.1` Release page](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/tag/v1.1.1).
+Each ZIP has a matching `.sha256.txt` file beside it on the Release page.
 
 ## Manual Documentation
 
