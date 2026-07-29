@@ -141,6 +141,8 @@ jobs:
           "$launcher"
 
           output="$kit/reviewer_output"
+          unset PYTHONHOME
+          unset PYTHONPATH
           /usr/bin/python3 - "$output/REVIEWER_CHECK_SUMMARY.json" <<'PY'
           import json
           import sys
