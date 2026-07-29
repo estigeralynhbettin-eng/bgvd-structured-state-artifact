@@ -1,0 +1,204 @@
+name: reviewer kits
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-verify:
+    name: ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: Windows x64 no-install reviewer kit
+            runner: windows-latest
+            platform: windows-x64
+            archive: BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip
+            checksum: BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.sha256.txt
+            system: Windows
+            machine: AMD64
+          - label: macOS Apple Silicon no-install reviewer kit
+            runner: macos-15
+            platform: macos-arm64
+            archive: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip
+            checksum: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.sha256.txt
+            system: Darwin
+            machine: arm64
+          - label: macOS Intel no-install reviewer kit
+            runner: macos-15-intel
+            platform: macos-x64
+            archive: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip
+            checksum: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.sha256.txt
+            system: Darwin
+            machine: x86_64
+
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build pinned no-install kit
+        run: >-
+          python reviewer/build_reviewer_kit.py
+          --platform "${{ matrix.platform }}"
+          --output-dir dist/reviewer
+          --cache-dir "${{ runner.temp }}/bgvd-runtime-cache"
+
+      - name: Verify Windows kit from a fresh non-ASCII path
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $archive = Join-Path $PWD "dist/reviewer/${{ matrix.archive }}"
+          $extractRoot = Join-Path $env:RUNNER_TEMP "Reviewer 中文 Path"
+          $tempRoot = Join-Path $env:RUNNER_TEMP "临时 输出 Path"
+          New-Item -ItemType Directory -Force -Path $extractRoot, $tempRoot | Out-Null
+          Expand-Archive -LiteralPath $archive -DestinationPath $extractRoot
+          $kit = Join-Path $extractRoot "BGVD-State-v1.1.1-reviewer-kit"
+          $launcher = Join-Path $kit "00_DOUBLE_CLICK_TO_VERIFY_WINDOWS.bat"
+
+          $env:BGVD_REVIEWER_NO_OPEN = "1"
+          $env:BGVD_REVIEWER_NO_PAUSE = "1"
+          $env:PYTHONHOME = "Z:\deliberately-missing-python-home"
+          $env:PYTHONPATH = "Z:\deliberately-missing-python-path"
+          $env:HTTP_PROXY = "http://127.0.0.1:1"
+          $env:HTTPS_PROXY = "http://127.0.0.1:1"
+          $env:TEMP = $tempRoot
+          $env:TMP = $tempRoot
+
+          & $launcher
+          if ($LASTEXITCODE -ne 0) {
+            throw "Reviewer launcher returned $LASTEXITCODE"
+          }
+
+          $output = Join-Path $kit "reviewer_output"
+          $summary = Get-Content -LiteralPath (
+            Join-Path $output "REVIEWER_CHECK_SUMMARY.json"
+          ) -Raw | ConvertFrom-Json
+          if ($summary.status -ne "PASS") {
+            throw "Reviewer summary did not report PASS"
+          }
+          if ($summary.platform -notmatch "^Windows") {
+            throw "Reviewer summary did not report Windows"
+          }
+          $logs = Get-ChildItem -LiteralPath (Join-Path $output "logs") -Filter "*.txt"
+          if ($logs.Count -ne 6) {
+            throw "Expected six raw logs, found $($logs.Count)"
+          }
+          $runtimeLog = Get-Content -LiteralPath (Join-Path $output "logs/01_runtime.txt") -Raw
+          foreach ($required in @(
+            '"isolated": 1',
+            '"ignore_environment": 1',
+            '"no_user_site": 1',
+            '"utf8_mode": 1',
+            '"jsonschema": "4.23.0"'
+          )) {
+            if (-not $runtimeLog.Contains($required)) {
+              throw "Runtime log is missing: $required"
+            }
+          }
+
+          $checksumPath = $archive -replace '\.zip$', '.sha256.txt'
+          $expectedHash = (Get-Content -LiteralPath $checksumPath).Split()[0]
+          $actualHash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actualHash -ne $expectedHash) {
+            throw "Archive checksum mismatch"
+          }
+
+      - name: Verify macOS kit from a fresh non-ASCII path
+        if: runner.os == 'macOS'
+        shell: bash
+        env:
+          EXPECTED_MACHINE: ${{ matrix.machine }}
+        run: |
+          set -euo pipefail
+          archive="$PWD/dist/reviewer/${{ matrix.archive }}"
+          extract_root="$RUNNER_TEMP/Reviewer 中文 Path"
+          temp_root="$RUNNER_TEMP/临时 输出 Path"
+          mkdir -p "$extract_root" "$temp_root"
+          ditto -x -k "$archive" "$extract_root"
+          kit="$extract_root/BGVD-State-v1.1.1-reviewer-kit"
+          launcher="$kit/00_DOUBLE_CLICK_TO_VERIFY_MACOS.command"
+          test -x "$launcher"
+
+          export BGVD_REVIEWER_NO_OPEN=1
+          export BGVD_REVIEWER_NO_PAUSE=1
+          export PYTHONHOME="/deliberately/missing/python/home"
+          export PYTHONPATH="/deliberately/missing/python/path"
+          export HTTP_PROXY="http://127.0.0.1:1"
+          export HTTPS_PROXY="http://127.0.0.1:1"
+          export TMPDIR="$temp_root"
+
+          "$launcher"
+
+          output="$kit/reviewer_output"
+          unset PYTHONHOME
+          unset PYTHONPATH
+          /usr/bin/python3 - "$output/REVIEWER_CHECK_SUMMARY.json" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          payload = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          assert payload["status"] == "PASS", payload
+          assert payload["platform"].startswith("macOS-"), payload["platform"]
+          PY
+
+          test "$(find "$output/logs" -type f -name '*.txt' | wc -l | tr -d ' ')" = "6"
+          grep -F '"isolated": 1' "$output/logs/01_runtime.txt"
+          grep -F '"ignore_environment": 1' "$output/logs/01_runtime.txt"
+          grep -F '"no_user_site": 1' "$output/logs/01_runtime.txt"
+          grep -F '"utf8_mode": 1' "$output/logs/01_runtime.txt"
+          grep -F '"jsonschema": "4.23.0"' "$output/logs/01_runtime.txt"
+          test "$(uname -m)" = "$EXPECTED_MACHINE"
+          file "$kit/runtime/bin/python3"
+
+          expected_hash="$(awk '{print $1}' "${archive%.zip}.sha256.txt")"
+          actual_hash="$(shasum -a 256 "$archive" | awk '{print $1}')"
+          test "$actual_hash" = "$expected_hash"
+
+      - name: Record macOS signature and Gatekeeper boundary
+        if: runner.os == 'macOS'
+        shell: bash
+        continue-on-error: true
+        run: |
+          set +e
+          extract_root="$RUNNER_TEMP/Reviewer 中文 Path"
+          kit="$extract_root/BGVD-State-v1.1.1-reviewer-kit"
+          runtime="$kit/runtime/bin/python3"
+          {
+            echo "codesign verification:"
+            codesign --verify --strict --verbose=2 "$runtime"
+            echo "codesign_exit=$?"
+            echo
+            echo "Gatekeeper assessment:"
+            spctl --assess --type execute --verbose=4 "$runtime"
+            echo "spctl_exit=$?"
+            echo
+            echo "Quarantined direct-launch functional check:"
+            xattr -r -w com.apple.quarantine \
+              "0081;$(printf '%x' "$(date +%s)");Safari;" "$kit"
+            BGVD_REVIEWER_NO_OPEN=1 BGVD_REVIEWER_NO_PAUSE=1 \
+              "$kit/00_DOUBLE_CLICK_TO_VERIFY_MACOS.command"
+            echo "quarantined_direct_launch_exit=$?"
+          } | tee "dist/reviewer/${{ matrix.platform }}-gatekeeper-assessment.txt"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reviewer-kit-${{ matrix.platform }}
+          path: |
+            dist/reviewer/${{ matrix.archive }}
+            dist/reviewer/${{ matrix.checksum }}
+            dist/reviewer/${{ matrix.platform }}-gatekeeper-assessment.txt
+          if-no-files-found: error
+          retention-days: 14

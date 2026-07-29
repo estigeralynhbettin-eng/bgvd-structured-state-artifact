@@ -34,7 +34,7 @@ classifiers = [
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["build>=1.2", "jsonschema>=4.22", "pytest>=8.0", "ruff>=0.5"]
+dev = ["build>=1.2", "jsonschema>=4.22", "pytest>=8.0", "ruff==0.15.21"]
 
 [project.scripts]
 bgvd-state = "bgvd_state.cli:main"

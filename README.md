@@ -37,38 +37,64 @@ For an editable development install:
 python -m pip install -e .
 ```
 
-## Reviewer Quick Check
+## Reviewer Quick Check — No Installation
 
-From a fresh clone, install the package before running the tests and examples:
+Choose the no-install ZIP that matches the reviewer's computer:
 
-```bash
-python -m pip install .
-python -m unittest discover -s tests -v
+| Computer | Reviewer kit |
+|---|---|
+| Windows 10/11 x64 | [`BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip) |
+| macOS Apple Silicon | [`BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip) |
+| macOS Intel | [`BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip) |
+
+Then:
+
+1. Download the matching ZIP.
+2. Extract the complete ZIP.
+3. Double-click the Windows `.bat` or macOS `.command` file.
+
+The result page opens automatically. The expected headline is:
+
+```text
+OVERALL RESULT: PASS
 ```
 
-The expected test result is `Ran 18 tests` followed by `OK`. The complete
-release audit is documented in `REPRODUCE.md` and can be run with:
+The reviewer kit includes its own isolated Python runtime and dependencies. It
+does not use or modify a Python installation already present on the computer,
+does not install packages, and does not require internet access, administrator
+permission, an API key, a model call, Docker, a service, or a live target.
+
+A `PASS` confirms that all 18 tests pass, the fixed case replays 23 events into
+6 candidate lifecycles, 5 rejected candidates and 5 failed paths remain
+visible, unsupported finalization is blocked with the expected gate exit code
+`2`, and the offline artifact validator passes. The generated HTML result page
+links to the raw log for every step.
+
+Each asset is built and executed on its matching operating system and CPU
+architecture in CI. Read the complete reviewer instructions and platform
+boundary in
+[`reviewer/00_READ_ME_FIRST.md`](reviewer/00_READ_ME_FIRST.md).
+
+The macOS bundles are not notarized with a paid Apple Developer ID. On the
+first launch after a browser download, Gatekeeper may require the standard
+Control-click, **Open** confirmation. This is not an installation and does not
+need administrator access. iOS/iPadOS is not supported. The source package
+itself supports Python 3.10--3.12.
+
+### Optional source-based check
+
+Technical reviewers who prefer their own Python environment can run:
 
 ```bash
+python -m pip install -e ".[dev]"
+python -m unittest discover -s tests -v
 python validate_structured_state_artifact.py \
   --artifact . \
   --out-dir artifact_validation_output
 ```
 
-The expected final status is `PASS`. No model call, API key, container, or live
-target is used by either check.
-
-To regenerate the complete SoftwareX release report, including lint, format,
-tests, package build, examples, gate decisions, replay checks, and artifact
-regression, run:
-
-```bash
-python -m pip install -e ".[dev]"
-python tools/build_validation_report.py --out-dir validation
-```
-
-The expected report status is `PASS` with 12 passing checks and 18 tests. The
-machine-readable result is `validation/software_validation_report.json`.
+The expected test result is `Ran 18 tests` followed by `OK`; the expected
+artifact-validation status is `PASS`.
 
 ## Complete Runtime Example
 
