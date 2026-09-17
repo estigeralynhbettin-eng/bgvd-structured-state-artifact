@@ -7,7 +7,7 @@
 | Windows 10/11 x64 | CI-verified | Extract and double-click the Windows `.bat` launcher |
 | macOS Apple Silicon | CI-verified | Extract and double-click the macOS `.command` launcher |
 | macOS Intel | CI-verified | Extract and double-click the macOS `.command` launcher |
-| Linux x64 | Source workflow only | No no-install reviewer bundle in v1.1.1 |
+| Linux x64 | Source workflow only | No no-install reviewer bundle in v1.2.0 |
 | iOS/iPadOS | Not supported | Mobile operating systems are outside the execution environment |
 
 Each no-install asset is built and executed on a matching GitHub-hosted runner.
@@ -22,6 +22,6 @@ permission is required.
 
 ## Source software
 
-The BGVD-State v1.1.1 source package supports Python 3.10, 3.11, and 3.12. The
+The BGVD-State v1.2.0 source package supports Python 3.10, 3.11, and 3.12. The
 source workflow is distinct from the no-install reviewer bundles and may
 require an existing Python environment.

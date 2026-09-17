@@ -19,22 +19,22 @@ jobs:
           - label: Windows x64 no-install reviewer kit
             runner: windows-latest
             platform: windows-x64
-            archive: BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip
-            checksum: BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.sha256.txt
+            archive: BGVD-State-v1.2.0-Reviewer-Kit-Windows-x64.zip
+            checksum: BGVD-State-v1.2.0-Reviewer-Kit-Windows-x64.sha256.txt
             system: Windows
             machine: AMD64
           - label: macOS Apple Silicon no-install reviewer kit
             runner: macos-15
             platform: macos-arm64
-            archive: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip
-            checksum: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.sha256.txt
+            archive: BGVD-State-v1.2.0-Reviewer-Kit-macOS-Apple-Silicon.zip
+            checksum: BGVD-State-v1.2.0-Reviewer-Kit-macOS-Apple-Silicon.sha256.txt
             system: Darwin
             machine: arm64
           - label: macOS Intel no-install reviewer kit
             runner: macos-15-intel
             platform: macos-x64
-            archive: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip
-            checksum: BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.sha256.txt
+            archive: BGVD-State-v1.2.0-Reviewer-Kit-macOS-Intel.zip
+            checksum: BGVD-State-v1.2.0-Reviewer-Kit-macOS-Intel.sha256.txt
             system: Darwin
             machine: x86_64
 
@@ -64,7 +64,7 @@ jobs:
           $tempRoot = Join-Path $env:RUNNER_TEMP "临时 输出 Path"
           New-Item -ItemType Directory -Force -Path $extractRoot, $tempRoot | Out-Null
           Expand-Archive -LiteralPath $archive -DestinationPath $extractRoot
-          $kit = Join-Path $extractRoot "BGVD-State-v1.1.1-reviewer-kit"
+          $kit = Join-Path $extractRoot "BGVD-State-v1.2.0-reviewer-kit"
           $launcher = Join-Path $kit "00_DOUBLE_CLICK_TO_VERIFY_WINDOWS.bat"
 
           $env:BGVD_REVIEWER_NO_OPEN = "1"
@@ -127,7 +127,7 @@ jobs:
           temp_root="$RUNNER_TEMP/临时 输出 Path"
           mkdir -p "$extract_root" "$temp_root"
           ditto -x -k "$archive" "$extract_root"
-          kit="$extract_root/BGVD-State-v1.1.1-reviewer-kit"
+          kit="$extract_root/BGVD-State-v1.2.0-reviewer-kit"
           launcher="$kit/00_DOUBLE_CLICK_TO_VERIFY_MACOS.command"
           test -x "$launcher"
 
@@ -174,7 +174,7 @@ jobs:
         run: |
           set +e
           extract_root="$RUNNER_TEMP/Reviewer 中文 Path"
-          kit="$extract_root/BGVD-State-v1.1.1-reviewer-kit"
+          kit="$extract_root/BGVD-State-v1.2.0-reviewer-kit"
           runtime="$kit/runtime/bin/python3"
           {
             echo "codesign verification:"

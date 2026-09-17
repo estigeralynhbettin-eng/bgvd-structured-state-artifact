@@ -1,4 +1,4 @@
-"""No-install reviewer check for BGVD-State v1.1.1.
+"""No-install reviewer check for BGVD-State v1.2.0.
 
 The script is launched by the private Python runtime included in each
 platform-specific reviewer ZIP. It performs no installation, network access,
@@ -11,6 +11,7 @@ import html
 import json
 import os
 import platform
+import re
 import shutil
 import site
 import subprocess
@@ -30,6 +31,19 @@ PRIVATE_PYTHON = [sys.executable, "-I", "-s", "-X", "utf8"]
 
 class CheckFailure(RuntimeError):
     """Raised when a reviewer check does not meet its expected result."""
+
+
+def _verified_test_count(output: str, expected: object) -> int:
+    """Require a nonempty complete suite, not a version-specific magic number."""
+    if type(expected) is not int or expected <= 0:
+        raise CheckFailure("The kit build metadata has no valid expected test count.")
+    counts = re.findall(r"^Ran (\d+) tests? in .+$", output, flags=re.MULTILINE)
+    if len(counts) != 1 or int(counts[0]) != expected:
+        raise CheckFailure(f"The test run did not report the expected {expected} tests.")
+    # A skipped/expected-failure suite is not a complete successful execution.
+    if output.strip().splitlines()[-1] != "OK":
+        raise CheckFailure("The complete test suite did not finish with an unqualified OK.")
+    return int(counts[0])
 
 
 def _private_environment() -> dict[str, str]:
@@ -144,6 +158,43 @@ def _write_summaries(payload: dict[str, object]) -> None:
     )
 
     checks = payload.get("checks", [])
+    reports = [
+        (relative, label)
+        for relative, label in (
+            ("artifact_validation/ARTIFACT_VALIDATION_REPORT.html", "Read current manuscript results and limits (web page)"),
+            ("artifact_validation/ARTIFACT_VALIDATION_REPORT.md", "Plain-text Markdown copy of the results"),
+            ("artifact_validation/artifact_validation_report.json", "Full validation results and per-result details (JSON)"),
+        )
+        if (OUTPUT / relative).is_file()
+    ]
+    report_markdown = "\n".join(f"- [{label}]({relative})" for relative, label in reports)
+    report_html = "".join(
+        f'<li><a href="{relative}">{html.escape(label)}</a></li>'
+        for relative, label in reports
+    )
+    if not reports:
+        report_markdown = "The full artifact report is not available; see the completed checks and available logs below."
+        report_html = f"<li>{report_markdown}</li>"
+    available_logs = [
+        (relative, label)
+        for relative, label in (
+            ("logs/01_runtime.txt", "Bundled runtime"),
+            ("logs/02_tests.txt", "Complete automated test suite"),
+            ("logs/03_replay.txt", "Case replay"),
+            ("logs/04_summary.txt", "Runtime summary"),
+            ("logs/05_gate.txt", "Evidence-gate decision"),
+            ("logs/06_artifact_validator.txt", "Artifact validator execution log"),
+        )
+        if (OUTPUT / relative).is_file()
+    ]
+    logs_markdown = "\n".join(f"- [{label}]({relative})" for relative, label in available_logs)
+    logs_html = "".join(
+        f'<li><a href="{relative}">{html.escape(label)}</a></li>'
+        for relative, label in available_logs
+    )
+    if not available_logs:
+        logs_markdown = "No execution logs are available."
+        logs_html = f"<li>{logs_markdown}</li>"
     rows = "\n".join(
         f"- {item['label']}: **{item['status']}** - {item['detail']}"
         for item in checks
@@ -155,6 +206,19 @@ Overall result: **{payload['status']}**
 
 Generated: {payload['generated_at']}
 
+Scientific interpretation status: **{payload.get('scientific_review_status', 'NOT_EVALUATED')}**.
+Execution/scoring consistency is separate from approval of the manuscript's
+scientific claims. Read the artifact-validation report for exclusions and limits.
+
+## Read the manuscript results
+
+{report_markdown}
+
+The readable report presents the current continuation results first, the separate
+cross-family scoring results, and updater calls with unrecorded token usage.
+Historical comparisons are clearly separated. These links use saved files in
+this output folder and remain available after temporary execution files are cleaned up.
+
 ## Checks
 
 {rows}
@@ -162,7 +226,8 @@ Generated: {payload['generated_at']}
 ## Clear Conclusion
 
 A `PASS` confirms that the bundled software runs without installing Python or
-packages, all 18 tests pass, the fixed 23-event case reconstructs six candidate
+packages, the complete test suite recorded in the kit build metadata passes,
+the fixed 23-event case reconstructs six candidate
 lifecycles, five rejected candidates and five failed paths remain visible,
 unsupported finalization is blocked, and the offline artifact validator passes.
 
@@ -174,12 +239,7 @@ container, service, or live target was used.
 
 ## Raw Logs
 
-- `logs/01_runtime.txt`
-- `logs/02_tests.txt`
-- `logs/03_replay.txt`
-- `logs/04_summary.txt`
-- `logs/05_gate.txt`
-- `logs/06_artifact_validator.txt`
+{logs_markdown}
 """
     (OUTPUT / "REVIEWER_CHECK_SUMMARY.md").write_text(markdown, encoding="utf-8")
     (OUTPUT / "REVIEWER_CHECK_SUMMARY.txt").write_text(
@@ -223,8 +283,25 @@ container, service, or live target was used.
 <main>
   <div class="result">
     <h1>OVERALL RESULT: {html.escape(status)}</h1>
-    <p>BGVD-State v1.1.1 no-install reviewer check</p>
+    <p>BGVD-State v1.2.0 no-install reviewer check</p>
   </div>
+  <section>
+    <h2>Scope of this result</h2>
+    <p>Scientific interpretation status:
+    <strong>{html.escape(str(payload.get('scientific_review_status', 'NOT_EVALUATED')))}</strong>.</p>
+    <p>Software execution and scoring consistency do not establish manuscript
+    acceptance or approval of its scientific claims. The artifact-validation
+    report records protocol exclusions and interpretation limits.</p>
+  </section>
+  <section>
+    <h2>Read the manuscript results</h2>
+    <ul>{report_html}</ul>
+    <p>The readable report starts with the current continuation results, then shows
+    cross-family results and updater calls with unrecorded token usage. Historical
+    comparisons are clearly separated.</p>
+    <p class="note">These reports are saved beside this page; the links remain
+    available after temporary execution files are cleaned up.</p>
+  </section>
   <section>
     <h2>What was verified</h2>
     <ul>{''.join(cards)}</ul>
@@ -232,7 +309,8 @@ container, service, or live target was used.
   <section>
     <h2>Clear conclusion</h2>
     <p>A PASS confirms that the bundled software ran without installing Python
-    or packages; all 18 tests passed; the fixed case replayed 23 events into 6
+    or packages; the complete test suite recorded in the kit build metadata
+    passed; the fixed case replayed 23 events into 6
     candidate lifecycles; 5 rejected candidates and 5 failed paths remained
     visible; unsupported finalization was blocked; and the offline artifact
     validator passed.</p>
@@ -244,12 +322,7 @@ container, service, or live target was used.
   <section>
     <h2>Raw logs</h2>
     <ul>
-      <li><a href="logs/01_runtime.txt">Bundled runtime</a></li>
-      <li><a href="logs/02_tests.txt">18 automated tests</a></li>
-      <li><a href="logs/03_replay.txt">Case replay</a></li>
-      <li><a href="logs/04_summary.txt">Runtime summary</a></li>
-      <li><a href="logs/05_gate.txt">Evidence-gate decision</a></li>
-      <li><a href="logs/06_artifact_validator.txt">Artifact validation</a></li>
+      {logs_html}
     </ul>
     <p><a href="REVIEWER_CHECK_SUMMARY.json">Machine-readable JSON summary</a></p>
   </section>
@@ -261,7 +334,7 @@ container, service, or live target was used.
 
 
 def main() -> int:
-    print("BGVD-State v1.1.1 No-Install Reviewer Check")
+    print("BGVD-State v1.2.0 No-Install Reviewer Check")
     print("=" * 47)
     print("Nothing will be installed or added to the system.")
     print("No internet connection or administrator permission is needed.")
@@ -311,19 +384,18 @@ def main() -> int:
             }
         )
 
-        print("[2/5] Running the 18 unit and integration tests...")
+        print("[2/5] Running the complete unit and integration test suite...")
         tests = _run(
             "02_tests",
             PRIVATE_PYTHON + ["-m", "unittest", "discover", "-s", "tests", "-v"],
         )
         combined_test_output = tests.stdout + "\n" + tests.stderr
-        if "Ran 18 tests" not in combined_test_output or "\nOK" not in combined_test_output:
-            raise CheckFailure("The test command returned success but did not report 18 tests and OK.")
+        test_count = _verified_test_count(combined_test_output, build.get("expected_test_count"))
         checks.append(
             {
                 "label": "Automated tests",
                 "status": "PASS",
-                "detail": "18 tests completed with OK.",
+                "detail": f"All {test_count} tests recorded at build time completed with OK.",
             }
         )
 
@@ -420,7 +492,14 @@ def main() -> int:
             {
                 "label": "Offline artifact validation",
                 "status": "PASS",
-                "detail": "The sanitized artifact passed consistency and leakage checks.",
+                "detail": (
+                    "Continuation scores, cross-family source-audit scores and per-call token records "
+                    "passed independent reconstruction and inventory checks. "
+                    "Recorded leakage-audit counts were checked; this is not a new scan of all files. "
+                    "Scientific interpretation status: "
+                    + str(validation_payload.get("scientific_review_status", "NOT_EVALUATED"))
+                    + "."
+                ),
             }
         )
 
@@ -435,10 +514,15 @@ def main() -> int:
             validation_dir / "ARTIFACT_VALIDATION_REPORT.md",
             OUTPUT / "artifact_validation" / "ARTIFACT_VALIDATION_REPORT.md",
         )
+        _copy_if_present(
+            validation_dir / "ARTIFACT_VALIDATION_REPORT.html",
+            OUTPUT / "artifact_validation" / "ARTIFACT_VALIDATION_REPORT.html",
+        )
 
         payload: dict[str, object] = {
             "schema_version": "bgvd.reviewer_check.v2",
             "status": "PASS",
+            "scientific_review_status": validation_payload.get("scientific_review_status", "NOT_EVALUATED"),
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "python": sys.version,
             "python_executable": str(Path(sys.executable).resolve()),

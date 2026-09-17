@@ -1,5 +1,5 @@
 {
-  "title": "BGVD-State: A replayable discovery-state runtime for evidence-gated LLM security agents",
+  "title": "BGVD-State: Replayable Middleware for Evidence-Gated Handoffs in Third-Party Software Security Review",
   "upload_type": "software",
   "description": "Model-independent discovery-state runtime for recording defensive security-agent events, replaying candidate and failed-path lifecycle, binding material and verifier evidence, rejecting stale evidence, persisting state, enforcing verifier-gated finalization, and building auditable handoff packets. The repository contains a de-identified engineering case, deterministic and performance validation, sanitized replay fixtures, and an offline artifact validator. It contains no live targets, credentials, operational exploit commands, network addresses, or target-specific reproduction procedures.",
   "creators": [
@@ -23,6 +23,6 @@
     "research software",
     "discovery runtime"
   ],
-  "version": "1.1.0",
-  "notes": "The formal v1.1.0 release date and DOI must be synchronized before deposition. Sanitized fixtures and result files are CC BY 4.0 under DATA_LICENSE.txt; source code is MIT licensed."
+  "version": "1.2.0",
+  "notes": "GitHub release v1.2.0, 2026-09-17. This metadata does not establish a Zenodo deposition or DOI. Sanitized fixtures and result files are CC BY 4.0 under DATA_LICENSE.txt; source code is MIT licensed."
 }

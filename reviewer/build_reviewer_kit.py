@@ -26,7 +26,7 @@ from typing import Any
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
-KIT_ROOT_NAME = "BGVD-State-v1.1.1-reviewer-kit"
+KIT_ROOT_NAME = "BGVD-State-v1.2.0-reviewer-kit"
 RUNTIME_RELEASE = "20260728"
 PYTHON_VERSION = "3.12.13"
 RUNTIME_BASE_URL = (
@@ -48,7 +48,7 @@ PLATFORMS: dict[str, dict[str, str]] = {
             "install_only_stripped.tar.gz"
         ),
         "asset_sha256": "242b94b37682ac55f9bf9eb624348dc8d17c64f74f56028104545ea3ffe35e26",
-        "archive": "BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip",
+        "archive": "BGVD-State-v1.2.0-Reviewer-Kit-Windows-x64.zip",
         "system": "Windows",
         "machine": "AMD64",
         "runtime_python": "runtime/python.exe",
@@ -62,7 +62,7 @@ PLATFORMS: dict[str, dict[str, str]] = {
             "install_only_stripped.tar.gz"
         ),
         "asset_sha256": "2f18cdef4125ca1440dd1ba00ebcb267526efb532138c0860438f755ea4eebac",
-        "archive": "BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip",
+        "archive": "BGVD-State-v1.2.0-Reviewer-Kit-macOS-Apple-Silicon.zip",
         "system": "Darwin",
         "machine": "arm64",
         "runtime_python": "runtime/bin/python3",
@@ -76,7 +76,7 @@ PLATFORMS: dict[str, dict[str, str]] = {
             "install_only_stripped.tar.gz"
         ),
         "asset_sha256": "e654c21d0ba53e2c671868d4112fac5874deca4c35226d36c5cfe53bc5c9cd71",
-        "archive": "BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip",
+        "archive": "BGVD-State-v1.2.0-Reviewer-Kit-macOS-Intel.zip",
         "system": "Darwin",
         "machine": "x86_64",
         "runtime_python": "runtime/bin/python3",
@@ -89,6 +89,8 @@ PLATFORMS: dict[str, dict[str, str]] = {
 ROOT_FILES = (
     "README.md",
     "REPRODUCE.md",
+    "R1_RESULT_MAP.md",
+    "RELEASE_MANIFEST.json",
     "LICENSE.txt",
     "DATA_LICENSE.txt",
     "SECURITY.md",
@@ -101,13 +103,18 @@ ROOT_FILES = (
     "LEAKAGE_AUDIT_COUNTS.json",
     "LEAKAGE_AUDIT_STRICT_COUNTS.json",
     "validate_structured_state_artifact.py",
+    "score_released_rows.py",
+    "score_cross_family.py",
+    "score_token_accounting.py",
+    "protocol_sensitivity.py",
     "artifact_manifest_20260709.json",
     "artifact_validation_report.json",
     "ARTIFACT_VALIDATION_REPORT.md",
     "DATA_AVAILABILITY_SNIPPETS_20260709.md",
 )
 ROOT_GLOBS = ("v3*.json", "v3*.md", "phase9*.json", "phase9*.md")
-SOURCE_DIRECTORIES = ("src", "tests", "examples", "schemas", "docs", "validation")
+SOURCE_DIRECTORIES = ("src", "tests", "examples", "schemas", "docs", "validation",
+                      "cross_family", "token_accounting")
 
 
 def sha256_file(path: Path) -> str:
@@ -194,7 +201,10 @@ def copy_public_source(kit_root: Path) -> None:
         source = REPOSITORY_ROOT / name
         if not source.is_dir():
             raise FileNotFoundError(f"Required public source directory is missing: {source}")
-        shutil.copytree(source, kit_root / name)
+        shutil.copytree(
+            source, kit_root / name,
+            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo"),
+        )
 
 
 def vendor_dependencies(site_packages: Path) -> list[dict[str, str]]:
@@ -255,7 +265,7 @@ internet, Control-click the `.command` file, choose **Open**, and confirm
 Subsequent launches can use a normal double-click.
 """
 
-    return f"""# BGVD-State v1.1.1 Reviewer Quick Start
+    return f"""# BGVD-State v1.2.0 Reviewer Quick Start
 
 This no-install bundle is for **{platform_name}**.
 
@@ -283,7 +293,8 @@ safe to delete the entire extracted folder after review.
 
 ## What PASS Means
 
-The automated check runs all 18 tests, replays the fixed 23-event case,
+The automated check runs the complete test suite recorded in
+`REVIEWER_KIT_BUILD.json`, replays the fixed 23-event case,
 confirms 6 candidate lifecycles, preserves 5 rejected candidates and 5 failed
 paths, verifies that unsupported finalization is blocked, and runs the offline
 artifact validator. The evidence-gate exit code `2` is expected and is checked
@@ -316,7 +327,7 @@ def supported_platforms() -> str:
 | Windows 10/11 x64 | CI-verified | Extract and double-click the Windows `.bat` launcher |
 | macOS Apple Silicon | CI-verified | Extract and double-click the macOS `.command` launcher |
 | macOS Intel | CI-verified | Extract and double-click the macOS `.command` launcher |
-| Linux x64 | Source workflow only | No no-install reviewer bundle in v1.1.1 |
+| Linux x64 | Source workflow only | No no-install reviewer bundle in v1.2.0 |
 | iOS/iPadOS | Not supported | Mobile operating systems are outside the execution environment |
 
 Each no-install asset is built and executed on a matching GitHub-hosted runner.
@@ -374,8 +385,24 @@ def write_build_metadata(
     config: dict[str, str],
     dependency_metadata: list[dict[str, str]],
 ) -> None:
+    runtime_python = kit_root / Path(config["runtime_python"])
+    # Discover using the same isolated interpreter, source and dependencies that
+    # the reviewer will use. Import failures abort the build, never reduce the count.
+    discovery = subprocess.run(
+        [str(runtime_python), "-I", "-s", "-B", "-X", "utf8", "-c",
+         "import json, unittest; "
+         "suite = unittest.defaultTestLoader.discover('tests'); "
+         "errors = unittest.defaultTestLoader.errors; "
+         "assert not errors, errors; "
+         "print(json.dumps({'count': suite.countTestCases()}))"],
+        cwd=kit_root, check=True, text=True, encoding="utf-8",
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    expected_count = json.loads(discovery.stdout)["count"]
+    if type(expected_count) is not int or expected_count <= 0:
+        raise RuntimeError("Refusing to build a reviewer kit with no discovered tests.")
     payload: dict[str, Any] = {
-        "schema_version": "bgvd.reviewer_kit.build.v1",
+        "schema_version": "bgvd.reviewer_kit.build.v2",
         "built_at": datetime.now(timezone.utc).isoformat(),
         "platform_key": platform_key,
         "expected_system": config["system"],
@@ -386,6 +413,7 @@ def write_build_metadata(
         "runtime_asset_sha256": config["asset_sha256"],
         "dependencies": dependency_metadata,
         "source_revision": source_revision(),
+        "expected_test_count": expected_count,
     }
     (kit_root / "REVIEWER_KIT_BUILD.json").write_text(
         json.dumps(payload, indent=2) + "\n",

@@ -38,7 +38,9 @@
   },
   "released_deidentified_case": {
     "path": "examples/discovery_runtime_case/events.json",
-    "sha256": "d2ecbdb91182342b91559c28a185887943322db6e58d7feeecc52d196ddc31718",
+    "sha256": "d2ecbdb91182342b91559c28a185887943322db6e58d7feeec52d196ddc31718",
+    "sha256_representation": "UTF-8 source bytes with CRLF normalized to LF; matches the v1.1.1 Git blob",
+    "r1_correction": "The historical manifest value contained an extra c (65 characters); corrected against the unchanged Git blob, not by changing the case data.",
     "events": 23,
     "candidates": 6,
     "failed_paths": 5,

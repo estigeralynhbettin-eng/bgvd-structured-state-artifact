@@ -1,0 +1,654 @@
+{
+  "schema_version": "bgvd.release.manifest.v1",
+  "version": "1.2.0",
+  "release_date": "2026-09-17",
+  "release_url": "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/tag/v1.2.0",
+  "expected_unittest_count": 130,
+  "historical_baseline": "v1.1.1; unchanged tag and release assets",
+  "scope": "Runtime, independent offline scorers and sanitized evidence. Historical benchmark timings do not measure version 1.2.0.",
+  "package_roles": {
+    "wheel": "runtime-only Python package",
+    "sdist": "runtime source, tests, scorers and sanitized evidence",
+    "reviewer_kits": "full offline source/evidence plus platform-specific private Python runtime"
+  },
+  "result_status": "Functional PASS and scientific REVIEW_REQUIRED have separate meanings; recorded limitations remain visible.",
+  "hash_note": "This manifest excludes itself. Git LF/CRLF conversion does not change text identities. Each kit additionally records its exact source commit and complete file hashes.",
+  "file_count": 127,
+  "files": [
+    {
+      "path": ".github/workflows/reviewer-kits.yml",
+      "sha256": "c130c199a5f5425854a4cc1f5ca28ba6af5a982c8f3f76f5a4ca4b7409e89a50",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "sha256": "2e707fccf008bf49ee925bc14bd4fdeb8bf49f310bb7cc622fe996b072c5fe47",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "93bbb1cfa6e88b1328a99fc2cda5a6c713517042a25ee2dcba406aa3349d6fb7",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": ".zenodo.json",
+      "sha256": "3aba72eb5d57146afc75f1fe1e1572a0b0123ad89c08cd82451b158fce29e78e",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "ARTIFACT_VALIDATION_REPORT.md",
+      "sha256": "0558ddedcffc67dead6f79c69433bc20d0764122fbdd2b73472eb0bccd103963",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "BGVD_structured_state_interface_artifact_release_candidate_20260709.sha256.txt",
+      "sha256": "f312221bca36b1f814ae71a4e963aa6c8dbc3550228c3d2f438a1768105d6402",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "BGVD_structured_state_interface_artifact_release_candidate_20260709.zip",
+      "sha256": "f2a11e8acc7b304e3054872b14504bb03ab136828745743a79d8f7749a54d461",
+      "representation": "original bytes"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "cf996baeabe8db66e0642f3e8c40499f73e29268a1ce900d6bc3c4d578a257a1",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "1f27920947c7343f6c1518a7780b52d3e5046689d699c3c1c23f3e77ea917b7f",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "CLAIM_EVIDENCE_MATRIX.csv",
+      "sha256": "867cef9c8a4ee0f86eb8457d338a622313c833881b851c6e3181de5972336e22",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "DATA_AVAILABILITY_SNIPPETS_20260709.md",
+      "sha256": "f6eea0997e7634f0f907f50450f14fe67dd14217c2ce8db4aa9c855740960697",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "DATA_LICENSE.txt",
+      "sha256": "bea7dace8ff2a222232ce4d4a9515d6aea25e313d5e03e9befc8bd8529481079",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "LEAKAGE_AUDIT_COUNTS.json",
+      "sha256": "30139d2431937523aec49fee4f543c8b69e9739024b79a9bf9b6ecc692c877c8",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "LEAKAGE_AUDIT_STRICT_COUNTS.json",
+      "sha256": "cfb9a3e1eccaae49eeaacf6d2992043ab84bab82c252fba9ffaf561bae024e37",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "LICENSE.txt",
+      "sha256": "1e6ebdc07897bf0219ca64ee525b19e886156438c3abb1c1dc7a0d049e5936ca",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "MANIFEST.in",
+      "sha256": "ec9bffa4e267f65b0f8a27c264365ee3dda3fdc1f6f493122f1a82ad50b62658",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "R1_RESULT_MAP.md",
+      "sha256": "183bfbc22da590d6d203e5004b07475587f1e466db5080f479ef697a911a072b",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f8714c7629d901811048b5c7bd99c1a55c3245553e06eea5cf1d2e3d342aea2d",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "REPRODUCE.md",
+      "sha256": "5032e3543a3a2b7a9fa602f68f4c7e6818d0061594338a20cc0228e9632192f1",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "RESULT_TRACEABILITY.csv",
+      "sha256": "6cc85371a0eb7b89c535435a412ce30de9bb87653bb25ad01ce423301aa7c3c0",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "735d75e65acadb15ff7abd392d045a55dc923af823803d815708555795d47139",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "artifact_manifest_20260709.json",
+      "sha256": "441651bb6947a67520f491e562f2185411a22cf50bb21bce5581fccc04d6acfe",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "artifact_validation_report.json",
+      "sha256": "868556513503184def15843540a2fbc997fbed0b93b24430346e8e5c4f316d55",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "codemeta.json",
+      "sha256": "fb6e27f5e7fcbe58fc9cc340c4b0da488099151d7887dfc6f577ae36baaca4be",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "cross_family/README.md",
+      "sha256": "7787aed8346f181cd8a6a260e273389ba2bf77895851aaebf96d900616d4b37a",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "cross_family/cross_family_rescore.json",
+      "sha256": "335a28d4ca127ad53011793087208c028f97812f65b505e20100cb011bdff48a",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "cross_family/prepare_from_private_archive.py",
+      "sha256": "8927a32fba4d56de8028a0397b41bf34c41242929430a6ab7449c0bfe292bdb4",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "cross_family/source_audit_evidence.json",
+      "sha256": "2d4c46e30d73884a4d18232cdeb5039bf7124bf75d6060350c75766e0d366c1b",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "cross_family/source_provenance.json",
+      "sha256": "4c9a8efa65c13d189345d635e3f68aef985caf414f208e744506d40652daf8e7",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "docs/api.md",
+      "sha256": "48968c08612a3858248c4243d7dbebfca836b5810959a064aa38a69609526162",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "docs/integration.md",
+      "sha256": "9881f210040f637ec037bb8cd6bc868564c5b01f0ab0a56694b34b61208dd535",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "docs/runtime-validation.md",
+      "sha256": "5581d54307057b61bfc66de8819245b61d12c8353ded62932c1815127a08f906",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "examples/candidate_replacement/README.md",
+      "sha256": "c8c77cc2c242b3169eaee9cc73acbb9aaa638c21d053ab140ea42692e6c83a9e",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "examples/candidate_replacement/events.json",
+      "sha256": "2d7665ef0d468529a431a02b29b827fe8b0fdd9083ffa5740aeab581302e9538",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "examples/discovery_runtime_case/README.md",
+      "sha256": "bc55f5d859f3ee4fa498ef6b0a86beb28d665cd13fbc731a78fa9b3922cc3488",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "examples/discovery_runtime_case/events.json",
+      "sha256": "d2ecbdb91182342b91559c28a185887943322db6e58d7feeec52d196ddc31718",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "examples/stale_verifier/README.md",
+      "sha256": "2eba8f449f28aee674c715104dd65aeaf266712754eb7fbd326b6fc50c748cdf",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "examples/stale_verifier/events.json",
+      "sha256": "fad0e26396416446f1924a6abc1089c1dcbc5b84ad48e763e3f8dc3c01e04783",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9n_episodes.redacted.json",
+      "sha256": "582eb3ef1811e38ba653ff89f1eecf69f5029e6424525c120d680cd807add0bb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9n_prompt_audit.json",
+      "sha256": "64738c94ec844e05cf88536fb2e37cdd52a6195e22c69e3561d4512c1069b6da",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9n_result.md",
+      "sha256": "14cd449162d1b7008be30f32a234aa97186c86b72eb2f225968b857df3d0bf94",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9n_summary_protocol_repaired.json",
+      "sha256": "3c38b4d7f1b59e4f2d6d4cb0410a911838754a33654733a92c373fb00506e318",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9o_episodes.redacted.json",
+      "sha256": "f069574f7dc21b7416d4caa8c59b7da6737d2caf557d27facc355cdb9f4432f3",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9o_prompt_audit.json",
+      "sha256": "4e06dc6258c4ab83af7fdad1c4b44383f16cbc04fa9792b5d8e548839cc0c89b",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9o_result.md",
+      "sha256": "cacb3cfc13695957cfa3ae4593bc430dfedb6e71f2ad89320ccd6c901ddbb22d",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9o_summary_protocol_repaired.json",
+      "sha256": "8a3245a60951daea0fc63194ba8d5fb5018d2864f766da3b17c00c30761cc7cc",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9p_episodes.redacted.json",
+      "sha256": "582eb3ef1811e38ba653ff89f1eecf69f5029e6424525c120d680cd807add0bb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9p_prompt_audit.json",
+      "sha256": "15651573866c6d83c903f2821c72944988e30c01ffc23ffa400beb6b08ddca28",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9p_result.md",
+      "sha256": "cf671a23b72cdb0c2d36f03e843de4b843135a6e6bd61a46dd7e7db686fdb313",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9p_summary_protocol_repaired.json",
+      "sha256": "0c036e7b766bfd1ab8b19e421864b27d040a8c99b0e0920420fb2c84f71226f4",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9q_open_weight_result.md",
+      "sha256": "c53fd0c7cb5530f670aa59cb8f8235e1478bc11f7315caf43b3ac431bf7e8077",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9q_open_weight_summary.json",
+      "sha256": "d37d0278d2732db5398c74b4c4fe1e41ea7a9353f69b185e0634483b4421da0c",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9q_prompt_audit.json",
+      "sha256": "71630550b4605cee8c56ff4e0177816c145709b3b2e7c5c1647328a624f3c70a",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9r_episodes.redacted.json",
+      "sha256": "582eb3ef1811e38ba653ff89f1eecf69f5029e6424525c120d680cd807add0bb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9r_prompt_audit.json",
+      "sha256": "7110a956e8a4353aae3d35141efb74013f05c3a762171c2f2a8480913403ec75",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9r_result.md",
+      "sha256": "5cd9afff3fe4e482545f8ad2eccd5bc13e68a01cd7051e7f664c6d84531f41aa",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "phase9r_summary.json",
+      "sha256": "19c73526a9d027d315161c077932798dcafb36798f4a3a9170ec2524e1418a5e",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "protocol_sensitivity.py",
+      "sha256": "687cf3f7f25b8a9004bceffcd34cb7a6057f41e9e0e7b4d5a2f928fdad7467d8",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5c19b9bc1f4cb3e0217f7e6cbaaf139a12e462105be74b1c8475b96ae16cbed6",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "reviewer/00_READ_ME_FIRST.md",
+      "sha256": "d083fe93b7229227d0a0a40f3bc239d9978de9321af1b130d6c11edb947ca35b",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "reviewer/RUNTIME_PROVENANCE.md",
+      "sha256": "60b6c2371086640ef97af247994a340254c55e77b390f3e00c19406aaf805e41",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "reviewer/SUPPORTED_PLATFORMS.md",
+      "sha256": "966748a032eb520527f7de12486b23bf39bb71497afaf45d9e34ca0975634ba2",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "reviewer/build_reviewer_kit.py",
+      "sha256": "ffbdfdd7af05cd0770acc7a84b3de3b31b789aa5ed9fa4e80f57cec540b98b8d",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "reviewer/launchers/00_DOUBLE_CLICK_TO_VERIFY_MACOS.command",
+      "sha256": "6f8946fd68f24455ed7274bbc157bd004776a1a0f148cca79d2812ca970917b3",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "reviewer/launchers/00_DOUBLE_CLICK_TO_VERIFY_WINDOWS.bat",
+      "sha256": "69d52e47d676517d169566f1fcee8fece37a842888209fbcfc92ab3479bb9038",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "reviewer/reviewer_offline_check.py",
+      "sha256": "b273c0e2af5952e680a7be256498a467458d02cc5f154a36088c8d41c210ca8c",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "schemas/README.md",
+      "sha256": "db5a611da9e9c96e48992b79e2497d1bed690856871c3e872a1d9efba306dd58",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "schemas/event.schema.json",
+      "sha256": "64c8ef35bc93619e60a5cbdeef501fca45cf20d98a0c53d1abfe041157e373c3",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "schemas/handoff.schema.json",
+      "sha256": "c28a1daae81a66223bc57378fbdf551e2ce39d97cd95ea10423b6b6cf46693ed",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "score_cross_family.py",
+      "sha256": "42fb0cda893df782e250bc92dfc5671fa0ec55964d59659976b708a9ea5e763e",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "score_released_rows.py",
+      "sha256": "9a4d36c097ce9a1a1fbaa9c6ed09ab6dbf55de98d53a1b2f2547957461f4b202",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "score_token_accounting.py",
+      "sha256": "0cf4098a60b9743f5eb62e3be50efb3fea92506fcb793b5eeb1fae252dd5a8ed",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/__init__.py",
+      "sha256": "1ddf9adfe737131d91140f166cc2d2a1f80d0278d1bdace2364108ff8180bb08",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/cli.py",
+      "sha256": "a0287003fd45148634e2d293cca4198a83f413c55bb36bb98b0217b0ee1f1df0",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/engine.py",
+      "sha256": "84798c6e7a19c871820dcdcce662b9d94dc814b2bca5c7c1552f800619377185",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/gate.py",
+      "sha256": "1b151a4c8a8aa9086f4dfa157af5cb37fb2f524c0b41fc5bc4ff3193f9d9d7d1",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/handoff.py",
+      "sha256": "249f51ca6e819f692571b74759d56ffc02cb6630fcab718469cf25a9c9bdd607",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/models.py",
+      "sha256": "a2a9c8dec9a0046e6f82d39fb3b894c9e1c084eaea71781040a16bea4bf2a5cb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "src/bgvd_state/store.py",
+      "sha256": "952363356d93d0fb2874cee782e03091ff2d43715764035af8ea01dde98df11b",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/fixtures/v1_state.json",
+      "sha256": "1b395587909da0255711ec568dfb4009dcb3cb17384c3d0c324647dc65c7e534",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_cli.py",
+      "sha256": "0d38431d03374f5398edf15807f88d16618b44d1dc0e242ee26ee193342457ed",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_cross_family_scoring.py",
+      "sha256": "4d489f551c9e2cff4c9ca19917fdf3f56ce3884896be61a3290061784aac4153",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_event_validation.py",
+      "sha256": "84a0b0949e971ce951e1230ded4158668ac24a5416f80d9c8d0e34ed4c16da73",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_lifecycle.py",
+      "sha256": "58e1b40fb34e65d767652a609a31eb4cc6a2625fe73c6dab197f922a8b104da8",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_protocol_sensitivity.py",
+      "sha256": "bf2d1a0b1c50212209094c2459e3db4bc52647b6d1c27ad3f6a729371a79a436",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_release_provenance.py",
+      "sha256": "068297db2ed7488f854c6fdaa94363679b92aaa2d9292d244efa1a76a61a237c",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_released_scoring.py",
+      "sha256": "6ce2ad6c618c6682fc6d1d4f83be3939144bcad6f578b3de42e662b8ae9d6e1b",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_reserved_metadata_contract.py",
+      "sha256": "87a9f8e3ef9e9982a563f483f741db5500c46c7869e3fa19d1d43e46c2e7155a",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_reviewer_current_results.py",
+      "sha256": "aab9d377278dbc61b1b727ce0bae54e34007a8e8f2f106a1cd53989541ba9f8e",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_reviewer_reporting.py",
+      "sha256": "2d9a3822a9cda1ec6d93b00580e92b6c251f33ea562c27172ae045ed4eaeb67b",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_revision_evidence_integration.py",
+      "sha256": "ab146c299fd0d1b4975c754f97a744ddb95f26a43615253970197c1a17a3c678",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_schemas.py",
+      "sha256": "3b588d212934805874975eeb3fdc918dae067d09f16f9ebe9d48e6719bce34e0",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tests/test_token_accounting.py",
+      "sha256": "583cad462b5299edc5d509c4aa6680e71781c4d1cb77d5b0c58db22c94780b41",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "token_accounting/README.md",
+      "sha256": "f36b9579a3e01d857bb1640e0e3e264be638e6695a587178d311330374b88ad4",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "token_accounting/calls.json",
+      "sha256": "5fad9e0f72a1b4a34bbdac287a05436e103017d1747762f410615741b25bf277",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "token_accounting/export_from_local.py",
+      "sha256": "98b8abfcbe6a21e9460666525bbf072ddc23ac6c5977ec3feba9fdc245673771",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "token_accounting/origin_manifest.json",
+      "sha256": "0b03fb51e8d1d5f74e04ec1497674a4f2bee124b0b5f87aba071d94ad8e85e3f",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "token_accounting/token_accounting_report.json",
+      "sha256": "8d693bb8cee425f236568566c32be1bb3dd2b093a60eed6a3587f4d67ab780e3",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tools/benchmark_runtime.py",
+      "sha256": "8b59463ac3cd903cbcfe048dce395dd025e2ea3a9ba30bbbcd9a3c44fbab30d0",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tools/build_validation_report.py",
+      "sha256": "9287167361bbf28fc6668ade377c525af2e20f5d780e73698f8d81b0de0f519c",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "tools/validate_runtime_engineering.py",
+      "sha256": "858661d7845f9f0b9dc36044843350ea04819496d93ab5ecce24d6f11f7be6fc",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3e_episodes.redacted.json",
+      "sha256": "582eb3ef1811e38ba653ff89f1eecf69f5029e6424525c120d680cd807add0bb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3e_stats.md",
+      "sha256": "e7d9d4c600d1d5543555521a3ca24e9ca93dd7c6e8f77a7c1274ef1cdb48b814",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3e_summary.json",
+      "sha256": "de7a282492a53fa53d9d04c42612f13cec62fcc42c4e9eb6a7a06017e08431d5",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3g_deepseek_summary.json",
+      "sha256": "b470c8e78936632acccf05e678007599fa079fac4a88c0c79ac420c5ea5d7e59",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3g_episodes.redacted.json",
+      "sha256": "a72d0cd22cf62fa505a13cfe6d263f3f26bb009f07900549039e054708e5abca",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3g_glm_summary.json",
+      "sha256": "f1619da32eba413eff268819f649be4cfd62536b38b929dc0f0bcca0c5b74560",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3h_deepseek_summary.json",
+      "sha256": "f578d131812f6d8c2b602b259a54e346dc8de4230ea901f15d0bef6dba74e2b7",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3h_episodes.redacted.json",
+      "sha256": "a72d0cd22cf62fa505a13cfe6d263f3f26bb009f07900549039e054708e5abca",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3h_glm_summary.json",
+      "sha256": "8d80742e9e41a661733c4dcf4b708d97f4dd4c4fa53a3756fc761b13823462d7",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3i_episodes.redacted.json",
+      "sha256": "582eb3ef1811e38ba653ff89f1eecf69f5029e6424525c120d680cd807add0bb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3i_summary.json",
+      "sha256": "0493dc61e4b37d1def0b87e68cd7187bc95454d177d913c9dd8ee1a71abc3a21",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3j_episodes.redacted.json",
+      "sha256": "582eb3ef1811e38ba653ff89f1eecf69f5029e6424525c120d680cd807add0bb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3j_summary.json",
+      "sha256": "5755fd6281bd3f4979b23b468668cc232d5e0326af0cb1b4c2cfa32489eedc94",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3k_episodes.redacted.json",
+      "sha256": "582eb3ef1811e38ba653ff89f1eecf69f5029e6424525c120d680cd807add0bb",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3k_result.md",
+      "sha256": "da8285d53c32121eacd6dcb09ec8e471ceabdbf11b7b6b04983bd9b8550a1579",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "v3k_summary.json",
+      "sha256": "5e034f3f11b7588a90c2e715d020903aeaa58f3b77ec8800b852f2085ee8749f",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validate_structured_state_artifact.py",
+      "sha256": "5547b878ee77a632780f0cac18aee3575d572d8748b9364c2aa765aa034dbd41",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/SOFTWARE_VALIDATION_REPORT.md",
+      "sha256": "2822638d142d64636bdf950513d5645cba2dd21e0fe59d8c6986157867fe55b8",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/runtime/RUNTIME_BENCHMARK.md",
+      "sha256": "572bad7b5a7f92d2f12c050a76aad92b6f4f79028cdea91a2ab555737c811520",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/runtime/RUNTIME_ENGINEERING_VALIDATION.md",
+      "sha256": "9d91a89634d517d66041b9104a09092b83069c74c6eb658cc28865f4f5b628c2",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/runtime/authorized_review_use_manifest.json",
+      "sha256": "a3c317be5ac19d9394c3d6e1128f4ca2a6d0f6372d111c034043bf7b6c4d404a",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/runtime/runtime_benchmark.csv",
+      "sha256": "b96660fe3e9944fb6d391c7f480d40db29b56751ee2c677c76e34dd74b88dc4c",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/runtime/runtime_benchmark.json",
+      "sha256": "c8292566dca30b08ee19f6d1f1080313e43bd164354cf8ebfc7125342b25147f",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/runtime/runtime_engineering_validation.json",
+      "sha256": "37b831784fcffbc291a854ebb6f9216c417fef3b2dc1e5509c2ddf6eb18b27dc",
+      "representation": "CRLF normalized to LF"
+    },
+    {
+      "path": "validation/software_validation_report.json",
+      "sha256": "f19bedb829754adb5d8dc578440a132adde34616ad0cfb5c5e2b2d5594dec9c1",
+      "representation": "CRLF normalized to LF"
+    }
+  ]
+}

@@ -1,0 +1,2142 @@
+{
+  "schema_version": "bgvd.cross_family.rescore.v1",
+  "status": "PASS",
+  "meaning": "Archived lexical source-audit acceptance recomputed; no target execution",
+  "selected_attempts": 96,
+  "retained_attempts": 98,
+  "protocol_failure_attempts": [
+    "phase9l:deepseek:WP-H-002:generic_structured_memory:original",
+    "phase9l:glm:WP-H-007:generic_structured_memory:original",
+    "phase9l:glm:WP-H-008:generic_structured_memory:original",
+    "phase9m:deepseek:WP-H-001:extended_source_schema_memory:original",
+    "phase9m:deepseek:WP-H-011:extended_source_schema_memory:original"
+  ],
+  "upstream_handoff_failure_selected_attempts": [
+    "phase9m:glm:WP-H-007:extended_source_schema_memory:original",
+    "phase9m:deepseek:WP-H-007:extended_source_schema_memory:original"
+  ],
+  "archived_verdict_mismatches": [],
+  "aggregates": {
+    "schema_guided_security_memory": {
+      "final_response_eligible": {
+        "accepted": 10,
+        "denominator": 24,
+        "excluded": 0
+      },
+      "end_to_end_eligible": {
+        "accepted": 10,
+        "denominator": 24,
+        "excluded": 0
+      }
+    },
+    "matched_freeform_weak_memory": {
+      "final_response_eligible": {
+        "accepted": 12,
+        "denominator": 24,
+        "excluded": 0
+      },
+      "end_to_end_eligible": {
+        "accepted": 12,
+        "denominator": 24,
+        "excluded": 0
+      }
+    },
+    "generic_structured_memory": {
+      "final_response_eligible": {
+        "accepted": 6,
+        "denominator": 21,
+        "excluded": 3
+      },
+      "end_to_end_eligible": {
+        "accepted": 6,
+        "denominator": 21,
+        "excluded": 3
+      }
+    },
+    "extended_source_schema_memory": {
+      "final_response_eligible": {
+        "accepted": 12,
+        "denominator": 24,
+        "excluded": 0
+      },
+      "end_to_end_eligible": {
+        "accepted": 10,
+        "denominator": 22,
+        "excluded": 2
+      }
+    }
+  },
+  "comparisons": {
+    "final_response_eligible": {
+      "schema_vs_matched": {
+        "arm_a": "schema_guided_security_memory",
+        "arm_b": "matched_freeform_weak_memory",
+        "unit": "provider-task pair",
+        "eligibility": "final_response_eligible",
+        "comparable": 24,
+        "a_accepted": 10,
+        "b_accepted": 12,
+        "a_better": 2,
+        "b_better": 4,
+        "ties": 18,
+        "p_one_sided_a_gt_b": 0.890625,
+        "excluded_units": []
+      },
+      "extended_vs_matched": {
+        "arm_a": "extended_source_schema_memory",
+        "arm_b": "matched_freeform_weak_memory",
+        "unit": "provider-task pair",
+        "eligibility": "final_response_eligible",
+        "comparable": 24,
+        "a_accepted": 12,
+        "b_accepted": 12,
+        "a_better": 4,
+        "b_better": 4,
+        "ties": 16,
+        "p_one_sided_a_gt_b": 0.63671875,
+        "excluded_units": []
+      }
+    },
+    "end_to_end_eligible": {
+      "schema_vs_matched": {
+        "arm_a": "schema_guided_security_memory",
+        "arm_b": "matched_freeform_weak_memory",
+        "unit": "provider-task pair",
+        "eligibility": "end_to_end_eligible",
+        "comparable": 24,
+        "a_accepted": 10,
+        "b_accepted": 12,
+        "a_better": 2,
+        "b_better": 4,
+        "ties": 18,
+        "p_one_sided_a_gt_b": 0.890625,
+        "excluded_units": []
+      },
+      "extended_vs_matched": {
+        "arm_a": "extended_source_schema_memory",
+        "arm_b": "matched_freeform_weak_memory",
+        "unit": "provider-task pair",
+        "eligibility": "end_to_end_eligible",
+        "comparable": 22,
+        "a_accepted": 10,
+        "b_accepted": 10,
+        "a_better": 4,
+        "b_better": 4,
+        "ties": 14,
+        "p_one_sided_a_gt_b": 0.63671875,
+        "excluded_units": [
+          {
+            "provider": "glm",
+            "task_id": "WP-H-007"
+          },
+          {
+            "provider": "deepseek",
+            "task_id": "WP-H-007"
+          }
+        ]
+      }
+    }
+  },
+  "scored_selected_rows": [
+    {
+      "attempt_id": "phase9l:glm:WP-H-001:schema_guided_security_memory:original",
+      "task_id": "WP-H-001",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": true,
+        "round2_controller_service": true,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-001:schema_guided_security_memory:original",
+      "task_id": "WP-H-001",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": true,
+        "round2_controller_service": true,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-001:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-001",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": true,
+        "round2_controller_service": true,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-001:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-001",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": true,
+        "round2_controller_service": true,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-001:generic_structured_memory:original",
+      "task_id": "WP-H-001",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": false,
+        "round2_controller_service": true,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-001:generic_structured_memory:original",
+      "task_id": "WP-H-001",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": false,
+        "round2_controller_service": true,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-002:schema_guided_security_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_entrypoint": false,
+        "round1_reg_role": true,
+        "round2_user_sink": true,
+        "privilege_role_impact": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-002:schema_guided_security_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_entrypoint": false,
+        "round1_reg_role": true,
+        "round2_user_sink": true,
+        "privilege_role_impact": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-002:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_entrypoint": false,
+        "round1_reg_role": true,
+        "round2_user_sink": true,
+        "privilege_role_impact": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-002:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_entrypoint": false,
+        "round1_reg_role": true,
+        "round2_user_sink": true,
+        "privilege_role_impact": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-002:generic_structured_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_entrypoint": false,
+        "round1_reg_role": false,
+        "round2_user_sink": true,
+        "privilege_role_impact": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-002:generic_structured_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": false,
+      "accepted": null,
+      "end_to_end_eligible": false,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {},
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-003:schema_guided_security_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": true,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-003:schema_guided_security_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": true,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-003:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": true,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-003:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": true,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-003:generic_structured_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": true,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-003:generic_structured_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": false,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-004:schema_guided_security_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": true,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": false,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-004:schema_guided_security_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": true,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": true,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-004:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": true,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": true,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-004:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": true,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": true,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-004:generic_structured_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": true,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": false,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-004:generic_structured_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": true,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": true,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-005:schema_guided_security_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": true,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": false,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-005:schema_guided_security_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": true,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-005:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": false,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-005:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": false,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-005:generic_structured_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": false,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-005:generic_structured_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": false,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": false,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-006:schema_guided_security_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": false,
+        "query_sink": true,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-006:schema_guided_security_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": false,
+        "query_sink": true,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-006:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": false,
+        "query_sink": true,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": false
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-006:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": false,
+        "query_sink": false,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-006:generic_structured_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": false,
+        "query_sink": true,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-006:generic_structured_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": false,
+        "query_sink": true,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-007:schema_guided_security_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-007:schema_guided_security_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-007:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-007:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-007:generic_structured_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": false,
+      "accepted": null,
+      "end_to_end_eligible": false,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": false,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": [
+        "files_considered"
+      ]
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-007:generic_structured_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-008:schema_guided_security_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": true,
+        "mysqli_sink": true,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-008:schema_guided_security_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": true,
+        "mysqli_sink": true,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-008:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": true,
+        "mysqli_sink": true,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-008:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": false,
+        "mysqli_sink": false,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-008:generic_structured_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": false,
+      "accepted": null,
+      "end_to_end_eligible": false,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": false,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": true,
+        "mysqli_sink": true,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": [
+        "weakness_summary"
+      ]
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-008:generic_structured_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": true,
+        "mysqli_sink": false,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-009:schema_guided_security_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": true,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-009:schema_guided_security_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": false,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-009:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": true,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-009:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": true,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-009:generic_structured_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": true,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-009:generic_structured_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": true,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-010:schema_guided_security_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": true,
+        "role_acceptance": true,
+        "user_creation_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-010:schema_guided_security_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": false,
+        "role_acceptance": false,
+        "user_creation_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-010:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": true,
+        "role_acceptance": true,
+        "user_creation_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-010:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": false,
+        "role_acceptance": false,
+        "user_creation_sink": false,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-010:generic_structured_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": true,
+        "role_acceptance": true,
+        "user_creation_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-010:generic_structured_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": true,
+        "role_acceptance": false,
+        "user_creation_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-011:schema_guided_security_memory:original",
+      "task_id": "WP-H-011",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": false,
+        "caller_role": false,
+        "role_change_path": true,
+        "role_sink": false,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-011:schema_guided_security_memory:original",
+      "task_id": "WP-H-011",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": false,
+        "caller_role": false,
+        "role_change_path": false,
+        "role_sink": false,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-011:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-011",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": true,
+        "caller_role": true,
+        "role_change_path": true,
+        "role_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-011:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-011",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": true,
+        "caller_role": true,
+        "role_change_path": true,
+        "role_sink": false,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-011:generic_structured_memory:original",
+      "task_id": "WP-H-011",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": false,
+        "caller_role": true,
+        "role_change_path": true,
+        "role_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-011:generic_structured_memory:original",
+      "task_id": "WP-H-011",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": false,
+        "caller_role": true,
+        "role_change_path": true,
+        "role_sink": false,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-012:schema_guided_security_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "glm",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": true,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": true,
+        "data_change_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-012:schema_guided_security_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "deepseek",
+      "arm": "schema_guided_security_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": false,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": false,
+        "data_change_sink": false,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-012:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "glm",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": false,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": false,
+        "data_change_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-012:matched_freeform_weak_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "deepseek",
+      "arm": "matched_freeform_weak_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": false,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": false,
+        "data_change_sink": false,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:glm:WP-H-012:generic_structured_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "glm",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": true,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": false,
+        "data_change_sink": true,
+        "missing_gate_language": false
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9l:deepseek:WP-H-012:generic_structured_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "deepseek",
+      "arm": "generic_structured_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": true,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": false,
+        "data_change_sink": false,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-001:extended_source_schema_memory:original",
+      "task_id": "WP-H-001",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": true,
+        "round2_controller_service": true,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-002:extended_source_schema_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_entrypoint": false,
+        "round1_reg_role": false,
+        "round2_user_sink": true,
+        "privilege_role_impact": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-002:extended_source_schema_memory:original",
+      "task_id": "WP-H-002",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_entrypoint": false,
+        "round1_reg_role": false,
+        "round2_user_sink": true,
+        "privilege_role_impact": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-003:extended_source_schema_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": true,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-003:extended_source_schema_memory:original",
+      "task_id": "WP-H-003",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_role_select": true,
+        "round1_register_hook": true,
+        "round2_role_sink": true,
+        "caller_post_role": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-004:extended_source_schema_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": false,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": true,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-004:extended_source_schema_memory:original",
+      "task_id": "WP-H-004",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_upload": false,
+        "round2_upload_handler": true,
+        "caller_allowed_extensions": true,
+        "upload_sink": true,
+        "file_type_risk_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-005:extended_source_schema_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": true,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-005:extended_source_schema_memory:original",
+      "task_id": "WP-H-005",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_nopriv_dispatch": true,
+        "round2_delete_class": true,
+        "caller_file_to_unlink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-006:extended_source_schema_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": true,
+        "query_sink": true,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-006:extended_source_schema_memory:original",
+      "task_id": "WP-H-006",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_ajax_entry": false,
+        "caller_parameters": true,
+        "query_sink": true,
+        "bad_placeholder_or_injection": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-007:extended_source_schema_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": false,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-007:extended_source_schema_memory:original",
+      "task_id": "WP-H-007",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": false,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "payroll_file": true,
+        "caller_id": true,
+        "query_sink": true,
+        "unprepared_concat": true,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-008:extended_source_schema_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": true,
+        "mysqli_sink": true,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-008:extended_source_schema_memory:original",
+      "task_id": "WP-H-008",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "process_file": true,
+        "caller_credentials": true,
+        "mysqli_sink": false,
+        "user_query": false,
+        "sqli_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-009:extended_source_schema_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": true,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-009:extended_source_schema_memory:original",
+      "task_id": "WP-H-009",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "dispatch_action": true,
+        "caller_path": true,
+        "file_check": true,
+        "delete_sink": true,
+        "path_validation_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-010:extended_source_schema_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": true,
+        "role_acceptance": true,
+        "user_creation_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-010:extended_source_schema_memory:original",
+      "task_id": "WP-H-010",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_flow": true,
+        "caller_role": true,
+        "role_acceptance": true,
+        "user_creation_sink": true,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-011:extended_source_schema_memory:original",
+      "task_id": "WP-H-011",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": false,
+        "caller_role": true,
+        "role_change_path": true,
+        "role_sink": false,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:glm:WP-H-012:extended_source_schema_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "glm",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": true,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": true,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": true,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": true,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": true,
+        "data_change_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-012:extended_source_schema_memory:original",
+      "task_id": "WP-H-012",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "ajax_entry": false,
+        "state_change_function": true,
+        "nonce_only_or_missing_capability": false,
+        "data_change_sink": false,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-001:extended_source_schema_memory:retry1",
+      "task_id": "WP-H-001",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "round1_route_policy": true,
+        "round2_controller_service": false,
+        "permission_sink": true,
+        "missing_gate_language": true
+      },
+      "missing_keys": []
+    },
+    {
+      "attempt_id": "phase9m:deepseek:WP-H-011:extended_source_schema_memory:retry1",
+      "task_id": "WP-H-011",
+      "provider": "deepseek",
+      "arm": "extended_source_schema_memory",
+      "final_response_eligible": true,
+      "accepted": false,
+      "end_to_end_eligible": true,
+      "historical_acceptance_for_archive_only": false,
+      "checks": {
+        "schema_keys_present": true,
+        "finding_present_true": false,
+        "handoff_or_no_handoff_recorded": true,
+        "public_registration_entry": false,
+        "caller_role": false,
+        "role_change_path": true,
+        "role_sink": false,
+        "privilege_language": true
+      },
+      "missing_keys": []
+    }
+  ],
+  "input_canonical_sha256": "4982d00212bb4f5e81ed1e222396bde6b07fada9cec71723cf12fc714de265ef",
+  "public_data_integrity": {
+    "status": "PASS",
+    "parsed_response_count": 95
+  }
+}

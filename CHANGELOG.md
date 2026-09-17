@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.2.0 - 2026-09-17
+
+- Validate complete events before mutating event history or lifecycle state;
+  reject invalid reserved metadata without leaving partial state.
+- Document and test canonical input schemas and compatibility aliases;
+  state explicitly that event order is supplied by the client.
+- Add independent continuation, cross-family, and recorded-token scorers,
+  complete-population checks, protocol-failure and retry sensitivities.
+- Release scoreable cross-family evidence and 144 projected call records;
+  14 failed updater calls have no recorded usage and are excluded from sums.
+- Expand regression tests and show current results, retained logs, and
+  durable HTML/Markdown/JSON links in the no-install reviewer workflow.
+- Provide new Windows x64, macOS Apple Silicon, and macOS Intel kits.
+  Preserve v1.1.1 and historical experiments unchanged.
+
 ## 1.1.1 - 2026-07-16
 
 - Clarified BGVD-State as middleware between security-event producers and

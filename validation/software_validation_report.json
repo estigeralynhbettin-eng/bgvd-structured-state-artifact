@@ -1,4 +1,5 @@
 {
+  "publication_note": "Historical validation report retained as provenance, not v1.2.0 test evidence. The 12 command interpreter paths were redacted for public distribution; historical counts and outcomes are unchanged.",
   "schema_version": "bgvd.software_validation.v1",
   "generated_at": "2026-07-16T05:47:02.336649+00:00",
   "status": "PASS",
@@ -9,7 +10,7 @@
     {
       "check_id": "SW-LINT",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "ruff",
         "check",
@@ -28,7 +29,7 @@
     {
       "check_id": "SW-FORMAT",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "ruff",
         "format",
@@ -48,7 +49,7 @@
     {
       "check_id": "SW-TEST",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "pytest"
       ],
@@ -63,7 +64,7 @@
     {
       "check_id": "SW-BUILD",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "build"
       ],
@@ -78,7 +79,7 @@
     {
       "check_id": "SW-EXAMPLE-REPLACEMENT",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "bgvd_state",
         "replay",
@@ -100,7 +101,7 @@
     {
       "check_id": "SW-GATE-CURRENT",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "bgvd_state",
         "gate",
@@ -122,7 +123,7 @@
     {
       "check_id": "SW-EXAMPLE-STALE",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "bgvd_state",
         "replay",
@@ -144,7 +145,7 @@
     {
       "check_id": "SW-GATE-STALE-REJECT",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "bgvd_state",
         "gate",
@@ -166,7 +167,7 @@
     {
       "check_id": "SW-RUNTIME-CASE",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "bgvd_state",
         "replay",
@@ -188,7 +189,7 @@
     {
       "check_id": "SW-RUNTIME-CASE-GATE",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "-m",
         "bgvd_state",
         "gate",
@@ -210,7 +211,7 @@
     {
       "check_id": "SW-RUNTIME-ENGINEERING",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "tools/validate_runtime_engineering.py",
         "--out-dir",
         "<repo>\\validation\\run_outputs\\runtime_engineering",
@@ -228,7 +229,7 @@
     {
       "check_id": "ARTIFACT-REGRESSION",
       "command": [
-        "C:\\Users\\PBCDCI\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "<LOCAL_PYTHON_INTERPRETER>",
         "validate_structured_state_artifact.py",
         "--artifact",
         ".",

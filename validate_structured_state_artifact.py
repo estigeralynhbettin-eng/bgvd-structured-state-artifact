@@ -12,16 +12,30 @@ import argparse
 import hashlib
 import json
 import math
+import sys
 import tempfile
 import zipfile
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+# The no-install reviewer launcher uses Python -I. Add only this trusted
+# artifact directory, never PYTHONPATH or a caller-selected working directory.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from score_released_rows import SOURCES, UnscorableError, rescore_release, usage_total  # noqa: E402
+from score_token_accounting import validate_accounting  # noqa: E402
+from score_cross_family import validate_release as validate_cross_family  # noqa: E402
+
 
 REQUIRED_FILES = [
     "README.md",
     "REPRODUCE.md",
+    "score_token_accounting.py",
+    "score_cross_family.py",
+    "token_accounting/calls.json",
+    "token_accounting/origin_manifest.json",
+    "cross_family/source_audit_evidence.json",
+    "cross_family/source_provenance.json",
     "LEAKAGE_AUDIT_COUNTS.json",
     "LEAKAGE_AUDIT_STRICT_COUNTS.json",
     "v3e_summary.json",
@@ -84,6 +98,8 @@ def row_index(rows: list[dict[str, Any]]) -> dict[tuple[str, str, str], dict[str
     out: dict[tuple[str, str, str], dict[str, Any]] = {}
     for row in rows:
         key = (str(row["provider"]), str(row["episode"]), str(row["arm"]))
+        if key in out:
+            raise UnscorableError(f"duplicate provider/episode/arm: {key}")
         out[key] = row
     return out
 
@@ -91,6 +107,8 @@ def row_index(rows: list[dict[str, Any]]) -> dict[tuple[str, str, str], dict[str
 def merge_indexes(*indexes: dict[tuple[str, str, str], dict[str, Any]]) -> dict[tuple[str, str, str], dict[str, Any]]:
     merged: dict[tuple[str, str, str], dict[str, Any]] = {}
     for idx in indexes:
+        if merged.keys() & idx.keys():
+            raise UnscorableError("overlapping result sets; refusing silent row replacement")
         merged.update(idx)
     return merged
 
@@ -155,9 +173,9 @@ def fixture_level_contrast(
             a = bool(rows[(provider, episode, arm_a)].get("correct"))
             b = bool(rows[(provider, episode, arm_b)].get("correct"))
             provider_diffs.append((a > b) - (b > a))
-        if any(diff > 0 for diff in provider_diffs) and not any(diff < 0 for diff in provider_diffs):
+        if sum(provider_diffs) > 0:
             a_better += 1
-        elif any(diff < 0 for diff in provider_diffs) and not any(diff > 0 for diff in provider_diffs):
+        elif sum(provider_diffs) < 0:
             b_better += 1
         else:
             ties += 1
@@ -175,12 +193,12 @@ def fixture_level_contrast(
 def aggregate_totals(summaries: list[dict[str, Any]], arm: str) -> dict[str, int]:
     total = correct = strong_tokens = parse_failures = 0
     for summary in summaries:
-        for key, value in summary.get("aggregate", {}).items():
-            if key.endswith(f"::{arm}"):
-                total += int(value.get("total", 0))
-                correct += int(value.get("correct", 0))
-                strong_tokens += int(value.get("strong_paid_tokens", 0))
-                parse_failures += int(value.get("parse_failures", 0))
+        for row in rows_from(summary):
+            if row["arm"] == arm:
+                total += 1
+                correct += row["correct"]
+                strong_tokens += usage_total(row["usage"]) + row["state_update_tokens"]
+                parse_failures += not row["parse_ok"]
     return {
         "total": total,
         "correct": correct,
@@ -191,18 +209,11 @@ def aggregate_totals(summaries: list[dict[str, Any]], arm: str) -> dict[str, int
 
 def summarize_aggregate(summary: dict[str, Any], arm: str) -> dict[str, int]:
     total = correct = parse_failures = 0
-    direct = summary.get("aggregate", {}).get(arm)
-    if isinstance(direct, dict):
-        return {
-            "total": int(direct.get("total", 0)),
-            "correct": int(direct.get("correct", 0)),
-            "parse_failures": int(direct.get("parse_failures", 0)),
-        }
-    for key, value in summary.get("aggregate", {}).items():
-        if key.endswith(f"::{arm}"):
-            total += int(value.get("total", 0))
-            correct += int(value.get("correct", 0))
-            parse_failures += int(value.get("parse_failures", 0))
+    for row in rows_from(summary):
+        if row["arm"] == arm:
+            total += 1
+            correct += row["correct"]
+            parse_failures += not row["parse_ok"]
     return {"total": total, "correct": correct, "parse_failures": parse_failures}
 
 
@@ -211,13 +222,24 @@ def leakage_status(root: Path) -> dict[str, Any]:
     broad = read_json(root, "LEAKAGE_AUDIT_COUNTS.json")
     strict_counts = {item["pattern"]: int(item["count"]) for item in strict.get("pattern_counts", [])}
     broad_counts = {item["pattern"]: int(item["count"]) for item in broad.get("pattern_counts", [])}
-    strict_zero = all(value == 0 for value in strict_counts.values())
+    expected_strict = {"api_key_like", "private_key", "secret_assignment_like", "bearer_like",
+                       "basic_auth_url", "url", "ipv4"}
+    expected_broad = {"api_key_like", "private_key", "credential_words", "url", "ipv4"}
+    inventory_complete = (
+        set(strict_counts) == expected_strict
+        and len(strict.get("pattern_counts", [])) == len(expected_strict)
+        and set(broad_counts) == expected_broad
+        and len(broad.get("pattern_counts", [])) == len(expected_broad)
+    )
+    strict_zero = inventory_complete and all(value == 0 for value in strict_counts.values())
     broad_blocking_zero = all(
         broad_counts.get(pattern, 0) == 0
         for pattern in ["api_key_like", "private_key", "url", "ipv4"]
     )
     return {
         "strict_status": strict.get("status"),
+        "recorded_pattern_inventory_complete": inventory_complete,
+        "scope": "validation of archived audit-count records; not a new scan of current files",
         "strict_zero": strict_zero,
         "strict_counts": strict_counts,
         "broad_status": broad.get("status"),
@@ -227,21 +249,25 @@ def leakage_status(root: Path) -> dict[str, Any]:
 
 
 def validate_artifact(root: Path, source_path: Path | None = None) -> dict[str, Any]:
-    missing = [name for name in REQUIRED_FILES if not (root / name).is_file()]
+    required = set(REQUIRED_FILES) | set(SOURCES.values()) | {"score_released_rows.py"}
+    missing = [name for name in sorted(required) if not (root / name).is_file()]
+    if missing:
+        raise UnscorableError(f"required artifact files missing: {missing}")
+    rescored, row_scoring = rescore_release(root)
 
-    v3e = read_json(root, "v3e_summary.json")
-    v3i = read_json(root, "v3i_summary.json")
-    v3j = read_json(root, "v3j_summary.json")
-    v3k = read_json(root, "v3k_summary.json")
-    phase9n = read_json(root, "phase9n_summary_protocol_repaired.json")
-    phase9p = read_json(root, "phase9p_summary_protocol_repaired.json")
-    phase9r = read_json(root, "phase9r_summary.json")
-    phase9o = read_json(root, "phase9o_summary_protocol_repaired.json")
-    phase9q = read_json(root, "phase9q_open_weight_summary.json")
-    v3g_glm = read_json(root, "v3g_glm_summary.json")
-    v3g_deepseek = read_json(root, "v3g_deepseek_summary.json")
-    v3h_glm = read_json(root, "v3h_glm_summary.json")
-    v3h_deepseek = read_json(root, "v3h_deepseek_summary.json")
+    v3e = rescored["v3e_summary.json"]
+    v3i = rescored["v3i_summary.json"]
+    v3j = rescored["v3j_summary.json"]
+    v3k = rescored["v3k_summary.json"]
+    phase9n = rescored["phase9n_summary_protocol_repaired.json"]
+    phase9p = rescored["phase9p_summary_protocol_repaired.json"]
+    phase9r = rescored["phase9r_summary.json"]
+    phase9o = rescored["phase9o_summary_protocol_repaired.json"]
+    phase9q = rescored["phase9q_open_weight_summary.json"]
+    v3g_glm = rescored["v3g_glm_summary.json"]
+    v3g_deepseek = rescored["v3g_deepseek_summary.json"]
+    v3h_glm = rescored["v3h_glm_summary.json"]
+    v3h_deepseek = rescored["v3h_deepseek_summary.json"]
 
     row_sets = {
         "v3e": row_index(rows_from(v3e)),
@@ -355,9 +381,23 @@ def validate_artifact(root: Path, source_path: Path | None = None) -> dict[str, 
                 }
             )
 
+    accounting = validate_accounting(root)
+    cross_family = validate_cross_family(root)
     leakage = leakage_status(root)
     checks = {
         "required_files_present": not missing,
+        "per_call_token_accounting": accounting["status"] == "PASS",
+        "cross_family_independent_scoring": cross_family["status"] == "PASS",
+        "independent_response_scores_match_archived_verdicts": row_scoring["status"] == "PASS",
+        "strong_token_record_components_reconcile": all(
+            not row_scoring["token_proxy"][arm]["inconsistencies"]
+            for arm in ("weak_curated_state", "strong_curated_state")
+        ),
+        "table5_complete_denominators":
+            contrasts["schema_vs_matched_fixture_level"]["comparable_fixtures"] == 30
+            and contrasts["schema_vs_matched_provider_episode"]["comparable"] == 60
+            and contrasts["low_pressure_schema_vs_matched"]["comparable"] == 16
+            and contrasts["typed_surface_vs_curated_prose"]["comparable"] == 60,
         "strict_leakage_pass": leakage["strict_status"] == "PASS" and leakage["strict_zero"],
         "schema_beats_matched_provider_episode_12_0": contrasts[
             "schema_vs_matched_provider_episode"
@@ -426,6 +466,11 @@ def validate_artifact(root: Path, source_path: Path | None = None) -> dict[str, 
         "artifact_source": source_path.name if source_path else root.name,
         "artifact_sha256": sha256_file(source_path) if source_path and source_path.is_file() else None,
         "status": status,
+        "validation_scope": "archived score reconstruction and artifact integrity, not revision approval",
+        "scientific_review_status": "REVIEW_REQUIRED" if row_scoring["scientific_review_required"] else "NO_PROTOCOL_EXCLUSIONS",
+        "row_scoring": {k: v for k, v in row_scoring.items() if k != "rows"},
+        "token_accounting": accounting,
+        "cross_family": cross_family,
         "missing_files": missing,
         "checks": checks,
         "leakage": leakage,
@@ -444,6 +489,9 @@ def write_markdown(report: dict[str, Any], path: Path) -> None:
     checks = report["checks"]
     contrasts = report["contrasts"]
     cost = report["cost_proxy"]
+    current = report["row_scoring"]["table5"]["semantic_valid_only"]
+    cross_family = report["cross_family"]
+    accounting = report["token_accounting"]
     lines = [
         "# Structured-State Artifact Validation",
         "",
@@ -451,55 +499,115 @@ def write_markdown(report: dict[str, Any], path: Path) -> None:
         "",
         f"Status: `{report['status']}`",
         "",
-        "## Checks",
+        f"Scientific review status: `{report['scientific_review_status']}`. "
+        "A reproducibility PASS confirms the checks below; it does not approve a manuscript or public release.",
         "",
-        "| Check | Result |",
-        "|---|---|",
+        "## Current manuscript results: continuation comparisons",
+        "",
+        "The current valid-output analysis is shown first. Historical failure-as-incorrect results are in a separate section below.",
+        "",
+        "| Comparison | Counting unit | Comparable | A wins | B wins | Ties | One-sided p |",
+        "|---|---|---:|---:|---:|---:|---:|",
     ]
+    current_rows = [
+        ("High pressure: schema-guided / matched free-form", "fixtures; correct-provider counts", current["high_pressure"]),
+        ("High pressure: provider-level sensitivity", "provider-episode pairs", current["high_pressure_provider_sensitivity"]),
+        ("Pressure-reduced: schema-guided / matched free-form", "provider-episode pairs", current["low_pressure"]),
+        ("Pressure-reduced: schema-guided / raw log", "provider-episode pairs", contrasts["low_pressure_schema_vs_raw"]),
+        ("Pressure-reduced: schema-guided / lexical retrieval", "provider-episode pairs", contrasts["low_pressure_schema_vs_lexical"]),
+        ("Information-equivalent: typed protocol / curated prose", "provider-episode pairs", current["information_equivalent"]),
+    ]
+    for label, unit, value in current_rows:
+        lines.append(
+            f"| {label} | {unit} | {value['comparable']} | {value['a_better']} | "
+            f"{value['b_better']} | {value['ties']} | {value['p_one_sided_a_gt_b']:.10g} |"
+        )
+    excluded_fixtures = current["high_pressure"]["excluded_units"]
+    excluded_pairs = current["high_pressure_provider_sensitivity"]["excluded_units"]
+    lines.extend([
+        "",
+        f"High-pressure fixture sensitivity excludes {len(excluded_fixtures)} affected fixture(s) from both arms: "
+        + ", ".join(f"`{item}`" for item in excluded_fixtures) + ".",
+        f"Provider-level sensitivity excludes {len(excluded_pairs)} failed pair(s): "
+        + ", ".join(f"`{provider} / {episode}`" for provider, episode in excluded_pairs) + ".",
+        "These are post-audit sensitivities. Provider outputs on one fixture are not independent fixture replications. "
+        "The sign test conditions on discordant units; p=1 is the reporting convention when all pairs tie. "
+        "Pressure-reduced results use the released protocol-repaired records; repair conditions are documented in REPRODUCE.md.",
+        "",
+        "## Current manuscript results: cross-family source audit",
+        "",
+        "Acceptance below uses the separate source-audit lexical scorer, not continuation correctness or verified vulnerability discovery. "
+        "Counts are descriptive: two providers share each task and are not independent task replications.",
+        "",
+        "| Comparison | Eligibility | Counting unit | Comparable | A accepted | B accepted | A wins | B wins | Ties |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|",
+    ])
+    for policy, description in (
+        ("final_response_eligible", "Valid final response; selected repairs retained"),
+        ("end_to_end_eligible", "Valid final response and upstream handoff"),
+    ):
+        for name, label in (("schema_vs_matched", "Schema-guided / matched free-form"),
+                            ("extended_vs_matched", "Extended schema / matched free-form")):
+            value = cross_family["comparisons"][policy][name]
+            n = value["comparable"]
+            lines.append(
+                f"| {label} | {description} | {value['unit']} | {n} | "
+                f"{value['a_accepted']}/{n} | {value['b_accepted']}/{n} | "
+                f"{value['a_better']} | {value['b_better']} | {value['ties']} |"
+            )
+    lines.extend([
+        "",
+        "No cross-family advantage was reproduced under these recorded criteria. "
+        "The end-to-end view symmetrically excludes pairs affected by an upstream handoff failure. "
+        "Selected repaired responses and retained original failures remain identifiable in the full JSON report.",
+        "",
+        "## Current manuscript results: recorded strong-token proxy",
+        "",
+        f"Accounting completeness: `{accounting['accounting_completeness']}`. "
+        f"Call records: {accounting['total_call_records']}; reported usage: {accounting['raw_usage_records']}; "
+        f"unrecorded usage: {accounting['unknown_usage_records']}.",
+        "",
+        "| Route | Correct final decisions | Finalizer parse failures | Recorded finalizer tokens | Recorded updater tokens | Recorded proxy | Updater calls with unrecorded usage | Runs with failed update |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
+    ])
+    for arm, label in (("weak_curated_state", "Weak/local curated handoff"),
+                       ("strong_curated_state", "Strong-curated handoff")):
+        tokens = accounting["arms"][arm]
+        outcomes = cost[arm]
+        lines.append(
+            f"| {label} | {outcomes['correct']}/{outcomes['total']} | {outcomes['parse_failures']} | "
+            f"{tokens['finalizer_tokens']} | {tokens['recorded_state_update_tokens']} | "
+            f"{tokens['recorded_token_proxy']} | {tokens['unknown_usage_calls']} | "
+            f"{tokens['runs_with_failed_state_update']} |"
+        )
+    strong = accounting["arms"]["strong_curated_state"]
+    lines.extend([
+        "",
+        f"The strong-curated route has {strong['unknown_usage_calls']} failed updater calls with unrecorded usage "
+        f"across {strong['runs_with_failed_state_update']} runs. Its finalizer parse failures are "
+        f"{cost['strong_curated_state']['parse_failures']}; these are different stages and counts. "
+        "Unrecorded updater usage remains null and is excluded from the recorded sum. "
+        "Local/weak-model costs are outside this proxy.",
+        "",
+        "## Historical contrasts: failure-as-incorrect archival reconstruction",
+        "",
+        "The following reproduces the archived analysis, including its treatment of failed finalizers as incorrect. "
+        "It is retained for traceability and is not the current valid-output sensitivity table above.",
+        "",
+        "| Archived contrast | Comparable | A wins | B wins | Ties | One-sided p |",
+        "|---|---:|---:|---:|---:|---:|",
+    ])
+    for name, value in contrasts.items():
+        comparable = value.get("comparable", value.get("comparable_fixtures"))
+        lines.append(
+            f"| `{name}` | {comparable} | {value['a_better']} | {value['b_better']} | "
+            f"{value['ties']} | {value['p_one_sided_a_gt_b']:.10g} |"
+        )
+    lines.extend(["", "## Mechanical checks", "", "| Check | Result |", "|---|---|"])
     for name, value in checks.items():
         lines.append(f"| `{name}` | `{value}` |")
     lines.extend(
         [
-            "",
-            "## Recomputed Contrasts",
-            "",
-            "| Contrast | Comparable | A better | B better | Ties | One-sided p |",
-            "|---|---:|---:|---:|---:|---:|",
-        ]
-    )
-    for name, value in contrasts.items():
-        comparable = value.get("comparable", value.get("comparable_fixtures"))
-        lines.append(
-            "| `{}` | {} | {} | {} | {} | {:.10g} |".format(
-                name,
-                comparable,
-                value["a_better"],
-                value["b_better"],
-                value["ties"],
-                value["p_one_sided_a_gt_b"],
-            )
-        )
-    lines.extend(
-        [
-            "",
-            "## Strong Paid-Token Proxy",
-            "",
-            "| Arm | Correct/Total | Strong paid tokens | Parse failures |",
-            "|---|---:|---:|---:|",
-            "| Weak/local curated handoff | {}/{} | {} | {} |".format(
-                cost["weak_curated_state"]["correct"],
-                cost["weak_curated_state"]["total"],
-                cost["weak_curated_state"]["strong_paid_tokens"],
-                cost["weak_curated_state"]["parse_failures"],
-            ),
-            "| Strong-curated handoff | {}/{} | {} | {} |".format(
-                cost["strong_curated_state"]["correct"],
-                cost["strong_curated_state"]["total"],
-                cost["strong_curated_state"]["strong_paid_tokens"],
-                cost["strong_curated_state"]["parse_failures"],
-            ),
-            "",
-            f"Observed strong-token ratio: `{cost['strong_to_weak_token_ratio']:.6f}`.",
             "",
             "## Leakage Audit",
             "",
@@ -509,11 +617,69 @@ def write_markdown(report: dict[str, Any], path: Path) -> None:
             "",
             "## Interpretation",
             "",
-            "This validation is an artifact reproducibility check. It confirms that the release candidate contains enough sanitized summary data to recompute the manuscript-level paired contrasts and leakage-audit status without external model calls. It does not replace public Zenodo/OSF/GitHub deposition.",
+            "This check independently scores preserved response fields against fixture oracles and compares the results with archived verdicts. "
+            "Current sensitivities, cross-family descriptive counts and unrecorded updater usage are displayed above; "
+            "the adjacent artifact_validation_report.json retains their full machine-readable details. "
+            "The archived leakage-count records are checked for completeness but this is not a fresh leakage scan. "
+            "A PASS is not approval of manuscript claims or of a public release.",
             "",
         ]
     )
     path.write_text("\n".join(lines), encoding="utf-8")
+    # Render only the controlled headings, tables and paragraphs above. This is
+    # not a general Markdown engine; every data value is escaped before HTML.
+    from html import escape
+
+    def display_text(value: str) -> str:
+        parts = value.split("`")
+        return "".join(
+            f"<code>{escape(part)}</code>" if index % 2 else escape(part)
+            for index, part in enumerate(parts)
+        )
+
+    body = []
+    in_table = False
+    for line in lines:
+        if line.startswith("|"):
+            if set(line) <= set("|-: "):
+                continue
+            tag = "td" if in_table else "th"
+            if not in_table:
+                body.append('<div class="table-scroll"><table>')
+                in_table = True
+            cells = line.strip("|").split("|")
+            body.append("<tr>" + "".join(
+                f"<{tag}>{display_text(cell.strip())}</{tag}>" for cell in cells
+            ) + "</tr>")
+            continue
+        if in_table:
+            body.append("</table></div>")
+            in_table = False
+        if not line:
+            continue
+        if line.startswith("## "):
+            body.append(f"<h2>{display_text(line[3:])}</h2>")
+        elif line.startswith("# "):
+            body.append(f"<h1>{display_text(line[2:])}</h1>")
+        else:
+            body.append(f"<p>{display_text(line)}</p>")
+    if in_table:
+        body.append("</table></div>")
+    document = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BGVD-State: Current Results and Validation</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+       color: #182230; background: #f5f7fa; margin: 0; line-height: 1.5; }
+main { max-width: 1100px; margin: 24px auto; padding: 24px; background: white; }
+h2 { margin-top: 2em; border-bottom: 1px solid #d8dee8; padding-bottom: .3em; }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .94em; }
+th, td { border: 1px solid #d8dee8; padding: 9px; text-align: left; }
+th { background: #eef2f6; } code { overflow-wrap: anywhere; }
+</style></head><body><main>""" + "\n".join(body) + "</main></body></html>\n"
+    path.with_suffix(".html").write_text(document, encoding="utf-8")
 
 
 def main() -> None:
@@ -528,7 +694,11 @@ def main() -> None:
 
     root, tmp = load_release_path(artifact_path)
     try:
-        report = validate_artifact(root, artifact_path)
+        try:
+            report = validate_artifact(root, artifact_path)
+        except (UnscorableError, KeyError, TypeError, FileNotFoundError, ValueError) as exc:
+            print(json.dumps({"status": "FAIL", "error": str(exc)}, ensure_ascii=False))
+            raise SystemExit(1) from exc
     finally:
         if tmp is not None:
             tmp.cleanup()
@@ -538,6 +708,8 @@ def main() -> None:
     json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     write_markdown(report, md_path)
     print(json.dumps({"status": report["status"], "json": str(json_path), "markdown": str(md_path)}, ensure_ascii=False))
+    if report["status"] != "PASS":
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
