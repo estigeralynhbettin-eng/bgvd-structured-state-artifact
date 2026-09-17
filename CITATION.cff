@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "BGVD-State: Replayable middleware for evidence-gated handoffs in Blackboard-Guided Vulnerability Discovery"
+title: "BGVD-State: Replayable Middleware for Evidence-Gated Handoffs in Third-Party Software Security Review"
 message: "Please cite the archived software release and its SoftwareX article when available."
 type: software
 authors:
@@ -7,10 +7,10 @@ authors:
     given-names: "Yi"
   - family-names: "Wang"
     given-names: "Cheng"
-version: "1.1.1"
-date-released: "2026-07-16"
+version: "1.2.0"
+date-released: "2026-09-17"
 repository-code: "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact"
-url: "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact"
+url: "https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/tag/v1.2.0"
 keywords:
   - LLM security agents
   - evidence lifecycle

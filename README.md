@@ -1,5 +1,10 @@
 # BGVD-State
 
+> **Reviewers: start with the [v1.2.0 Release and downloads](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/tag/v1.2.0)
+> or the [complete three-step guide](reviewer/00_READ_ME_FIRST.md).**
+> Download, extract, and double-click: no Python installation is needed.
+> The original v1.1.1 release remains available as the historical baseline.
+
 BGVD-State, named after the Blackboard-Guided Vulnerability Discovery project,
 is replayable state middleware for evidence-gated security-agent handoffs. It
 sits between event producers and downstream consumers, records model, tool,
@@ -18,10 +23,11 @@ the verifier result is current, which paths have failed, and whether
 finalization is allowed. BGVD-State makes those relations explicit and checks
 them before a finding can be finalized.
 
-This repository also contains the sanitized replay artifact used to evaluate
-the middleware under security-specific state pressure. The intended use is a
-long-running workflow in which candidate collisions, stale evidence, verifier
-replacement, or repeated failed paths make a plain transcript insufficient.
+This repository also contains historical, sanitized memory-representation
+experiments that inform the state-contract design. In those experiments a
+model updates a schema-guided object; it does not execute this Python lifecycle
+engine. They are not a causal ablation of the middleware. Runtime behavior is
+checked separately by event replay and regression tests.
 
 ## Installation
 
@@ -39,13 +45,16 @@ python -m pip install -e .
 
 ## Reviewer Quick Check — No Installation
 
+Use the **v1.2.0** packages for the revised runtime, expanded regression tests,
+independent scorers, and scoreable cross-family and token-accounting data.
+
 Choose the no-install ZIP that matches the reviewer's computer:
 
 | Computer | Reviewer kit |
 |---|---|
-| Windows 10/11 x64 | [`BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip) |
-| macOS Apple Silicon | [`BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip) |
-| macOS Intel | [`BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.1.1/BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip) |
+| Windows 10/11 x64 | [`BGVD-State-v1.2.0-Reviewer-Kit-Windows-x64.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.2.0/BGVD-State-v1.2.0-Reviewer-Kit-Windows-x64.zip) |
+| macOS Apple Silicon | [`BGVD-State-v1.2.0-Reviewer-Kit-macOS-Apple-Silicon.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.2.0/BGVD-State-v1.2.0-Reviewer-Kit-macOS-Apple-Silicon.zip) |
+| macOS Intel | [`BGVD-State-v1.2.0-Reviewer-Kit-macOS-Intel.zip`](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/download/v1.2.0/BGVD-State-v1.2.0-Reviewer-Kit-macOS-Intel.zip) |
 
 Then:
 
@@ -64,11 +73,11 @@ does not use or modify a Python installation already present on the computer,
 does not install packages, and does not require internet access, administrator
 permission, an API key, a model call, Docker, a service, or a live target.
 
-A `PASS` confirms that all 18 tests pass, the fixed case replays 23 events into
+A `PASS` confirms that the complete build-recorded test suite passes, the fixed case replays 23 events into
 6 candidate lifecycles, 5 rejected candidates and 5 failed paths remain
 visible, unsupported finalization is blocked with the expected gate exit code
 `2`, and the offline artifact validator passes. The generated HTML result page
-links to the raw log for every step.
+links to current reconstructed results and the raw log for every step.
 
 Each asset is built and executed on its matching operating system and CPU
 architecture in CI. Read the complete reviewer instructions and platform
@@ -93,8 +102,10 @@ python validate_structured_state_artifact.py \
   --out-dir artifact_validation_output
 ```
 
-The expected test result is `Ran 18 tests` followed by `OK`; the expected
-artifact-validation status is `PASS`.
+The expected test result is a nonempty suite followed by an unqualified `OK`;
+the test count is printed in the log. The expected artifact-validation status
+is `PASS`. Rebuilt reviewer kits record their exact expected test count in
+`REVIEWER_KIT_BUILD.json` and reject missing, skipped or partial test runs.
 
 ## Complete Runtime Example
 
@@ -189,15 +200,15 @@ assert decision.allowed
 See **Reviewer Quick Check** above for the installation, test, validation
 commands, and expected outputs.
 
-The test suite runs on Windows and Linux with Python 3.10, 3.11, and 3.12 in
-GitHub Actions. The artifact validator performs no model calls and starts no
-services.
+The CI configuration covers Windows and Linux with Python 3.10, 3.11, and 3.12.
+Release-specific runs are linked from the versioned Release page. The artifact
+validator performs no model calls and starts no services.
 
 Runtime engineering validation and the fixed-candidate performance protocol are
-documented in `docs/runtime-validation.md`. The released Windows benchmark uses
-five repetitions per size:
+documented in `docs/runtime-validation.md`. The historical v1.1.1 Windows
+benchmark uses five repetitions per size; it does not time the revised code:
 
-| Events | Median replay (s) | Median end-to-end (s) | Peak Python MiB |
+| Events | Median replay (s) | Median end-to-end (s) | Median peak Python MiB |
 |---:|---:|---:|---:|
 | 100 | 0.000726 | 0.006284 | 0.15 |
 | 1,000 | 0.005263 | 0.050503 | 1.31 |
@@ -224,14 +235,24 @@ source locations and reproduction details remain excluded from the public case.
 
 The bounded evidence represented in the artifact is:
 
-- security-specific state semantics improve weak-to-strong handoff over the
-  tested matched free-form, generic structured, and retrieval-memory controls
-  under selected verifier-replay state pressure;
-- pressure-reduced and unambiguous tasks show no measurable advantage over
-  lighter logs or curated prose, which defines when the middleware is useful;
-- the tested cross-family source-audit setting did not reproduce the same
-  separation, so the released evidence supports a state-pressure condition
-  rather than a universal representation claim.
+- On selected high-pressure continuation fixtures, schema-guided memory wins
+  6 times, loses 0 and ties 23 against matched free-form memory in the
+  29-fixture protocol-valid sensitivity analysis. The historical 30-fixture
+  result (7/0/23) retains one protocol failure as incorrect only to reconstruct
+  the submitted result. This is not a runtime-engine performance comparison.
+- On reduced-pressure continuations, the 16 provider–episode pairs tie raw and
+  lexical logs and give 1/0/15 against matched free-form memory. Typed protocol
+  and information-equivalent curated prose tie on all 60 paired runs.
+- The cross-family source-audit setting did not reproduce the advantage:
+  schema-guided and matched free-form memory meet task-specific acceptance
+  rules in 10/24 and 12/24 runs; an extended schema and the reused matched
+  control both meet them in 12/24. This uses a different scorer from continuation
+  correctness, and the extended run includes documented retries and a fallback.
+
+See [REPRODUCE.md](REPRODUCE.md) for independent scorers, counting units,
+failure policies and data paths. A score reconstruction PASS is not a claim of
+confirmed vulnerability discovery, universal superiority or final revision
+approval. Cross-family and token-accounting data are included in v1.2.0.
 
 ## Licenses
 

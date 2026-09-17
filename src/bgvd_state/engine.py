@@ -19,6 +19,7 @@ class EvidenceLifecycle:
         self.store = EventStore(self.state.events)
 
     def apply(self, event: Event) -> SecurityState:
+        """Validate one event, then apply it in the caller's submitted order."""
         self.store.append(event)
         self.state.events.append(event)
         self._apply_invalidations(event)
@@ -49,8 +50,8 @@ class EvidenceLifecycle:
                 candidate.rejection_reason = reason
         elif event.type is EventType.CANDIDATE_UPDATE and candidate:
             requested = event.metadata.get("status")
-            if requested:
-                requested_status = CandidateStatus(str(requested))
+            if requested is not None:
+                requested_status = CandidateStatus(requested)
                 if (
                     requested_status is not CandidateStatus.FINALIZED
                     or FinalizationGate().evaluate(self.state, candidate.id).allowed
@@ -67,6 +68,11 @@ class EvidenceLifecycle:
         return self.state
 
     def replay(self, events: Iterable[Event]) -> SecurityState:
+        """Apply in order; a failure retains the valid prefix, not the bad event.
+
+        Atomicity is per event, not per batch. Multi-producer ordering belongs
+        to the caller, and timestamps are descriptive rather than sort keys.
+        """
         for event in events:
             self.apply(event)
         return self.state

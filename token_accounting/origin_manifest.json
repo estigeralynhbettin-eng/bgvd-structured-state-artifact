@@ -1,0 +1,37 @@
+{
+  "schema_version": "bgvd.token_accounting.origins.v1",
+  "checksum_algorithm": "canonical-json-utf8-sorted-compact-v1",
+  "records_canonical_sha256": "1788f9b078178f52e5208cabe547eb3ca23804e8bed2ebf896787119949b9895",
+  "exporter_sha256": "98b8abfcbe6a21e9460666525bbf072ddc23ac6c5977ec3feba9fdc245673771",
+  "source_runs": [
+    {
+      "dataset_id": "v3g_deepseek",
+      "source_summary_sha256": "b470c8e78936632acccf05e678007599fa079fac4a88c0c79ac420c5ea5d7e59",
+      "released_summary_file": "v3g_deepseek_summary.json",
+      "released_summary_canonical_sha256": "6317f0392bb63d0eb20f3dce0740bdb08680eb98ba12f6d1a91cc3e5b8e08398"
+    },
+    {
+      "dataset_id": "v3g_glm",
+      "source_summary_sha256": "f1619da32eba413eff268819f649be4cfd62536b38b929dc0f0bcca0c5b74560",
+      "released_summary_file": "v3g_glm_summary.json",
+      "released_summary_canonical_sha256": "a075081afa0c83ece1856aac9ef36d4e5cac3d4a57677b9f80c23b6e9eb8998e"
+    },
+    {
+      "dataset_id": "v3h_deepseek",
+      "source_summary_sha256": "f578d131812f6d8c2b602b259a54e346dc8de4230ea901f15d0bef6dba74e2b7",
+      "released_summary_file": "v3h_deepseek_summary.json",
+      "released_summary_canonical_sha256": "0d66cfc7526be74ac4bbbf566c972e191b18e42001bead1965ca2f85db09f8bb"
+    },
+    {
+      "dataset_id": "v3h_glm",
+      "source_summary_sha256": "8d80742e9e41a661733c4dcf4b708d97f4dd4c4fa53a3756fc761b13823462d7",
+      "released_summary_file": "v3h_glm_summary.json",
+      "released_summary_canonical_sha256": "7831181de124c05b0330651f8d169e3f12244179c1b5961b138a3965d1095585"
+    }
+  ],
+  "fixture_canonical_sha256": {
+    "v3g_episodes.redacted.json": "11f2c089fbe739bb34bb708e9692917f264c73ac63b5e36dc6007d4d68db1517",
+    "v3h_episodes.redacted.json": "11f2c089fbe739bb34bb708e9692917f264c73ac63b5e36dc6007d4d68db1517"
+  },
+  "projection": "Only call identities, numeric usage, statuses and source hashes; no prompts or raw response text."
+}

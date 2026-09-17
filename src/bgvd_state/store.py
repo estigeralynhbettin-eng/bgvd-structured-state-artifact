@@ -43,12 +43,11 @@ class EventStore:
         return list(self._events)
 
     def append(self, event: Event) -> Event:
-        if not event.id:
-            raise ValueError("event id must not be empty")
+        # Complete validation precedes even the append-only store mutation.
+        # EvidenceLifecycle uses this boundary before applying invalidations.
+        event.validate()
         if event.id in self._ids:
             raise ValueError(f"duplicate event id: {event.id}")
-        if not event.summary:
-            raise ValueError(f"event {event.id} must have a summary")
         self._events.append(event)
         self._ids.add(event.id)
         return event

@@ -6,3 +6,17 @@ recursive-include docs *.md
 recursive-include examples *.json *.md
 recursive-include schemas *.json
 recursive-include validation/runtime *.json *.csv *.md
+include REPRODUCE.md R1_RESULT_MAP.md CITATION.cff codemeta.json
+include RELEASE_MANIFEST.json
+include CLAIM_EVIDENCE_MATRIX.csv RESULT_TRACEABILITY.csv
+include LEAKAGE_AUDIT_COUNTS.json LEAKAGE_AUDIT_STRICT_COUNTS.json
+include validate_structured_state_artifact.py score_*.py protocol_sensitivity.py
+include artifact_manifest_20260709.json artifact_validation_report.json
+include ARTIFACT_VALIDATION_REPORT.md DATA_AVAILABILITY_SNIPPETS_20260709.md
+include v3*.json v3*.md phase9*.json phase9*.md
+recursive-include schemas *.md
+recursive-include tests *.py *.json
+recursive-include reviewer *.py *.md *.bat *.command
+recursive-include cross_family *.py *.md *.json
+recursive-include token_accounting *.py *.md *.json
+recursive-include validation *.json *.csv *.md

@@ -1,0 +1,543 @@
+{
+  "status": "PASS",
+  "scope": "recorded token proxy reconstructed from sanitized per-call usage",
+  "accounting_completeness": "OBSERVED_USAGE_ONLY",
+  "total_call_records": 144,
+  "raw_usage_records": 130,
+  "unknown_usage_records": 14,
+  "arms": {
+    "weak_curated_state": {
+      "runs": 30,
+      "finalizer_calls": 30,
+      "state_update_calls": 0,
+      "reported_usage_calls": 30,
+      "unknown_usage_calls": 0,
+      "finalizer_tokens": 24391,
+      "recorded_state_update_tokens": 0,
+      "recorded_token_proxy": 24391,
+      "runs_with_failed_state_update": 0
+    },
+    "strong_curated_state": {
+      "runs": 30,
+      "finalizer_calls": 30,
+      "state_update_calls": 84,
+      "reported_usage_calls": 100,
+      "unknown_usage_calls": 14,
+      "finalizer_tokens": 25565,
+      "recorded_state_update_tokens": 121290,
+      "recorded_token_proxy": 146855,
+      "runs_with_failed_state_update": 8
+    }
+  },
+  "runs": [
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "finalizer_tokens": 814,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "finalizer_tokens": 763,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "finalizer_tokens": 813,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "finalizer_tokens": 791,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "finalizer_tokens": 773,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "finalizer_tokens": 677,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "finalizer_tokens": 657,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "finalizer_tokens": 667,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "finalizer_tokens": 677,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "finalizer_tokens": 662,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "finalizer_tokens": 667,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "finalizer_tokens": 656,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "finalizer_tokens": 741,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "finalizer_tokens": 742,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "finalizer_tokens": 666,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "finalizer_tokens": 857,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "finalizer_tokens": 934,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "finalizer_tokens": 809,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "finalizer_tokens": 874,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "finalizer_tokens": 1091,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "finalizer_tokens": 780,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "finalizer_tokens": 975,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "finalizer_tokens": 1190,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "finalizer_tokens": 852,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "finalizer_tokens": 917,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "finalizer_tokens": 944,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "finalizer_tokens": 867,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "finalizer_tokens": 866,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "finalizer_tokens": 846,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "weak_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "finalizer_tokens": 823,
+      "state_update_tokens": 0,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "finalizer_tokens": 811,
+      "state_update_tokens": 6210,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "finalizer_tokens": 814,
+      "state_update_tokens": 6136,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "finalizer_tokens": 784,
+      "state_update_tokens": 6606,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "finalizer_tokens": 826,
+      "state_update_tokens": 6148,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "finalizer_tokens": 779,
+      "state_update_tokens": 5948,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "finalizer_tokens": 660,
+      "state_update_tokens": 2330,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "finalizer_tokens": 664,
+      "state_update_tokens": 2271,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "finalizer_tokens": 671,
+      "state_update_tokens": 2354,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "finalizer_tokens": 656,
+      "state_update_tokens": 2329,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "finalizer_tokens": 663,
+      "state_update_tokens": 2278,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "finalizer_tokens": 657,
+      "state_update_tokens": 2330,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "finalizer_tokens": 658,
+      "state_update_tokens": 2358,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "finalizer_tokens": 739,
+      "state_update_tokens": 3888,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "finalizer_tokens": 736,
+      "state_update_tokens": 3896,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "glm",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "finalizer_tokens": 662,
+      "state_update_tokens": 2342,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_01_APB-AC-1_5_protocol_no_conclude",
+      "finalizer_tokens": 968,
+      "state_update_tokens": 4964,
+      "unknown_usage_rounds": [
+        2,
+        4
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_02_APB-AC-3_1_protocol_no_conclude",
+      "finalizer_tokens": 992,
+      "state_update_tokens": 2224,
+      "unknown_usage_rounds": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_03_APB-AC-3_3_protocol_no_conclude",
+      "finalizer_tokens": 1412,
+      "state_update_tokens": 1711,
+      "unknown_usage_rounds": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_04_APB-AC-1_4_protocol_full",
+      "finalizer_tokens": 1060,
+      "state_update_tokens": 3551,
+      "unknown_usage_rounds": [
+        1,
+        4
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_05_APB-AC-1_5_protocol_full",
+      "finalizer_tokens": 1159,
+      "state_update_tokens": 6905,
+      "unknown_usage_rounds": [
+        4
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_06_APB-AC-0_1_protocol_full",
+      "finalizer_tokens": 816,
+      "state_update_tokens": 1657,
+      "unknown_usage_rounds": [
+        2
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_07_APB-AC-0_2_protocol_full",
+      "finalizer_tokens": 1021,
+      "state_update_tokens": 2595,
+      "unknown_usage_rounds": [
+        2
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_08_APB-AC-0_3_protocol_full",
+      "finalizer_tokens": 816,
+      "state_update_tokens": 4403,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_09_APB-AC-0_4_protocol_full",
+      "finalizer_tokens": 944,
+      "state_update_tokens": 4645,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_10_APB-AC-0_5_protocol_full",
+      "finalizer_tokens": 831,
+      "state_update_tokens": 4536,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_11_APB-AC-3_1_protocol_full",
+      "finalizer_tokens": 934,
+      "state_update_tokens": 5519,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_12_APB-AC-3_2_protocol_full",
+      "finalizer_tokens": 1006,
+      "state_update_tokens": 4855,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_13_APB-AC-3_3_protocol_full",
+      "finalizer_tokens": 900,
+      "state_update_tokens": 6495,
+      "unknown_usage_rounds": []
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_14_APB-AC-3_4_protocol_full",
+      "finalizer_tokens": 1158,
+      "state_update_tokens": 5123,
+      "unknown_usage_rounds": [
+        3
+      ]
+    },
+    {
+      "arm": "strong_curated_state",
+      "provider": "deepseek",
+      "episode": "realtrace_15_APB-AC-3_5_protocol_full",
+      "finalizer_tokens": 768,
+      "state_update_tokens": 4683,
+      "unknown_usage_rounds": []
+    }
+  ],
+  "limitations": [
+    "Unknown usage for 14 failed updater calls remains null; zero is only their historical proxy contribution.",
+    "The strong-route proxy is a recorded-token lower bound, not complete billed usage or monetary cost.",
+    "Local/weak-model tokens, runtime, hardware, pricing and cache discounts are outside this proxy.",
+    "Per-call source hashes preserve provenance, but raw content is not published with this sanitized projection."
+  ],
+  "data_canonical_sha256": "1788f9b078178f52e5208cabe547eb3ca23804e8bed2ebf896787119949b9895"
+}

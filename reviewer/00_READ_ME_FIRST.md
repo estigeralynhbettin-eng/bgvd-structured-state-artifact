@@ -1,4 +1,8 @@
-# BGVD-State v1.1.1 Reviewer Quick Start
+# BGVD-State v1.2.0 Reviewer Quick Start
+
+The v1.2.0 kits include the revised runtime, complete regression suite,
+independent scorers, and scoreable cross-family and token-accounting data.
+The original v1.1.1 release is preserved separately as historical evidence.
 
 This is the recommended entry point for reviewers. Choose the no-install bundle
 that matches the operating system and processor.
@@ -6,10 +10,10 @@ that matches the operating system and processor.
 ## Three Steps
 
 1. Download and extract one complete reviewer ZIP from the
-   [`v1.1.1` Release page](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/tag/v1.1.1):
-   - Windows x64: `BGVD-State-v1.1.1-Reviewer-Kit-Windows-x64.zip`
-   - macOS Apple Silicon: `BGVD-State-v1.1.1-Reviewer-Kit-macOS-Apple-Silicon.zip`
-   - macOS Intel: `BGVD-State-v1.1.1-Reviewer-Kit-macOS-Intel.zip`
+   [`v1.2.0` Release page](https://github.com/estigeralynhbettin-eng/bgvd-structured-state-artifact/releases/tag/v1.2.0):
+   - Windows x64: `BGVD-State-v1.2.0-Reviewer-Kit-Windows-x64.zip`
+   - macOS Apple Silicon: `BGVD-State-v1.2.0-Reviewer-Kit-macOS-Apple-Silicon.zip`
+   - macOS Intel: `BGVD-State-v1.2.0-Reviewer-Kit-macOS-Intel.zip`
 2. Double-click the `00_DOUBLE_CLICK_TO_VERIFY_...` file.
 3. Read the result page that opens automatically.
 
@@ -47,12 +51,13 @@ the reviewer ZIP. Do not install anything.
 The automated check:
 
 1. loads the private bundled runtime;
-2. runs all 18 unit and integration tests;
+2. runs the full unit and integration suite recorded in `REVIEWER_KIT_BUILD.json`;
 3. replays the fixed 23-event case;
 4. confirms 6 candidate lifecycles, 5 rejected candidates, and 5 failed paths;
 5. confirms that the evidence gate blocks unsupported finalization for
    `CASE-C06`; and
-6. runs the offline artifact validator.
+6. runs the offline artifact validator, including independent score and
+   token-accounting reconstruction in the revised kit.
 
 The gate command normally uses exit code `2`. In this case, that is the expected
 safety decision, not a software failure. The reviewer check verifies this
@@ -70,10 +75,11 @@ artifact-validation outputs are stored in the same folder.
 
 ## What a PASS Supports
 
-A `PASS` confirms that the bundled software runs without installation, all 18
-tests pass, the released case is replayable, rejected and failed paths remain
-visible, unsupported finalization is blocked, and the sanitized artifact is
-internally consistent.
+A `PASS` confirms that the bundled software runs without installation, the
+complete build-recorded test suite passes without skips, the case is replayable,
+rejected and failed paths remain visible, unsupported finalization is blocked,
+and the checked artifact records are internally consistent. The scientific
+interpretation status is displayed separately; it is not inferred from PASS.
 
 It does not claim autonomous vulnerability discovery, a maintainer-confirmed
 vulnerability, universal performance superiority, or production-scale

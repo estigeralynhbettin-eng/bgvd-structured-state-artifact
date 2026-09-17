@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from enum import Enum
+import json
 from typing import Any
 
 
@@ -44,6 +45,8 @@ class Event:
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "Event":
+        if not isinstance(data, dict):
+            raise TypeError("event input must be an object")
         event_id = str(data.get("id") or data.get("event_id") or "").strip()
         raw_type = data.get("type") or data.get("event_type") or data.get("kind")
         type_aliases = {
@@ -64,7 +67,7 @@ class Event:
         candidate_id = data.get("candidate_id", data.get("candidate"))
         if candidate_id in {"NONE", "null", ""}:
             candidate_id = None
-        return cls(
+        event = cls(
             id=event_id,
             type=EventType(event_type),
             summary=str(data.get("summary", "")).strip(),
@@ -76,6 +79,47 @@ class Event:
             outcome=data.get("outcome"),
             metadata=dict(data.get("metadata", {})),
         )
+        event.validate()
+        return event
+
+    def validate(self) -> None:
+        """Validate the normalized event without changing it or lifecycle state.
+
+        The compatibility adapter above normalizes legacy input. Direct Python
+        construction must already use canonical field types, including EventType.
+        """
+        for name in ("id", "summary"):
+            value = getattr(self, name)
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"event {name} must be a non-empty string")
+        if not isinstance(self.type, EventType):
+            raise ValueError("event type must be an EventType; use Event.from_dict for JSON input")
+        for name in ("candidate_id", "timestamp", "outcome"):
+            value = getattr(self, name)
+            if value is not None and not isinstance(value, str):
+                raise ValueError(f"event {name} must be a string or null")
+        for name in ("refs", "invalidates"):
+            value = getattr(self, name)
+            if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
+                raise ValueError(f"event {name} must be a list of strings")
+        if self.verifier_status is not None and not isinstance(self.verifier_status, bool):
+            raise ValueError("event verifier_status must be a boolean or null")
+        if not isinstance(self.metadata, dict):
+            raise ValueError("event metadata must be an object")
+        for name in ("vulnerability_type", "target_object"):
+            value = self.metadata.get(name)
+            if value is not None and not isinstance(value, str):
+                raise ValueError(f"event metadata.{name} must be a string or null")
+        try:
+            json.dumps(self.metadata, allow_nan=False)
+        except (TypeError, ValueError, OverflowError) as exc:
+            raise ValueError("event metadata must be JSON serializable with finite numbers") from exc
+        if self.type is EventType.CANDIDATE_UPDATE:
+            requested = self.metadata.get("status")
+            if requested is not None:
+                if not isinstance(requested, str):
+                    raise ValueError("candidate_update metadata.status must be a status string or null")
+                CandidateStatus(requested)
 
     def to_dict(self) -> dict[str, Any]:
         data = asdict(self)

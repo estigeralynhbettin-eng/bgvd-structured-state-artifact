@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
-title BGVD-State v1.1.1 No-Install Reviewer Check
+title BGVD-State v1.2.0 No-Install Reviewer Check
 
 if not exist "runtime\python.exe" (
     echo REVIEWER KIT INCOMPLETE

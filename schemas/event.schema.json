@@ -1,11 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:bgvd-state:schema:event:v1",
-  "title": "BGVD-State Event",
+  "title": "BGVD-State Canonical Event",
+  "description": "Normalized event representation. Event.from_dict also accepts the legacy input superset documented in schemas/README.md; normalize before validating against this schema.",
   "type": "object",
   "required": ["id", "type", "summary"],
   "properties": {
-    "id": {"type": "string", "minLength": 1},
+    "id": {"type": "string", "minLength": 1, "pattern": "\\S"},
     "type": {
       "enum": [
         "tool_call",
@@ -19,14 +20,34 @@
         "finalization"
       ]
     },
-    "summary": {"type": "string", "minLength": 1},
+    "summary": {"type": "string", "minLength": 1, "pattern": "\\S"},
     "candidate_id": {"type": ["string", "null"]},
     "timestamp": {"type": ["string", "null"]},
     "refs": {"type": "array", "items": {"type": "string"}},
     "invalidates": {"type": "array", "items": {"type": "string"}},
     "verifier_status": {"type": ["boolean", "null"]},
     "outcome": {"type": ["string", "null"]},
-    "metadata": {"type": "object"}
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "vulnerability_type": {"type": ["string", "null"]},
+        "target_object": {"type": ["string", "null"]}
+      }
+    }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {"properties": {"type": {"const": "candidate_update"}}, "required": ["type"]},
+      "then": {
+        "properties": {
+          "metadata": {
+            "properties": {
+              "status": {"enum": [null, "proposed", "active", "partial_evidence", "verified", "rejected", "superseded", "finalized"]}
+            }
+          }
+        }
+      }
+    }
+  ]
 }
